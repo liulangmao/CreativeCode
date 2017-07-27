@@ -12,6 +12,11 @@ CreativeElementStyle::CreativeElementStyle(int value,string* namelist){
     this->setCellsize(value);
     this->setNamelist(namelist);
 }
+CreativeElementStyle::CreativeElementStyle(){
+    this->setCellsize(0.0);
+    string x="";
+    this->setNamelist(&x);
+}
 
 int CreativeElementStyle::getCellsize() {
     return this->cellsize;

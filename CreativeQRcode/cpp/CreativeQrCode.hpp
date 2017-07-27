@@ -17,12 +17,13 @@
 #include "CreativeElementStyle.hpp"
 #include <string>
 #include "CoreGraphics/CGImage.h"
+#include <stdbool.h>
 using namespace std;
 
 class CreativeQrCode{
 public:
     CreativeQrCode(CreativeElementStyle style);
-   // Bitmap getDiskBitmap(Context mContext, string name);
+    CGImageRef getDiskBitmap(string imagename);
    // Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight);
     void AnalysisStyle(int cellSize);
     static int ComputCellNumberByVersion(int version);

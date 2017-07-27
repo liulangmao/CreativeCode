@@ -18,6 +18,7 @@ private:
     int cellsize=0;
     string* namelist;
 public:
+    CreativeElementStyle();
     CreativeElementStyle(int value,string* namelist);
     int getCellsize();
     string* getNamelist();
