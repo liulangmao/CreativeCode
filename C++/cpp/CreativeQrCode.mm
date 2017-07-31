@@ -61,7 +61,18 @@ CGImageRef  CreativeQrCode::getDiskBitmap(string imagename){
     return imageRef;
 
 }
-// Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight);
+CGImageRef CreativeQrCode::getResizedBitmap(CGImageRef imageref, CGSize newSize){
+    
+        UIImage* image = [UIImage imageWithCGImage: imageref];
+    
+        UIGraphicsBeginImageContext(newSize);
+        UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
+        [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+        UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    
+        return newImage.CGImage;
+}
 void CreativeQrCode::AnalysisStyle(int cellSize){
     string name="";
     string* namelist=style.getNamelist();
@@ -77,75 +88,83 @@ void CreativeQrCode::AnalysisStyle(int cellSize){
             int index_bmp=(int)name.find(".");
             string nameread=name.substr(0,index_bmp);
             string nameswitch=name.substr(index+1, index+1+3);
-            //Bitmap image = getDiskBitmap(mContext,nameread);
-            //CGImage resizeimage;
+            CGImageRef image = getDiskBitmap(nameread);
+            CGImageRef resizeimage;
             if(strcmp(nameswitch.c_str(),"4_2")==0)
             {
                     CreativeElement *FourByTwo = new CreativeElement(-4,4,2);
                     if(resize) {
-                        //resizeimage = getResizedBitmap(image, 2 * cellSize, 4 * cellSize);
-                        //FourByTwo.getPreImage().add(resizeimage);
+                        CGSize size=CGSizeMake(2 * cellSize, 4 * cellSize);
+                        resizeimage = getResizedBitmap(image, size);
+                        FourByTwo->getPreImage()->push_back(resizeimage);
                     }
                     else{
-                       // FourByTwo.getPreImage().add(image);
+                        FourByTwo->getPreImage()->push_back(image);
                     }
                 CreativeEnv::addElement(FourByTwo);
+                //cout<<"AnalysisStyle====case 4_2";
+
                     
             }else if(strcmp(nameswitch.c_str(),"7_7")==0){
-                    if(resize) {
-                       // resizeimage = getResizedBitmap(image, 7 * cellSize, 7 * cellSize);
-                       // CreativeEnv.getEye().getPreImage().add(resizeimage);
-                    }
-                    else{
-                       // CreativeEnv.getEye().getPreImage().add(image);
-                    }
-                    //System.out.println("AnalysisStyle====case 7_7");
+                if(resize) {
+                    CGSize size=CGSizeMake(7 * cellSize, 7 * cellSize);
+                    resizeimage = getResizedBitmap(image, size);
+                    CreativeEnv::getEye().getPreImage()->push_back(resizeimage);
+                }
+                else{
+                    CreativeEnv::getEye().getPreImage()->push_back(image);
+                }
+                 //cout<<"AnalysisStyle====case 7_7";
             }else if(strcmp(nameswitch.c_str(),"3_1")==0){
                     CreativeElement *ThreeByOne = new CreativeElement(-5, 3, 1);
                     if(resize) {
-                        //resizeimage = getResizedBitmap(image,  cellSize, 3 * cellSize);
-                       // ThreeByOne.getPreImage().add(resizeimage);
+                        CGSize size=CGSizeMake(cellSize, 3 * cellSize);
+                        resizeimage = getResizedBitmap(image, size);
+                        ThreeByOne->getPreImage()->push_back(resizeimage);
                     }
                     else{
-                        //ThreeByOne.getPreImage().add(image);
+                        ThreeByOne->getPreImage()->push_back(image);
                     }
                     CreativeEnv::addElement(ThreeByOne);
-                    //System.out.println("AnalysisStyle====case 3_1");
+                    //cout<<"AnalysisStyle====case 3_1";
             }else if(strcmp(nameswitch.c_str(),"2_2")==0){
                     CreativeElement *TwoByTwo = new CreativeElement(-2, 2, 2);
                     if(resize) {
-                        //resizeimage = getResizedBitmap(image, 2 * cellSize, 2 * cellSize);
-                        //TwoByTwo.getPreImage().add(resizeimage);
+                        CGSize size=CGSizeMake(2 * cellSize, 2 * cellSize);
+                        resizeimage = getResizedBitmap(image, size);
+                        TwoByTwo->getPreImage()->push_back(resizeimage);
                     }
                     else{
-                        //TwoByTwo.getPreImage().add(image);
+                        TwoByTwo->getPreImage()->push_back(image);
                     }
                     CreativeEnv::addElement(TwoByTwo);
-                    //System.out.println("AnalysisStyle====case 2_2");
+                    //cout<<"AnalysisStyle====case 2_2";
             }else if(strcmp(nameswitch.c_str(),"2_1")==0){
                 
                     CreativeElement *TwoByOne = new CreativeElement(-3, 2, 1);
                     if(resize) {
-                       // resizeimage = getResizedBitmap(image,  cellSize, 2 * cellSize);
-                       // TwoByOne.getPreImage().add(resizeimage);
+                        CGSize size=CGSizeMake(cellSize, 2 * cellSize);
+                        resizeimage = getResizedBitmap(image, size);
+                        TwoByOne->getPreImage()->push_back(resizeimage);
                     }
                     else{
-                        //TwoByOne.getPreImage().add(image);
+                        TwoByOne->getPreImage()->push_back(image);
                     }
                     CreativeEnv::addElement(TwoByOne);
-                    //System.out.println("AnalysisStyle====case 2_1");
+                    //cout<<"AnalysisStyle====case 2_1";
             }else if(strcmp(nameswitch.c_str(),"1_1")==0){
                     
                     CreativeElement *OneByOne = new CreativeElement(-6, 1, 1);
                     if(resize) {
-                       // resizeimage = getResizedBitmap(image, cellSize,  cellSize);
-                      //  OneByOne.getPreImage().add(resizeimage);
+                        CGSize size=CGSizeMake(cellSize, cellSize);
+                        resizeimage = getResizedBitmap(image, size);
+                        OneByOne->getPreImage()->push_back(resizeimage);
                     }
                     else{
-                       // OneByOne.getPreImage().add(image);
+                        OneByOne->getPreImage()->push_back(image);
                     }
-                CreativeEnv::addElement(OneByOne);
-                    //System.out.println("AnalysisStyle====case 1_1");
+                    CreativeEnv::addElement(OneByOne);
+                    //cout<<"AnalysisStyle====case 1_1";
                 }
            
         }
@@ -155,7 +174,104 @@ int CreativeQrCode::ComputCellNumberByVersion(int version){
     int cellNumber = 21 + (version-1) * 4;
     return cellNumber;
 }
-//Bitmap CreativeQRZXing(string txt,int size,int margin,Context mContext);
+CGImageRef CreativeQrCode::CreativeQRZXing(string txt,int size,int margin){
+    bool Ischange=AnalysisVersion(size, txt,margin);
+    
+    //string error="version="+version+"margin"+margin;
+    //Log.i("CreativeQRZXing", error);
+    int cellNumber = ComputCellNumberByVersion(version);
+    int cellSize = this->getStyle().getCellsize();
+    //System.out.println("version="+version+"cellNumber:"+cellNumber+"cellsize"+cellSize);
+    /*
+     1.CreativeQRTool must be created before GenMatrix
+     */
+    AnalysisStyle(cellSize);
+    CreativeQRTool *h = new CreativeQRTool(cellNumber, cellSize);
+    //h.collectPixelCountBitmap(h.m_mat, WBImage, cellSize, cellSize);
+    BasicQRTool *basic= new BasicQRTool(&txt);
+    /*
+     2. be careful about below line because in the method of GenMatrix will fill in h.m_mat
+     */
+    
+    basic->GenMatrix(h->getMat());
+    h->fillEye();
+    //basic->Print(h->getMat(),21 , 21);
+    h->FindCellEqualsOne();
+    h->FillbyType();
+
+    
+    int inputImageSize=cellNumber*cellSize+2*margin;
+    //h.LoadPreImage(style.getNamelist(),mContext);// in current directory just ok.
+   
+    //to do:
+    //Bitmap finalImage=h.CreateFinal(inputImageSize, margin);
+    
+    //System.out.println("finalImage.width()"+finalImage.getWidth()+"finalImage.height()"+finalImage.getHeight());
+    if(Ischange){
+        //to do
+        //finalImage=h->getResizedBitmap(finalImage,size,size);
+        
+        //System.out.println("size="+size+"finalImage.width()"+finalImage.getWidth()+"finalImage.height()"+finalImage.getHeight());
+    }
+    
+    h->clean();
+    
+    //to do
+    CGImageRef a;
+    
+    return a;
+}
+  int CreativeQrCode::binarySearch(int* srcArray, int width,int des){
+    
+    int low = 0;
+    int high = width-1;
+    while(low <= high) {
+        int middle = (low + high)/2;
+        if(low==high)
+        {
+            return low;
+        }
+        if(des < srcArray[middle]&&des >= srcArray[middle-1]) {
+            return middle;
+        }else if(des >=srcArray[middle]) {
+            low = middle+1;
+        }else {
+            high = middle - 1;
+        }
+    }
+    return -1;
+}
+// to do
+//bool CreativeQrCode::AnalysisVersion(int size, string txt,int margin) {
+//    byte* d = new byte[0];
+//    d = txt.getBytes();
+//    int versiontemp = 0;
+//    int* numbersize = {17, 32, 53, 78, 106, 134, 154, 192, 230, 271, 321, 367, 425, 458, 520, 586, 644, 718, 792, 858, 929, 1003,
+//        1091,1171,1273,1367,1465,1528,1628,1732,1840,1952,2068,2188,2303,2431,2563,2699,2809,2053};
+//    versiontemp = binarySearch(numbersize, d.length)+1;
+//    margin=margin;
+//    
+//    version=versiontemp;
+//    int versionwidth=21+(versiontemp-1)*4;
+//    double wtdouble = (double)versionwidth;
+//    int sizetemp=size-2*margin;
+//    double cellsizedoule=Math.floor(sizetemp/wtdouble);
+//    style.setCellsize((int)cellsizedoule);
+//    int finalsize=versionwidth*(int)cellsizedoule+margin*2;
+//    
+//    
+//    String error="version="+versiontemp+"margin"+margin+"totalsize:"+finalsize;
+//    Log.i("binarySearch=", error);
+//    System.out.println("version="+versiontemp+"totalsize:"+finalsize);
+//    
+//    if(finalsize!=size)
+//    {
+//        return true;
+//    }
+//    else{
+//        return false;
+//    }
+//}
 CreativeElementStyle CreativeQrCode::getStyle(){
         return style;
 }

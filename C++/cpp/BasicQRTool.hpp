@@ -17,7 +17,7 @@ using namespace std;
 
 class BasicQRTool{
 public:
-    BasicQRTool(char *txt);
+    BasicQRTool(string *txt);
     ~BasicQRTool();
     
 public:

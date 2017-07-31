@@ -23,7 +23,9 @@ using namespace std;
 class CreativeQrCode{
 public:
     CreativeQrCode(CreativeElementStyle style);
+    CGImageRef CreativeQRZXing(string txt,int size,int margin);
     CGImageRef getDiskBitmap(string imagename);
+    CGImageRef getResizedBitmap(CGImageRef imageref, CGSize newSize);
    // Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight);
     void AnalysisStyle(int cellSize);
     static int ComputCellNumberByVersion(int version);
@@ -39,7 +41,7 @@ private:
     string logoBmpPath="";
     CreativeElementStyle style;
     static int ComputCellSize(CreativeElementStyle style);
-    static int binarySearch(int* srcArray, int des);
+    static int binarySearch(int* srcArray, int width,int des);
     bool AnalysisVersion(int size, string txt,int margin);
     
 };

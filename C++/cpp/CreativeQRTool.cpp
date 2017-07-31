@@ -152,15 +152,28 @@ void CreativeQRTool::FillbyType(){
 }
 
 CGImageRef* CreativeQRTool::CreateFinal(int size,int margin){
-    CGImageRef*  ac;
-    return ac;
+//    Bitmap finalMat = Bitmap.createBitmap(size, size, Config.RGB_565);
+//    finalMat.eraseColor(Color.WHITE);//填充颜色
+//    Canvas cv = new Canvas(finalMat);
+//    Bitmap r;
+//    for (int i=0;i<CreativeEnv.elementList.size();i++)
+//    {
+//        CreativeElement temp=CreativeEnv.elementList.get(i);
+//        if(temp.getPreImage().size()!=0) {
+//            ListIterator it = temp.getM_start().listIterator();
+//            int length = temp.getPreImage().size();
+//            r = temp.getPreImage().get(0);
+//            while (it.hasNext()) {
+//                Point p = (Point) it.next();
+//                cv.drawBitmap(r, p.x* cellSize+margin, p.y* cellSize+margin, null);
+//            }
+//        }
+//    }
+    CGImageRef* finalMat;
+    return finalMat;
 }
 
 
-CGImageRef* CreativeQRTool::getResizedBitmap(CGImageRef* bm, int newWidth, int newHeight){
-    CGImageRef*  ad;
-    return ad;
-}
 
 void CreativeQRTool::clean(){
     

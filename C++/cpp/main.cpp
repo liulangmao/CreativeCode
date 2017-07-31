@@ -50,7 +50,8 @@ int main(int argc, const char * argv[]) {
     string name="imageRef.png";
     CreativeElementStyle *style= new CreativeElementStyle(50,&name);
     CreativeQrCode *qrcode= new CreativeQrCode(*style);
-    qrcode->getDiskBitmap("imageRef.png");
+    CGImageRef image= qrcode->getDiskBitmap("imageRef.png");
+    
    
     return 0;
 }
