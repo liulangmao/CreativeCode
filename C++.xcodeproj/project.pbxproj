@@ -1,0 +1,659 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		259AB7D21F21BFF80039019B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 259AB7D11F21BFF80039019B /* AppDelegate.m */; };
+		259AB7D51F21BFF80039019B /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 259AB7D41F21BFF80039019B /* ViewController.mm */; };
+		259AB7D81F21BFF80039019B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 259AB7D61F21BFF80039019B /* Main.storyboard */; };
+		259AB7DB1F21BFF80039019B /* C__.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 259AB7D91F21BFF80039019B /* C__.xcdatamodeld */; };
+		259AB7DD1F21BFF80039019B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 259AB7DC1F21BFF80039019B /* Assets.xcassets */; };
+		259AB7E01F21BFF80039019B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 259AB7DE1F21BFF80039019B /* LaunchScreen.storyboard */; };
+		259AB7EB1F21BFF80039019B /* C__Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 259AB7EA1F21BFF80039019B /* C__Tests.m */; };
+		259AB7F61F21BFF80039019B /* C__UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 259AB7F51F21BFF80039019B /* C__UITests.m */; };
+		259AB8051F21C0210039019B /* CMBCImageRef.mm in Sources */ = {isa = PBXBuildFile; fileRef = 259AB8031F21C0210039019B /* CMBCImageRef.mm */; };
+		259AB8071F21C25C0039019B /* imageRef.png in Resources */ = {isa = PBXBuildFile; fileRef = 259AB8061F21C25C0039019B /* imageRef.png */; };
+		25C087031F282DEF00B684A5 /* CMBCBitmapUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = 25C087021F282DEF00B684A5 /* CMBCBitmapUtil.mm */; };
+		E27422A11F2ED0790041AA2F /* CreativeQrCode.mm in Sources */ = {isa = PBXBuildFile; fileRef = E274228A1F2ED0790041AA2F /* CreativeQrCode.mm */; };
+		E27422A21F2ED0790041AA2F /* CreativeElementStyle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E274228C1F2ED0790041AA2F /* CreativeElementStyle.cpp */; };
+		E27422A31F2ED0790041AA2F /* BitBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E274228F1F2ED0790041AA2F /* BitBuffer.cpp */; };
+		E27422A41F2ED0790041AA2F /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = E27422911F2ED0790041AA2F /* Makefile */; };
+		E27422A51F2ED0790041AA2F /* QrCode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E27422921F2ED0790041AA2F /* QrCode.cpp */; };
+		E27422A61F2ED0790041AA2F /* QrSegment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E27422941F2ED0790041AA2F /* QrSegment.cpp */; };
+		E27422A71F2ED0790041AA2F /* BasicQRTool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E27422961F2ED0790041AA2F /* BasicQRTool.cpp */; };
+		E27422A81F2ED0790041AA2F /* CreativeElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E27422981F2ED0790041AA2F /* CreativeElement.cpp */; };
+		E27422A91F2ED0790041AA2F /* CreativeEnv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E274229A1F2ED0790041AA2F /* CreativeEnv.cpp */; };
+		E27422AA1F2ED0790041AA2F /* CreativeQRTool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E274229C1F2ED0790041AA2F /* CreativeQRTool.cpp */; };
+		E27422AB1F2ED0790041AA2F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E274229E1F2ED0790041AA2F /* main.cpp */; };
+		E27422AC1F2ED0790041AA2F /* Point.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E274229F1F2ED0790041AA2F /* Point.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		259AB7E71F21BFF80039019B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 259AB7C21F21BFF80039019B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 259AB7C91F21BFF80039019B;
+			remoteInfo = "C++";
+		};
+		259AB7F21F21BFF80039019B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 259AB7C21F21BFF80039019B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 259AB7C91F21BFF80039019B;
+			remoteInfo = "C++";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		259AB7CA1F21BFF80039019B /* C++.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "C++.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		259AB7D01F21BFF80039019B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		259AB7D11F21BFF80039019B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		259AB7D31F21BFF80039019B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		259AB7D41F21BFF80039019B /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
+		259AB7D71F21BFF80039019B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		259AB7DA1F21BFF80039019B /* C__.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = C__.xcdatamodel; sourceTree = "<group>"; };
+		259AB7DC1F21BFF80039019B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		259AB7DF1F21BFF80039019B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		259AB7E11F21BFF80039019B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		259AB7E61F21BFF80039019B /* C++Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "C++Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		259AB7EA1F21BFF80039019B /* C__Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = C__Tests.m; sourceTree = "<group>"; };
+		259AB7EC1F21BFF80039019B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		259AB7F11F21BFF80039019B /* C++UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "C++UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		259AB7F51F21BFF80039019B /* C__UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = C__UITests.m; sourceTree = "<group>"; };
+		259AB7F71F21BFF80039019B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		259AB8031F21C0210039019B /* CMBCImageRef.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CMBCImageRef.mm; sourceTree = "<group>"; };
+		259AB8041F21C0210039019B /* CMBCImageRef.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CMBCImageRef.hpp; sourceTree = "<group>"; };
+		259AB8061F21C25C0039019B /* imageRef.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageRef.png; sourceTree = "<group>"; };
+		25C087011F282DEF00B684A5 /* CMBCBitmapUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBCBitmapUtil.h; sourceTree = "<group>"; };
+		25C087021F282DEF00B684A5 /* CMBCBitmapUtil.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CMBCBitmapUtil.mm; sourceTree = "<group>"; };
+		E274228A1F2ED0790041AA2F /* CreativeQrCode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CreativeQrCode.mm; path = cpp/CreativeQrCode.mm; sourceTree = "<group>"; };
+		E274228B1F2ED0790041AA2F /* CreativeQrCode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CreativeQrCode.hpp; path = cpp/CreativeQrCode.hpp; sourceTree = "<group>"; };
+		E274228C1F2ED0790041AA2F /* CreativeElementStyle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CreativeElementStyle.cpp; path = cpp/CreativeElementStyle.cpp; sourceTree = "<group>"; };
+		E274228D1F2ED0790041AA2F /* CreativeElementStyle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CreativeElementStyle.hpp; path = cpp/CreativeElementStyle.hpp; sourceTree = "<group>"; };
+		E274228F1F2ED0790041AA2F /* BitBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BitBuffer.cpp; sourceTree = "<group>"; };
+		E27422901F2ED0790041AA2F /* BitBuffer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BitBuffer.hpp; sourceTree = "<group>"; };
+		E27422911F2ED0790041AA2F /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		E27422921F2ED0790041AA2F /* QrCode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QrCode.cpp; sourceTree = "<group>"; };
+		E27422931F2ED0790041AA2F /* QrCode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = QrCode.hpp; sourceTree = "<group>"; };
+		E27422941F2ED0790041AA2F /* QrSegment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QrSegment.cpp; sourceTree = "<group>"; };
+		E27422951F2ED0790041AA2F /* QrSegment.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = QrSegment.hpp; sourceTree = "<group>"; };
+		E27422961F2ED0790041AA2F /* BasicQRTool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BasicQRTool.cpp; path = cpp/BasicQRTool.cpp; sourceTree = "<group>"; };
+		E27422971F2ED0790041AA2F /* BasicQRTool.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = BasicQRTool.hpp; path = cpp/BasicQRTool.hpp; sourceTree = "<group>"; };
+		E27422981F2ED0790041AA2F /* CreativeElement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CreativeElement.cpp; path = cpp/CreativeElement.cpp; sourceTree = "<group>"; };
+		E27422991F2ED0790041AA2F /* CreativeElement.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CreativeElement.hpp; path = cpp/CreativeElement.hpp; sourceTree = "<group>"; };
+		E274229A1F2ED0790041AA2F /* CreativeEnv.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CreativeEnv.cpp; path = cpp/CreativeEnv.cpp; sourceTree = "<group>"; };
+		E274229B1F2ED0790041AA2F /* CreativeEnv.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CreativeEnv.hpp; path = cpp/CreativeEnv.hpp; sourceTree = "<group>"; };
+		E274229C1F2ED0790041AA2F /* CreativeQRTool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CreativeQRTool.cpp; path = cpp/CreativeQRTool.cpp; sourceTree = "<group>"; };
+		E274229D1F2ED0790041AA2F /* CreativeQRTool.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CreativeQRTool.hpp; path = cpp/CreativeQRTool.hpp; sourceTree = "<group>"; };
+		E274229E1F2ED0790041AA2F /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = cpp/main.cpp; sourceTree = "<group>"; };
+		E274229F1F2ED0790041AA2F /* Point.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Point.cpp; path = cpp/Point.cpp; sourceTree = "<group>"; };
+		E27422A01F2ED0790041AA2F /* Point.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Point.hpp; path = cpp/Point.hpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		259AB7C71F21BFF80039019B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		259AB7E31F21BFF80039019B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		259AB7EE1F21BFF80039019B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		259AB7C11F21BFF80039019B = {
+			isa = PBXGroup;
+			children = (
+				259AB7CC1F21BFF80039019B /* C++ */,
+				259AB7E91F21BFF80039019B /* C++Tests */,
+				259AB7F41F21BFF80039019B /* C++UITests */,
+				259AB7CB1F21BFF80039019B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		259AB7CB1F21BFF80039019B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				259AB7CA1F21BFF80039019B /* C++.app */,
+				259AB7E61F21BFF80039019B /* C++Tests.xctest */,
+				259AB7F11F21BFF80039019B /* C++UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		259AB7CC1F21BFF80039019B /* C++ */ = {
+			isa = PBXGroup;
+			children = (
+				E274228A1F2ED0790041AA2F /* CreativeQrCode.mm */,
+				E274228B1F2ED0790041AA2F /* CreativeQrCode.hpp */,
+				E274228C1F2ED0790041AA2F /* CreativeElementStyle.cpp */,
+				E274228D1F2ED0790041AA2F /* CreativeElementStyle.hpp */,
+				E274228E1F2ED0790041AA2F /* Qrcode */,
+				E27422961F2ED0790041AA2F /* BasicQRTool.cpp */,
+				E27422971F2ED0790041AA2F /* BasicQRTool.hpp */,
+				E27422981F2ED0790041AA2F /* CreativeElement.cpp */,
+				E27422991F2ED0790041AA2F /* CreativeElement.hpp */,
+				E274229A1F2ED0790041AA2F /* CreativeEnv.cpp */,
+				E274229B1F2ED0790041AA2F /* CreativeEnv.hpp */,
+				E274229C1F2ED0790041AA2F /* CreativeQRTool.cpp */,
+				E274229D1F2ED0790041AA2F /* CreativeQRTool.hpp */,
+				E274229E1F2ED0790041AA2F /* main.cpp */,
+				E274229F1F2ED0790041AA2F /* Point.cpp */,
+				E27422A01F2ED0790041AA2F /* Point.hpp */,
+				259AB8061F21C25C0039019B /* imageRef.png */,
+				259AB7D01F21BFF80039019B /* AppDelegate.h */,
+				259AB7D11F21BFF80039019B /* AppDelegate.m */,
+				259AB7D31F21BFF80039019B /* ViewController.h */,
+				259AB7D41F21BFF80039019B /* ViewController.mm */,
+				259AB8031F21C0210039019B /* CMBCImageRef.mm */,
+				259AB8041F21C0210039019B /* CMBCImageRef.hpp */,
+				25C087011F282DEF00B684A5 /* CMBCBitmapUtil.h */,
+				25C087021F282DEF00B684A5 /* CMBCBitmapUtil.mm */,
+				259AB7D61F21BFF80039019B /* Main.storyboard */,
+				259AB7DC1F21BFF80039019B /* Assets.xcassets */,
+				259AB7DE1F21BFF80039019B /* LaunchScreen.storyboard */,
+				259AB7E11F21BFF80039019B /* Info.plist */,
+				259AB7D91F21BFF80039019B /* C__.xcdatamodeld */,
+				259AB7CD1F21BFF80039019B /* Supporting Files */,
+			);
+			path = "C++";
+			sourceTree = "<group>";
+		};
+		259AB7CD1F21BFF80039019B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		259AB7E91F21BFF80039019B /* C++Tests */ = {
+			isa = PBXGroup;
+			children = (
+				259AB7EA1F21BFF80039019B /* C__Tests.m */,
+				259AB7EC1F21BFF80039019B /* Info.plist */,
+			);
+			path = "C++Tests";
+			sourceTree = "<group>";
+		};
+		259AB7F41F21BFF80039019B /* C++UITests */ = {
+			isa = PBXGroup;
+			children = (
+				259AB7F51F21BFF80039019B /* C__UITests.m */,
+				259AB7F71F21BFF80039019B /* Info.plist */,
+			);
+			path = "C++UITests";
+			sourceTree = "<group>";
+		};
+		E274228E1F2ED0790041AA2F /* Qrcode */ = {
+			isa = PBXGroup;
+			children = (
+				E274228F1F2ED0790041AA2F /* BitBuffer.cpp */,
+				E27422901F2ED0790041AA2F /* BitBuffer.hpp */,
+				E27422911F2ED0790041AA2F /* Makefile */,
+				E27422921F2ED0790041AA2F /* QrCode.cpp */,
+				E27422931F2ED0790041AA2F /* QrCode.hpp */,
+				E27422941F2ED0790041AA2F /* QrSegment.cpp */,
+				E27422951F2ED0790041AA2F /* QrSegment.hpp */,
+			);
+			name = Qrcode;
+			path = cpp/Qrcode;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		259AB7C91F21BFF80039019B /* C++ */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 259AB7FA1F21BFF80039019B /* Build configuration list for PBXNativeTarget "C++" */;
+			buildPhases = (
+				259AB7C61F21BFF80039019B /* Sources */,
+				259AB7C71F21BFF80039019B /* Frameworks */,
+				259AB7C81F21BFF80039019B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "C++";
+			productName = "C++";
+			productReference = 259AB7CA1F21BFF80039019B /* C++.app */;
+			productType = "com.apple.product-type.application";
+		};
+		259AB7E51F21BFF80039019B /* C++Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 259AB7FD1F21BFF80039019B /* Build configuration list for PBXNativeTarget "C++Tests" */;
+			buildPhases = (
+				259AB7E21F21BFF80039019B /* Sources */,
+				259AB7E31F21BFF80039019B /* Frameworks */,
+				259AB7E41F21BFF80039019B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				259AB7E81F21BFF80039019B /* PBXTargetDependency */,
+			);
+			name = "C++Tests";
+			productName = "C++Tests";
+			productReference = 259AB7E61F21BFF80039019B /* C++Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		259AB7F01F21BFF80039019B /* C++UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 259AB8001F21BFF80039019B /* Build configuration list for PBXNativeTarget "C++UITests" */;
+			buildPhases = (
+				259AB7ED1F21BFF80039019B /* Sources */,
+				259AB7EE1F21BFF80039019B /* Frameworks */,
+				259AB7EF1F21BFF80039019B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				259AB7F31F21BFF80039019B /* PBXTargetDependency */,
+			);
+			name = "C++UITests";
+			productName = "C++UITests";
+			productReference = 259AB7F11F21BFF80039019B /* C++UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		259AB7C21F21BFF80039019B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "杨金保";
+				TargetAttributes = {
+					259AB7C91F21BFF80039019B = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 62HE3JSQ9N;
+						ProvisioningStyle = Automatic;
+					};
+					259AB7E51F21BFF80039019B = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 62HE3JSQ9N;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 259AB7C91F21BFF80039019B;
+					};
+					259AB7F01F21BFF80039019B = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 62HE3JSQ9N;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 259AB7C91F21BFF80039019B;
+					};
+				};
+			};
+			buildConfigurationList = 259AB7C51F21BFF80039019B /* Build configuration list for PBXProject "C++" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 259AB7C11F21BFF80039019B;
+			productRefGroup = 259AB7CB1F21BFF80039019B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				259AB7C91F21BFF80039019B /* C++ */,
+				259AB7E51F21BFF80039019B /* C++Tests */,
+				259AB7F01F21BFF80039019B /* C++UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		259AB7C81F21BFF80039019B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				259AB7E01F21BFF80039019B /* LaunchScreen.storyboard in Resources */,
+				259AB7DD1F21BFF80039019B /* Assets.xcassets in Resources */,
+				259AB7D81F21BFF80039019B /* Main.storyboard in Resources */,
+				259AB8071F21C25C0039019B /* imageRef.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		259AB7E41F21BFF80039019B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		259AB7EF1F21BFF80039019B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		259AB7C61F21BFF80039019B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E27422A41F2ED0790041AA2F /* Makefile in Sources */,
+				E27422A81F2ED0790041AA2F /* CreativeElement.cpp in Sources */,
+				E27422A11F2ED0790041AA2F /* CreativeQrCode.mm in Sources */,
+				259AB7D51F21BFF80039019B /* ViewController.mm in Sources */,
+				259AB8051F21C0210039019B /* CMBCImageRef.mm in Sources */,
+				E27422AB1F2ED0790041AA2F /* main.cpp in Sources */,
+				259AB7DB1F21BFF80039019B /* C__.xcdatamodeld in Sources */,
+				25C087031F282DEF00B684A5 /* CMBCBitmapUtil.mm in Sources */,
+				E27422AA1F2ED0790041AA2F /* CreativeQRTool.cpp in Sources */,
+				259AB7D21F21BFF80039019B /* AppDelegate.m in Sources */,
+				E27422A61F2ED0790041AA2F /* QrSegment.cpp in Sources */,
+				E27422AC1F2ED0790041AA2F /* Point.cpp in Sources */,
+				E27422A71F2ED0790041AA2F /* BasicQRTool.cpp in Sources */,
+				E27422A31F2ED0790041AA2F /* BitBuffer.cpp in Sources */,
+				E27422A21F2ED0790041AA2F /* CreativeElementStyle.cpp in Sources */,
+				E27422A51F2ED0790041AA2F /* QrCode.cpp in Sources */,
+				E27422A91F2ED0790041AA2F /* CreativeEnv.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		259AB7E21F21BFF80039019B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				259AB7EB1F21BFF80039019B /* C__Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		259AB7ED1F21BFF80039019B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				259AB7F61F21BFF80039019B /* C__UITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		259AB7E81F21BFF80039019B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 259AB7C91F21BFF80039019B /* C++ */;
+			targetProxy = 259AB7E71F21BFF80039019B /* PBXContainerItemProxy */;
+		};
+		259AB7F31F21BFF80039019B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 259AB7C91F21BFF80039019B /* C++ */;
+			targetProxy = 259AB7F21F21BFF80039019B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		259AB7D61F21BFF80039019B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				259AB7D71F21BFF80039019B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		259AB7DE1F21BFF80039019B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				259AB7DF1F21BFF80039019B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		259AB7F81F21BFF80039019B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		259AB7F91F21BFF80039019B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		259AB7FB1F21BFF80039019B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 62HE3JSQ9N;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_INPUT_FILETYPE = automatic;
+				INFOPLIST_FILE = "C++/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cmbc.pay.C--";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		259AB7FC1F21BFF80039019B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 62HE3JSQ9N;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_INPUT_FILETYPE = automatic;
+				INFOPLIST_FILE = "C++/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cmbc.pay.C--";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		259AB7FE1F21BFF80039019B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 62HE3JSQ9N;
+				INFOPLIST_FILE = "C++Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cmbc.pay.C--Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/C++.app/C++";
+			};
+			name = Debug;
+		};
+		259AB7FF1F21BFF80039019B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 62HE3JSQ9N;
+				INFOPLIST_FILE = "C++Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cmbc.pay.C--Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/C++.app/C++";
+			};
+			name = Release;
+		};
+		259AB8011F21BFF80039019B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 62HE3JSQ9N;
+				INFOPLIST_FILE = "C++UITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cmbc.pay.C--UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "C++";
+			};
+			name = Debug;
+		};
+		259AB8021F21BFF80039019B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 62HE3JSQ9N;
+				INFOPLIST_FILE = "C++UITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cmbc.pay.C--UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "C++";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		259AB7C51F21BFF80039019B /* Build configuration list for PBXProject "C++" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				259AB7F81F21BFF80039019B /* Debug */,
+				259AB7F91F21BFF80039019B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		259AB7FA1F21BFF80039019B /* Build configuration list for PBXNativeTarget "C++" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				259AB7FB1F21BFF80039019B /* Debug */,
+				259AB7FC1F21BFF80039019B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		259AB7FD1F21BFF80039019B /* Build configuration list for PBXNativeTarget "C++Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				259AB7FE1F21BFF80039019B /* Debug */,
+				259AB7FF1F21BFF80039019B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		259AB8001F21BFF80039019B /* Build configuration list for PBXNativeTarget "C++UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				259AB8011F21BFF80039019B /* Debug */,
+				259AB8021F21BFF80039019B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		259AB7D91F21BFF80039019B /* C__.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				259AB7DA1F21BFF80039019B /* C__.xcdatamodel */,
+			);
+			currentVersion = 259AB7DA1F21BFF80039019B /* C__.xcdatamodel */;
+			path = C__.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 259AB7C21F21BFF80039019B /* Project object */;
+}
