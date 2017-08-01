@@ -34,6 +34,12 @@ public:
     void setStyle(CreativeElementStyle style);
     string getLogoPath();
     void setLogoPath(string logoBmp);
+    static CreativeElementStyle *YELLOWBOY;
+    static string YELLOWBOY_namelist[9];
+    static CreativeElementStyle *BAMBOO;
+    static string BAMBOO_namelist[5];
+    CGImageRef* CreateFinal(int size,int margin);
+
     
 private:
     int version=0;
@@ -43,7 +49,7 @@ private:
     static int ComputCellSize(CreativeElementStyle style);
     static int binarySearch(int* srcArray, int width,int des);
     bool AnalysisVersion(int size, string txt,int margin);
-    
+    bool opendebug=true;
 };
 
 #endif /* CreativeQrCode_hpp */

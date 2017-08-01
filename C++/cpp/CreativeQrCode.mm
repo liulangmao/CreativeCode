@@ -12,6 +12,22 @@
 #include <string>
 using namespace std;
 
+
+string CreativeQrCode::YELLOWBOY_namelist[9]={"yellowboy_7_7.bmp","yellowboy_4_2.bmp","yellowboy_3_1.bmp","yellowboy_2_2_1.bmp","yellowboy_2_2_2.bmp","yellowboy_2_1_1.bmp","yellowboy_2_1_2.bmp","yellowboy_2_1_3.bmp","yellowboy_1_1.bmp"};
+
+CreativeElementStyle *CreativeQrCode::YELLOWBOY= new CreativeElementStyle( 50, CreativeQrCode::YELLOWBOY_namelist);
+
+
+
+string CreativeQrCode::BAMBOO_namelist[5]={"bamboo_7_7.bmp","bamboo_3_1.bmp","bamboo_2_1.bmp","bamboo_1_1_1.bmp","bamboo_1_1_2.bmp"};
+
+CreativeElementStyle *CreativeQrCode::BAMBOO= new CreativeElementStyle( 50, CreativeQrCode::BAMBOO_namelist);
+
+
+
+
+
+
 CreativeQrCode::CreativeQrCode(CreativeElementStyle style){
     this->setStyle(style);
 }
@@ -174,20 +190,73 @@ int CreativeQrCode::ComputCellNumberByVersion(int version){
     int cellNumber = 21 + (version-1) * 4;
     return cellNumber;
 }
+
+
+CGImageRef CreateImageRef(float imageWidth, float imageHeight, uint32_t *bitmapData)
+{
+    size_t bytesPerRow = imageWidth * 4;
+    
+    //颜色空间
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    
+    uint32_t* rgbBufferData;
+    if (!bitmapData) {
+        CGColorSpaceRelease(colorSpace);
+        return NULL;
+    }else {
+        rgbBufferData = bitmapData;
+    }
+    
+    //遍历像素
+    size_t pixelNum = imageWidth * imageHeight;
+    uint32_t* pCurPtr = rgbBufferData;
+    for (int i = 0; i < pixelNum; i++, pCurPtr++) {
+        uint8_t* ptr = (uint8_t*)pCurPtr;
+        ptr[0] = 255;//alpha
+        ptr[1] = 0;//red
+        ptr[2] = 255;//green
+        ptr[3] = 0;//blue
+        NSLog(@"比特:%d  A:%hhu  R:%hhu  G:%hhu  B:%hhu",i,ptr[0],ptr[1],ptr[2],ptr[3]);
+    }
+    //创建context
+    CGContextRef context = CGBitmapContextCreate(bitmapData, imageWidth, imageHeight, 8, bytesPerRow, colorSpace,kCGBitmapByteOrderDefault | kCGImageAlphaPremultipliedFirst);
+    
+    CGContextDrawImage(context, CGRectMake(0, 0, imageWidth, imageHeight),NULL);
+    
+    CGDataProviderRef dataProvider = CGDataProviderCreateWithData(NULL, bitmapData, bytesPerRow * imageHeight, NULL);
+    
+    CGImageRef imageRef = CGImageCreate(imageWidth, imageHeight, 8, 32, bytesPerRow, colorSpace,kCGBitmapByteOrderDefault | kCGImageAlphaPremultipliedFirst, dataProvider,NULL, YES, kCGRenderingIntentDefault);
+    CGDataProviderRelease(dataProvider);
+    
+    CGContextRelease(context);
+    CGColorSpaceRelease(colorSpace);
+    
+    return imageRef;
+}
+
+
+
+
+
+
+
+
+
 CGImageRef CreativeQrCode::CreativeQRZXing(string txt,int size,int margin){
     bool Ischange=AnalysisVersion(size, txt,margin);
     
-    //string error="version="+version+"margin"+margin;
-    //Log.i("CreativeQRZXing", error);
     int cellNumber = ComputCellNumberByVersion(version);
     int cellSize = this->getStyle().getCellsize();
-    //System.out.println("version="+version+"cellNumber:"+cellNumber+"cellsize"+cellSize);
+    if(opendebug)
+    {
+        cout<<"version="<<version<<"margin="<<margin<<"   "<<"cellNumber="<<cellNumber<<"cellsize="<<cellSize<<endl;
+    }
     /*
      1.CreativeQRTool must be created before GenMatrix
      */
     AnalysisStyle(cellSize);
     CreativeQRTool *h = new CreativeQRTool(cellNumber, cellSize);
-    //h.collectPixelCountBitmap(h.m_mat, WBImage, cellSize, cellSize);
+    //h->collectPixelCountBitmap(h->m_mat, WBImage, cellSize, cellSize);
     BasicQRTool *basic= new BasicQRTool(&txt);
     /*
      2. be careful about below line because in the method of GenMatrix will fill in h.m_mat
@@ -198,13 +267,10 @@ CGImageRef CreativeQrCode::CreativeQRZXing(string txt,int size,int margin){
     //basic->Print(h->getMat(),21 , 21);
     h->FindCellEqualsOne();
     h->FillbyType();
-
-    
     int inputImageSize=cellNumber*cellSize+2*margin;
-    //h.LoadPreImage(style.getNamelist(),mContext);// in current directory just ok.
    
-    //to do:
-    //Bitmap finalImage=h.CreateFinal(inputImageSize, margin);
+    
+    //Bitmap finalImage=h->CreateFinal(inputImageSize, margin);
     
     //System.out.println("finalImage.width()"+finalImage.getWidth()+"finalImage.height()"+finalImage.getHeight());
     if(Ischange){
