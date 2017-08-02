@@ -72,61 +72,46 @@ UIImage * CreativeQrCode::processUsingPixels(UIImage* inputImage) {
     CGContextDrawImage(context, CGRectMake(0, 0, inputWidth, inputHeight), inputCGImage);
     
     // 2. Blend the ghost onto the image
-    UIImage * ghostImage = [UIImage imageNamed:@"bamboo_1_1_1.bmp"];
-    CGImageRef ghostCGImage = [ghostImage CGImage];
+   // UIImage * ghostImage = [UIImage imageNamed:@"bamboo_1_1_1.bmp"];
+   // CGImageRef ghostCGImage = [ghostImage CGImage];
+   //3.
+    CGImageRef ghostCGImageorigin = getDiskBitmap("bamboo_1_1_1.bmp");
+    CGSize size=CGSizeMake(50,  50);
+    CGImageRef ghostCGImage = getResizedBitmap(ghostCGImageorigin, size);
+    //4.
+    //CGImageRef ghostCGImage = getDiskBitmap("bamboo_1_1_1.bmp");
     
-    // 2.1 Calculate the size & position of the ghost
-    CGFloat ghostImageAspectRatio = ghostImage.size.width / ghostImage.size.height;
-    NSInteger targetGhostWidth = inputWidth * 0.25;
-    CGSize ghostSize = CGSizeMake(targetGhostWidth, targetGhostWidth / ghostImageAspectRatio);
-    CGPoint ghostOrigin = CGPointMake(inputWidth * 0.5, inputHeight * 0.2);
     
+    size_t  ghostwidth =CGImageGetWidth(ghostCGImage);
+    size_t  ghostheight =CGImageGetHeight(ghostCGImage);
+    CGPoint ghostOrigin=CGPointMake(0,0);
     // 2.2 Scale & Get pixels of the ghost
-    NSUInteger ghostBytesPerRow = bytesPerPixel * ghostSize.width;
+    NSUInteger ghostBytesPerRow = bytesPerPixel * ghostwidth;
     
-    UInt32 * ghostPixels = (UInt32 *)calloc(ghostSize.width * ghostSize.height, sizeof(UInt32));
+    UInt32 * ghostPixels = (UInt32 *)calloc(ghostwidth * ghostheight, sizeof(UInt32));
     
-    CGContextRef ghostContext = CGBitmapContextCreate(ghostPixels, ghostSize.width, ghostSize.height,
-                                                      bitsPerComponent, ghostBytesPerRow, colorSpace,
-                                                      kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
+    CGContextRef ghostContext = CGBitmapContextCreate(ghostPixels, ghostwidth, ghostheight,bitsPerComponent, ghostBytesPerRow, colorSpace,kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
     
-    CGContextDrawImage(ghostContext, CGRectMake(0, 0, ghostSize.width, ghostSize.height),ghostCGImage);
+    CGContextDrawImage(ghostContext, CGRectMake(0, 0, ghostwidth, ghostheight),ghostCGImage);
     
     // 2.3 Blend each pixel
     NSUInteger offsetPixelCountForInput = ghostOrigin.y * inputWidth + ghostOrigin.x;
-    for (NSUInteger j = 0; j < ghostSize.height; j++) {
-        for (NSUInteger i = 0; i < ghostSize.width; i++) {
+    for (NSUInteger j = 0; j < ghostheight; j++) {
+        for (NSUInteger i = 0; i < ghostwidth; i++) {
             UInt32 * inputPixel = inputPixels + j * inputWidth + i + offsetPixelCountForInput;
-            UInt32 inputColor = *inputPixel;
-            
-            UInt32 * ghostPixel = ghostPixels + j * (int)ghostSize.width + i;
+            UInt32 * ghostPixel = ghostPixels + j * (int)ghostwidth + i;
             UInt32 ghostColor = *ghostPixel;
             
-            // Blend the ghost with 50% alpha
-            CGFloat ghostAlpha = 0.5f * (A(ghostColor) / 255.0);
-            UInt32 newR = R(inputColor) * (1 - ghostAlpha) + R(ghostColor) * ghostAlpha;
-            UInt32 newG = G(inputColor) * (1 - ghostAlpha) + G(ghostColor) * ghostAlpha;
-            UInt32 newB = B(inputColor) * (1 - ghostAlpha) + B(ghostColor) * ghostAlpha;
             
-            //Clamp, not really useful here :p
+            UInt32 newR = R(ghostColor) ;
+            UInt32 newG = G(ghostColor) ;
+            UInt32 newB = B(ghostColor) ;
+            
             newR = MAX(0,MIN(255, newR));
             newG = MAX(0,MIN(255, newG));
             newB = MAX(0,MIN(255, newB));
             
-            *inputPixel = RGBAMake(newR, newG, newB, A(inputColor));
-        }
-    }
-    
-    // 3. Convert the image to Black & White
-    for (NSUInteger j = 0; j < inputHeight; j++) {
-        for (NSUInteger i = 0; i < inputWidth; i++) {
-            UInt32 * currentPixel = inputPixels + (j * inputWidth) + i;
-            UInt32 color = *currentPixel;
-            
-            // Average of RGB = greyscale
-            UInt32 averageColor = (R(color) + G(color) + B(color)) / 3.0;
-            
-            *currentPixel = RGBAMake(averageColor, averageColor, averageColor, A(color));
+            *inputPixel = RGBAMake(newR, newG, newB, 255);
         }
     }
     
@@ -153,9 +138,10 @@ UIImage * CreativeQrCode::processUsingPixels(UIImage* inputImage) {
 UIImage* CreativeQrCode::testRead(){
     UIImage* a;
     UIColor *color = [UIColor whiteColor];
-    CGSize size=CGSizeMake(500,500);
+    CGFloat screensize=500;
+    CGSize size=CGSizeMake(screensize,screensize);
     UIImage * finalimge=creatEmptyImg(color,size);
-    CGSize ghostRect=CGSizeMake(50,50);
+    
     a=processUsingPixels(finalimge);
     
     
@@ -168,63 +154,72 @@ CreativeQrCode::CreativeQrCode(CreativeElementStyle style){
 }
 
 CGImageRef  CreativeQrCode::getDiskBitmap(string imagename){
-    //    NSString *imageName = [NSString stringWithCString:imagename.c_str()
-    //                                             encoding:[NSString defaultCStringEncoding]];
-    //
-    //
-    //    UIImage *image = [UIImage imageNamed:imageName];
-    //   CGImageRef imageRefs = [image CGImage];
-    //
-    //    size_t imageWidth = CGImageGetWidth(imageRefs);
-    //    size_t imageHeight = CGImageGetHeight(imageRefs);
-    //    size_t bytesPerRow = imageWidth * 4;
-    //
-    //    //为所有的像素点分配内存
-    //    uint32_t* bitmapData = (uint32_t*)malloc(bytesPerRow * imageHeight);
-    //
-    //    //颜色空间
-    //    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    //
-    //    //创建context
-    //    CGContextRef context = CGBitmapContextCreate(bitmapData, imageWidth, imageHeight, 8, bytesPerRow, colorSpace,kCGBitmapByteOrderDefault | kCGImageAlphaPremultipliedFirst);
-    //
-    //    CGContextDrawImage(context, CGRectMake(0, 0, imageWidth, imageHeight),imageRefs);
-    //
-    //    //遍历像素
-    //    size_t pixelNum = imageWidth * imageHeight;
-    //    uint32_t* pCurPtr = bitmapData;
-    //    for (int i = 0; i < pixelNum; i++, pCurPtr++) {
-    //        uint8_t* ptr = (uint8_t*)pCurPtr;
-    //        //        ptr[0] = 255;//alpha
-    //        //        ptr[1] = 0;//red
-    //        //        ptr[2] = 255;//green
-    //        //        ptr[3] = 0;//blue
-    //       // NSLog(@"比特:%d  A:%hhu  R:%hhu  G:%hhu  B:%hhu",i,ptr[0],ptr[1],ptr[2],ptr[3]);
-    //    }
-    //    CGDataProviderRef dataProvider = CGDataProviderCreateWithData(NULL, bitmapData, bytesPerRow * imageHeight, NULL);
-    //
-    //    CGImageRef imageRef = CGImageCreate(imageWidth, imageHeight, 8, 32, bytesPerRow, colorSpace,kCGBitmapByteOrderMask | kCGImageAlphaPremultipliedFirst, dataProvider,NULL, YES, kCGRenderingIntentDefault);
-    //
-    //    CGDataProviderRelease(dataProvider);
-    //    CGContextRelease(context);
-    //    CGColorSpaceRelease(colorSpace);
+        NSString *imageName = [NSString stringWithCString:imagename.c_str()
+                                                 encoding:[NSString defaultCStringEncoding]];
     
-    CGImageRef imageRef;
+    
+        UIImage *image = [UIImage imageNamed:imageName];
+       CGImageRef imageRefs = [image CGImage];
+    
+        size_t imageWidth = CGImageGetWidth(imageRefs);
+        size_t imageHeight = CGImageGetHeight(imageRefs);
+        size_t bytesPerRow = imageWidth * 4;
+    
+        //为所有的像素点分配内存
+        uint32_t* bitmapData = (uint32_t*)malloc(bytesPerRow * imageHeight);
+    
+        //颜色空间
+        CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    
+        //创建context
+        CGContextRef context = CGBitmapContextCreate(bitmapData, imageWidth, imageHeight, 8, bytesPerRow, colorSpace,kCGBitmapByteOrderDefault | kCGImageAlphaPremultipliedFirst);
+    
+        CGContextDrawImage(context, CGRectMake(0, 0, imageWidth, imageHeight),imageRefs);
+    
+    
+    
+        CGDataProviderRef dataProvider = CGDataProviderCreateWithData(NULL, bitmapData, bytesPerRow * imageHeight, NULL);
+    
+        CGImageRef imageRef = CGImageCreate(imageWidth, imageHeight, 8, 32, bytesPerRow, colorSpace,kCGBitmapByteOrderMask | kCGImageAlphaPremultipliedFirst, dataProvider,NULL, YES, kCGRenderingIntentDefault);
+    
+        CGDataProviderRelease(dataProvider);
+        CGContextRelease(context);
+        CGColorSpaceRelease(colorSpace);
+    
     return imageRef;
     
 }
 CGImageRef CreativeQrCode::getResizedBitmap(CGImageRef imageref, CGSize newSize){
     
-    //        UIImage* image = [UIImage imageWithCGImage: imageref];
-    //
-    //        UIGraphicsBeginImageContext(newSize);
-    //        UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
-    //        [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
-    //        UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    //        UIGraphicsEndImageContext();
-    //return newImage.CGImage;
-    CGImageRef a;
-    return a;
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    
+    UInt32 * resizePixels = (UInt32 *)calloc(newSize.width * newSize.height, sizeof(UInt32));
+
+    CGContextRef mainViewContentContext = CGBitmapContextCreate (resizePixels, newSize.width, newSize.height,
+                                                                 8, newSize.width*4, colorSpace, kCGImageAlphaPremultipliedLast |kCGBitmapByteOrder32Big);
+    
+    
+    
+    CGContextSetInterpolationQuality(mainViewContentContext, kCGInterpolationHigh);
+    CGContextDrawImage(mainViewContentContext, CGRectMake(0,0, newSize.width, newSize.height), imageref);
+    
+    CGDataProviderRef dataProvider = CGDataProviderCreateWithData(NULL, resizePixels, 4 * newSize.width, NULL);
+    size_t bytesPerRow = newSize.width * 4;
+    CGImageRef imageRefresize = CGImageCreate(newSize.width, newSize.height, 8, 32, bytesPerRow, colorSpace,kCGImageAlphaPremultipliedLast |kCGBitmapByteOrder32Big, dataProvider,NULL, YES, kCGRenderingIntentDefault);
+    
+//    uint32_t* pCurPtr = resizePixels;
+//    size_t pixelNum = newSize.width * newSize.height;
+//        for (int i = 0; i < pixelNum; i++, pCurPtr++) {
+//            uint8_t* ptr = (uint8_t*)pCurPtr;
+//
+//            NSLog(@"比特:%d  A:%hhu  R:%hhu  G:%hhu  B:%hhu",i,ptr[0],ptr[1],ptr[2],ptr[3]);
+//        }
+    
+    CGDataProviderRelease(dataProvider);
+    CGContextRelease(mainViewContentContext);
+    CGColorSpaceRelease(colorSpace);
+
+    return imageRefresize;
 }
 void CreativeQrCode::AnalysisStyle(int cellSize){
     string name="";
