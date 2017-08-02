@@ -154,36 +154,36 @@ void CreativeQRTool::FillbyType(){
 int * CreativeQRTool::CreateFinal(int size,int margin){
     
     int* finalMat = (int*)malloc(size * size*4);
-    for(int width=0;width<size * size*4;width++)
-    {
-        finalMat[width]=255;
-    }
-    list<CreativeElement*>::iterator it;
-    vector<PointS>::iterator itPointBegin;
-    vector<PointS>::iterator itPointEnd;
-     vector<PointS>::iterator itPoint;
-    for (it=CreativeEnv::elementList.begin();it!=CreativeEnv::elementList.end();it++)
-    {
-        CreativeElement *temp=(*it);
-        if(temp->getPreImage()->size()!=0) {
-            
-            itPointBegin=temp->getM_start()->begin();
-            itPointEnd=((temp)->getM_start())->end();
-            for(itPoint=itPointBegin;itPoint!=itPointEnd;itPoint++){
-                int x=(*itPoint).getX();
-                int y=(*itPoint).getY();
-                
-                
-            }
-            
-            int length = temp->getPreImage().size();
-            r = temp.getPreImage().get(0);
-            while (it.hasNext()) {
-                Point p = (Point) it.next();
-                cv.drawBitmap(r, p.x* cellSize+margin, p.y* cellSize+margin, null);
-            }
-        }
-    }
+//    for(int width=0;width<size * size*4;width++)
+//    {
+//        finalMat[width]=255;
+//    }
+//    list<CreativeElement*>::iterator it;
+//    vector<PointS>::iterator itPointBegin;
+//    vector<PointS>::iterator itPointEnd;
+//     vector<PointS>::iterator itPoint;
+//    for (it=CreativeEnv::elementList.begin();it!=CreativeEnv::elementList.end();it++)
+//    {
+//        CreativeElement *temp=(*it);
+//        if(temp->getPreImage()->size()!=0) {
+//            
+//            itPointBegin=temp->getM_start()->begin();
+//            itPointEnd=((temp)->getM_start())->end();
+//            for(itPoint=itPointBegin;itPoint!=itPointEnd;itPoint++){
+//                int x=(*itPoint).getX();
+//                int y=(*itPoint).getY();
+//                
+//                
+//            }
+//            
+//            int length = temp->getPreImage().size();
+//            r = temp.getPreImage().get(0);
+//            while (it.hasNext()) {
+//                Point p = (Point) it.next();
+//                cv.drawBitmap(r, p.x* cellSize+margin, p.y* cellSize+margin, null);
+//            }
+//        }
+ //   }
     return finalMat;
 }
 

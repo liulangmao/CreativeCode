@@ -15,7 +15,7 @@ using namespace std;
 
 const QrCode::Ecc &errCorLvl = QrCode::Ecc::LOW;
 
-BasicQRTool::BasicQRTool(char* txt){
+BasicQRTool::BasicQRTool(string* txt){
     this->txt=txt;
 }
 BasicQRTool::~BasicQRTool(){
@@ -24,7 +24,7 @@ BasicQRTool::~BasicQRTool(){
 void BasicQRTool::GenMatrix(int ** m_mat){
 
     // Make and print the QR Code symbol
-    const QrCode code = QrCode::encodeText(this->txt, errCorLvl);
+    const QrCode code = QrCode::encodeText(this->txt->c_str(), errCorLvl);
     
     cout<<"code size:"<<code.size<<endl;
     if (!code.size) {

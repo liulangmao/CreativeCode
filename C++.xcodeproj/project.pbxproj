@@ -10,26 +10,12 @@
 		259AB7D21F21BFF80039019B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 259AB7D11F21BFF80039019B /* AppDelegate.m */; };
 		259AB7D51F21BFF80039019B /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 259AB7D41F21BFF80039019B /* ViewController.mm */; };
 		259AB7D81F21BFF80039019B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 259AB7D61F21BFF80039019B /* Main.storyboard */; };
-		259AB7DB1F21BFF80039019B /* C__.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 259AB7D91F21BFF80039019B /* C__.xcdatamodeld */; };
 		259AB7DD1F21BFF80039019B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 259AB7DC1F21BFF80039019B /* Assets.xcassets */; };
 		259AB7E01F21BFF80039019B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 259AB7DE1F21BFF80039019B /* LaunchScreen.storyboard */; };
 		259AB7EB1F21BFF80039019B /* C__Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 259AB7EA1F21BFF80039019B /* C__Tests.m */; };
 		259AB7F61F21BFF80039019B /* C__UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 259AB7F51F21BFF80039019B /* C__UITests.m */; };
-		259AB8051F21C0210039019B /* CMBCImageRef.mm in Sources */ = {isa = PBXBuildFile; fileRef = 259AB8031F21C0210039019B /* CMBCImageRef.mm */; };
 		259AB8071F21C25C0039019B /* imageRef.png in Resources */ = {isa = PBXBuildFile; fileRef = 259AB8061F21C25C0039019B /* imageRef.png */; };
 		25C087031F282DEF00B684A5 /* CMBCBitmapUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = 25C087021F282DEF00B684A5 /* CMBCBitmapUtil.mm */; };
-		E27422A11F2ED0790041AA2F /* CreativeQrCode.mm in Sources */ = {isa = PBXBuildFile; fileRef = E274228A1F2ED0790041AA2F /* CreativeQrCode.mm */; };
-		E27422A21F2ED0790041AA2F /* CreativeElementStyle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E274228C1F2ED0790041AA2F /* CreativeElementStyle.cpp */; };
-		E27422A31F2ED0790041AA2F /* BitBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E274228F1F2ED0790041AA2F /* BitBuffer.cpp */; };
-		E27422A41F2ED0790041AA2F /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = E27422911F2ED0790041AA2F /* Makefile */; };
-		E27422A51F2ED0790041AA2F /* QrCode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E27422921F2ED0790041AA2F /* QrCode.cpp */; };
-		E27422A61F2ED0790041AA2F /* QrSegment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E27422941F2ED0790041AA2F /* QrSegment.cpp */; };
-		E27422A71F2ED0790041AA2F /* BasicQRTool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E27422961F2ED0790041AA2F /* BasicQRTool.cpp */; };
-		E27422A81F2ED0790041AA2F /* CreativeElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E27422981F2ED0790041AA2F /* CreativeElement.cpp */; };
-		E27422A91F2ED0790041AA2F /* CreativeEnv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E274229A1F2ED0790041AA2F /* CreativeEnv.cpp */; };
-		E27422AA1F2ED0790041AA2F /* CreativeQRTool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E274229C1F2ED0790041AA2F /* CreativeQRTool.cpp */; };
-		E27422AB1F2ED0790041AA2F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E274229E1F2ED0790041AA2F /* main.cpp */; };
-		E27422AC1F2ED0790041AA2F /* Point.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E274229F1F2ED0790041AA2F /* Point.cpp */; };
 		E27422C31F3052E30041AA2F /* bamboo_1_1_1.bmp in Resources */ = {isa = PBXBuildFile; fileRef = E27422AE1F3052E30041AA2F /* bamboo_1_1_1.bmp */; };
 		E27422C41F3052E30041AA2F /* bamboo_1_1_2.bmp in Resources */ = {isa = PBXBuildFile; fileRef = E27422AF1F3052E30041AA2F /* bamboo_1_1_2.bmp */; };
 		E27422C51F3052E30041AA2F /* bamboo_2_1.bmp in Resources */ = {isa = PBXBuildFile; fileRef = E27422B01F3052E30041AA2F /* bamboo_2_1.bmp */; };
@@ -51,6 +37,21 @@
 		E27422D51F3052E30041AA2F /* yellowboy_3_1.bmp in Resources */ = {isa = PBXBuildFile; fileRef = E27422C01F3052E30041AA2F /* yellowboy_3_1.bmp */; };
 		E27422D61F3052E30041AA2F /* yellowboy_4_2.bmp in Resources */ = {isa = PBXBuildFile; fileRef = E27422C11F3052E30041AA2F /* yellowboy_4_2.bmp */; };
 		E27422D71F3052E30041AA2F /* yellowboy_7_7.bmp in Resources */ = {isa = PBXBuildFile; fileRef = E27422C21F3052E30041AA2F /* yellowboy_7_7.bmp */; };
+		E2E780781F31B47600C76D3C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E780771F31B47600C76D3C /* CoreGraphics.framework */; };
+		E2E7807A1F31B47D00C76D3C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E780791F31B47D00C76D3C /* UIKit.framework */; };
+		E2E7809D1F31CE5800C76D3C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E7809C1F31CE5800C76D3C /* Foundation.framework */; };
+		E2E780B71F31CFD000C76D3C /* BasicQRTool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2E780A21F31CFCF00C76D3C /* BasicQRTool.cpp */; };
+		E2E780B81F31CFD000C76D3C /* CreativeQRTool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2E780A51F31CFCF00C76D3C /* CreativeQRTool.cpp */; };
+		E2E780B91F31CFD000C76D3C /* CreativeElementStyle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2E780A61F31CFD000C76D3C /* CreativeElementStyle.cpp */; };
+		E2E780BA1F31CFD000C76D3C /* BitBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2E780A91F31CFD000C76D3C /* BitBuffer.cpp */; };
+		E2E780BB1F31CFD000C76D3C /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = E2E780AB1F31CFD000C76D3C /* Makefile */; };
+		E2E780BC1F31CFD000C76D3C /* QrCode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2E780AC1F31CFD000C76D3C /* QrCode.cpp */; };
+		E2E780BD1F31CFD000C76D3C /* QrSegment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2E780AE1F31CFD000C76D3C /* QrSegment.cpp */; };
+		E2E780BE1F31CFD000C76D3C /* CreativeElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2E780B01F31CFD000C76D3C /* CreativeElement.cpp */; };
+		E2E780BF1F31CFD000C76D3C /* CreativeEnv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2E780B21F31CFD000C76D3C /* CreativeEnv.cpp */; };
+		E2E780C01F31CFD000C76D3C /* Point.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2E780B31F31CFD000C76D3C /* Point.cpp */; };
+		E2E780C61F31D35900C76D3C /* CreativeQrCode.mm in Sources */ = {isa = PBXBuildFile; fileRef = E2E780C41F31D35900C76D3C /* CreativeQrCode.mm */; };
+		E2E780CF1F31DD7900C76D3C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E780CE1F31DD7900C76D3C /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,33 +88,9 @@
 		259AB7F11F21BFF80039019B /* C++UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "C++UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		259AB7F51F21BFF80039019B /* C__UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = C__UITests.m; sourceTree = "<group>"; };
 		259AB7F71F21BFF80039019B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		259AB8031F21C0210039019B /* CMBCImageRef.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CMBCImageRef.mm; sourceTree = "<group>"; };
-		259AB8041F21C0210039019B /* CMBCImageRef.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CMBCImageRef.hpp; sourceTree = "<group>"; };
 		259AB8061F21C25C0039019B /* imageRef.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageRef.png; sourceTree = "<group>"; };
 		25C087011F282DEF00B684A5 /* CMBCBitmapUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBCBitmapUtil.h; sourceTree = "<group>"; };
 		25C087021F282DEF00B684A5 /* CMBCBitmapUtil.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CMBCBitmapUtil.mm; sourceTree = "<group>"; };
-		E274228A1F2ED0790041AA2F /* CreativeQrCode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CreativeQrCode.mm; path = cpp/CreativeQrCode.mm; sourceTree = "<group>"; };
-		E274228B1F2ED0790041AA2F /* CreativeQrCode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CreativeQrCode.hpp; path = cpp/CreativeQrCode.hpp; sourceTree = "<group>"; };
-		E274228C1F2ED0790041AA2F /* CreativeElementStyle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CreativeElementStyle.cpp; path = cpp/CreativeElementStyle.cpp; sourceTree = "<group>"; };
-		E274228D1F2ED0790041AA2F /* CreativeElementStyle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CreativeElementStyle.hpp; path = cpp/CreativeElementStyle.hpp; sourceTree = "<group>"; };
-		E274228F1F2ED0790041AA2F /* BitBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BitBuffer.cpp; sourceTree = "<group>"; };
-		E27422901F2ED0790041AA2F /* BitBuffer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BitBuffer.hpp; sourceTree = "<group>"; };
-		E27422911F2ED0790041AA2F /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
-		E27422921F2ED0790041AA2F /* QrCode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QrCode.cpp; sourceTree = "<group>"; };
-		E27422931F2ED0790041AA2F /* QrCode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = QrCode.hpp; sourceTree = "<group>"; };
-		E27422941F2ED0790041AA2F /* QrSegment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QrSegment.cpp; sourceTree = "<group>"; };
-		E27422951F2ED0790041AA2F /* QrSegment.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = QrSegment.hpp; sourceTree = "<group>"; };
-		E27422961F2ED0790041AA2F /* BasicQRTool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BasicQRTool.cpp; path = cpp/BasicQRTool.cpp; sourceTree = "<group>"; };
-		E27422971F2ED0790041AA2F /* BasicQRTool.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = BasicQRTool.hpp; path = cpp/BasicQRTool.hpp; sourceTree = "<group>"; };
-		E27422981F2ED0790041AA2F /* CreativeElement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CreativeElement.cpp; path = cpp/CreativeElement.cpp; sourceTree = "<group>"; };
-		E27422991F2ED0790041AA2F /* CreativeElement.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CreativeElement.hpp; path = cpp/CreativeElement.hpp; sourceTree = "<group>"; };
-		E274229A1F2ED0790041AA2F /* CreativeEnv.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CreativeEnv.cpp; path = cpp/CreativeEnv.cpp; sourceTree = "<group>"; };
-		E274229B1F2ED0790041AA2F /* CreativeEnv.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CreativeEnv.hpp; path = cpp/CreativeEnv.hpp; sourceTree = "<group>"; };
-		E274229C1F2ED0790041AA2F /* CreativeQRTool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CreativeQRTool.cpp; path = cpp/CreativeQRTool.cpp; sourceTree = "<group>"; };
-		E274229D1F2ED0790041AA2F /* CreativeQRTool.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CreativeQRTool.hpp; path = cpp/CreativeQRTool.hpp; sourceTree = "<group>"; };
-		E274229E1F2ED0790041AA2F /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = cpp/main.cpp; sourceTree = "<group>"; };
-		E274229F1F2ED0790041AA2F /* Point.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Point.cpp; path = cpp/Point.cpp; sourceTree = "<group>"; };
-		E27422A01F2ED0790041AA2F /* Point.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Point.hpp; path = cpp/Point.hpp; sourceTree = "<group>"; };
 		E27422AE1F3052E30041AA2F /* bamboo_1_1_1.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = bamboo_1_1_1.bmp; sourceTree = "<group>"; };
 		E27422AF1F3052E30041AA2F /* bamboo_1_1_2.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = bamboo_1_1_2.bmp; sourceTree = "<group>"; };
 		E27422B01F3052E30041AA2F /* bamboo_2_1.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = bamboo_2_1.bmp; sourceTree = "<group>"; };
@@ -135,6 +112,31 @@
 		E27422C01F3052E30041AA2F /* yellowboy_3_1.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = yellowboy_3_1.bmp; sourceTree = "<group>"; };
 		E27422C11F3052E30041AA2F /* yellowboy_4_2.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = yellowboy_4_2.bmp; sourceTree = "<group>"; };
 		E27422C21F3052E30041AA2F /* yellowboy_7_7.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = yellowboy_7_7.bmp; sourceTree = "<group>"; };
+		E2E780771F31B47600C76D3C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E2E780791F31B47D00C76D3C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E2E7809C1F31CE5800C76D3C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E2E780A11F31CFCF00C76D3C /* CreativeEnv.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CreativeEnv.hpp; path = cpp/CreativeEnv.hpp; sourceTree = "<group>"; };
+		E2E780A21F31CFCF00C76D3C /* BasicQRTool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BasicQRTool.cpp; path = cpp/BasicQRTool.cpp; sourceTree = "<group>"; };
+		E2E780A31F31CFCF00C76D3C /* BasicQRTool.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = BasicQRTool.hpp; path = cpp/BasicQRTool.hpp; sourceTree = "<group>"; };
+		E2E780A41F31CFCF00C76D3C /* CreativeQRTool.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CreativeQRTool.hpp; path = cpp/CreativeQRTool.hpp; sourceTree = "<group>"; };
+		E2E780A51F31CFCF00C76D3C /* CreativeQRTool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CreativeQRTool.cpp; path = cpp/CreativeQRTool.cpp; sourceTree = "<group>"; };
+		E2E780A61F31CFD000C76D3C /* CreativeElementStyle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CreativeElementStyle.cpp; path = cpp/CreativeElementStyle.cpp; sourceTree = "<group>"; };
+		E2E780A71F31CFD000C76D3C /* CreativeElementStyle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CreativeElementStyle.hpp; path = cpp/CreativeElementStyle.hpp; sourceTree = "<group>"; };
+		E2E780A91F31CFD000C76D3C /* BitBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BitBuffer.cpp; sourceTree = "<group>"; };
+		E2E780AA1F31CFD000C76D3C /* BitBuffer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BitBuffer.hpp; sourceTree = "<group>"; };
+		E2E780AB1F31CFD000C76D3C /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		E2E780AC1F31CFD000C76D3C /* QrCode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QrCode.cpp; sourceTree = "<group>"; };
+		E2E780AD1F31CFD000C76D3C /* QrCode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = QrCode.hpp; sourceTree = "<group>"; };
+		E2E780AE1F31CFD000C76D3C /* QrSegment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QrSegment.cpp; sourceTree = "<group>"; };
+		E2E780AF1F31CFD000C76D3C /* QrSegment.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = QrSegment.hpp; sourceTree = "<group>"; };
+		E2E780B01F31CFD000C76D3C /* CreativeElement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CreativeElement.cpp; path = cpp/CreativeElement.cpp; sourceTree = "<group>"; };
+		E2E780B11F31CFD000C76D3C /* CreativeElement.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CreativeElement.hpp; path = cpp/CreativeElement.hpp; sourceTree = "<group>"; };
+		E2E780B21F31CFD000C76D3C /* CreativeEnv.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CreativeEnv.cpp; path = cpp/CreativeEnv.cpp; sourceTree = "<group>"; };
+		E2E780B31F31CFD000C76D3C /* Point.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Point.cpp; path = cpp/Point.cpp; sourceTree = "<group>"; };
+		E2E780B41F31CFD000C76D3C /* Point.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Point.hpp; path = cpp/Point.hpp; sourceTree = "<group>"; };
+		E2E780C41F31D35900C76D3C /* CreativeQrCode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CreativeQrCode.mm; sourceTree = "<group>"; };
+		E2E780C51F31D35900C76D3C /* CreativeQrCode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CreativeQrCode.hpp; sourceTree = "<group>"; };
+		E2E780CE1F31DD7900C76D3C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2E7809D1F31CE5800C76D3C /* Foundation.framework in Frameworks */,
+				E2E7807A1F31B47D00C76D3C /* UIKit.framework in Frameworks */,
+				E2E780781F31B47600C76D3C /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +175,7 @@
 				259AB7E91F21BFF80039019B /* C++Tests */,
 				259AB7F41F21BFF80039019B /* C++UITests */,
 				259AB7CB1F21BFF80039019B /* Products */,
+				E2E780761F31B47600C76D3C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -186,29 +192,27 @@
 		259AB7CC1F21BFF80039019B /* C++ */ = {
 			isa = PBXGroup;
 			children = (
-				E274228A1F2ED0790041AA2F /* CreativeQrCode.mm */,
-				E274228B1F2ED0790041AA2F /* CreativeQrCode.hpp */,
-				E274228C1F2ED0790041AA2F /* CreativeElementStyle.cpp */,
-				E274228D1F2ED0790041AA2F /* CreativeElementStyle.hpp */,
-				E274228E1F2ED0790041AA2F /* Qrcode */,
-				E27422961F2ED0790041AA2F /* BasicQRTool.cpp */,
-				E27422971F2ED0790041AA2F /* BasicQRTool.hpp */,
-				E27422981F2ED0790041AA2F /* CreativeElement.cpp */,
-				E27422991F2ED0790041AA2F /* CreativeElement.hpp */,
-				E274229A1F2ED0790041AA2F /* CreativeEnv.cpp */,
-				E274229B1F2ED0790041AA2F /* CreativeEnv.hpp */,
-				E274229C1F2ED0790041AA2F /* CreativeQRTool.cpp */,
-				E274229D1F2ED0790041AA2F /* CreativeQRTool.hpp */,
-				E274229E1F2ED0790041AA2F /* main.cpp */,
-				E274229F1F2ED0790041AA2F /* Point.cpp */,
-				E27422A01F2ED0790041AA2F /* Point.hpp */,
+				E2E780CE1F31DD7900C76D3C /* main.m */,
+				E2E780C51F31D35900C76D3C /* CreativeQrCode.hpp */,
+				E2E780C41F31D35900C76D3C /* CreativeQrCode.mm */,
+				E2E780A11F31CFCF00C76D3C /* CreativeEnv.hpp */,
+				E2E780A21F31CFCF00C76D3C /* BasicQRTool.cpp */,
+				E2E780A31F31CFCF00C76D3C /* BasicQRTool.hpp */,
+				E2E780A41F31CFCF00C76D3C /* CreativeQRTool.hpp */,
+				E2E780A51F31CFCF00C76D3C /* CreativeQRTool.cpp */,
+				E2E780A61F31CFD000C76D3C /* CreativeElementStyle.cpp */,
+				E2E780A71F31CFD000C76D3C /* CreativeElementStyle.hpp */,
+				E2E780A81F31CFD000C76D3C /* Qrcode */,
+				E2E780B01F31CFD000C76D3C /* CreativeElement.cpp */,
+				E2E780B11F31CFD000C76D3C /* CreativeElement.hpp */,
+				E2E780B21F31CFD000C76D3C /* CreativeEnv.cpp */,
+				E2E780B31F31CFD000C76D3C /* Point.cpp */,
+				E2E780B41F31CFD000C76D3C /* Point.hpp */,
 				259AB8061F21C25C0039019B /* imageRef.png */,
 				259AB7D01F21BFF80039019B /* AppDelegate.h */,
 				259AB7D11F21BFF80039019B /* AppDelegate.m */,
 				259AB7D31F21BFF80039019B /* ViewController.h */,
 				259AB7D41F21BFF80039019B /* ViewController.mm */,
-				259AB8031F21C0210039019B /* CMBCImageRef.mm */,
-				259AB8041F21C0210039019B /* CMBCImageRef.hpp */,
 				25C087011F282DEF00B684A5 /* CMBCBitmapUtil.h */,
 				25C087021F282DEF00B684A5 /* CMBCBitmapUtil.mm */,
 				259AB7D61F21BFF80039019B /* Main.storyboard */,
@@ -246,21 +250,6 @@
 			path = "C++UITests";
 			sourceTree = "<group>";
 		};
-		E274228E1F2ED0790041AA2F /* Qrcode */ = {
-			isa = PBXGroup;
-			children = (
-				E274228F1F2ED0790041AA2F /* BitBuffer.cpp */,
-				E27422901F2ED0790041AA2F /* BitBuffer.hpp */,
-				E27422911F2ED0790041AA2F /* Makefile */,
-				E27422921F2ED0790041AA2F /* QrCode.cpp */,
-				E27422931F2ED0790041AA2F /* QrCode.hpp */,
-				E27422941F2ED0790041AA2F /* QrSegment.cpp */,
-				E27422951F2ED0790041AA2F /* QrSegment.hpp */,
-			);
-			name = Qrcode;
-			path = cpp/Qrcode;
-			sourceTree = "<group>";
-		};
 		E27422AD1F3052E30041AA2F /* drawable-hdpi */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,6 +277,31 @@
 			);
 			name = "drawable-hdpi";
 			path = "C++/drawable-hdpi";
+			sourceTree = "<group>";
+		};
+		E2E780761F31B47600C76D3C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E2E7809C1F31CE5800C76D3C /* Foundation.framework */,
+				E2E780791F31B47D00C76D3C /* UIKit.framework */,
+				E2E780771F31B47600C76D3C /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E2E780A81F31CFD000C76D3C /* Qrcode */ = {
+			isa = PBXGroup;
+			children = (
+				E2E780A91F31CFD000C76D3C /* BitBuffer.cpp */,
+				E2E780AA1F31CFD000C76D3C /* BitBuffer.hpp */,
+				E2E780AB1F31CFD000C76D3C /* Makefile */,
+				E2E780AC1F31CFD000C76D3C /* QrCode.cpp */,
+				E2E780AD1F31CFD000C76D3C /* QrCode.hpp */,
+				E2E780AE1F31CFD000C76D3C /* QrSegment.cpp */,
+				E2E780AF1F31CFD000C76D3C /* QrSegment.hpp */,
+			);
+			name = Qrcode;
+			path = cpp/Qrcode;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,7 +376,7 @@
 					};
 					259AB7E51F21BFF80039019B = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 62HE3JSQ9N;
+						DevelopmentTeam = YS9S9AVU58;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 259AB7C91F21BFF80039019B;
 					};
@@ -448,23 +462,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E27422A41F2ED0790041AA2F /* Makefile in Sources */,
-				E27422A81F2ED0790041AA2F /* CreativeElement.cpp in Sources */,
-				E27422A11F2ED0790041AA2F /* CreativeQrCode.mm in Sources */,
+				E2E780BB1F31CFD000C76D3C /* Makefile in Sources */,
 				259AB7D51F21BFF80039019B /* ViewController.mm in Sources */,
-				259AB8051F21C0210039019B /* CMBCImageRef.mm in Sources */,
-				E27422AB1F2ED0790041AA2F /* main.cpp in Sources */,
-				259AB7DB1F21BFF80039019B /* C__.xcdatamodeld in Sources */,
+				E2E780BA1F31CFD000C76D3C /* BitBuffer.cpp in Sources */,
+				E2E780C61F31D35900C76D3C /* CreativeQrCode.mm in Sources */,
+				E2E780B71F31CFD000C76D3C /* BasicQRTool.cpp in Sources */,
+				E2E780BE1F31CFD000C76D3C /* CreativeElement.cpp in Sources */,
+				E2E780CF1F31DD7900C76D3C /* main.m in Sources */,
+				E2E780BC1F31CFD000C76D3C /* QrCode.cpp in Sources */,
+				E2E780B91F31CFD000C76D3C /* CreativeElementStyle.cpp in Sources */,
+				E2E780C01F31CFD000C76D3C /* Point.cpp in Sources */,
+				E2E780BF1F31CFD000C76D3C /* CreativeEnv.cpp in Sources */,
+				E2E780B81F31CFD000C76D3C /* CreativeQRTool.cpp in Sources */,
 				25C087031F282DEF00B684A5 /* CMBCBitmapUtil.mm in Sources */,
-				E27422AA1F2ED0790041AA2F /* CreativeQRTool.cpp in Sources */,
 				259AB7D21F21BFF80039019B /* AppDelegate.m in Sources */,
-				E27422A61F2ED0790041AA2F /* QrSegment.cpp in Sources */,
-				E27422AC1F2ED0790041AA2F /* Point.cpp in Sources */,
-				E27422A71F2ED0790041AA2F /* BasicQRTool.cpp in Sources */,
-				E27422A31F2ED0790041AA2F /* BitBuffer.cpp in Sources */,
-				E27422A21F2ED0790041AA2F /* CreativeElementStyle.cpp in Sources */,
-				E27422A51F2ED0790041AA2F /* QrCode.cpp in Sources */,
-				E27422A91F2ED0790041AA2F /* CreativeEnv.cpp in Sources */,
+				E2E780BD1F31CFD000C76D3C /* QrSegment.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,8 +660,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 62HE3JSQ9N;
+				DEVELOPMENT_TEAM = YS9S9AVU58;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "C++Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cmbc.pay.C--Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -661,8 +676,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 62HE3JSQ9N;
+				DEVELOPMENT_TEAM = YS9S9AVU58;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "C++Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cmbc.pay.C--Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -675,6 +693,7 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = 62HE3JSQ9N;
 				INFOPLIST_FILE = "C++UITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cmbc.pay.C--UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -687,6 +706,7 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = 62HE3JSQ9N;
 				INFOPLIST_FILE = "C++UITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cmbc.pay.C--UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";

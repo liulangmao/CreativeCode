@@ -12,6 +12,8 @@
 #import "ViewController.h"
 #import "CMBCImageRef.hpp"
 #import "CMBCBitmapUtil.h"
+#include "CreativeQrCode.hpp"
+#include "CreativeElementStyle.hpp"
 
 @interface ViewController ()
 {
@@ -47,10 +49,18 @@
     
     
     //方法一
-    UIImage *resultUIImage = [UIImage imageWithCGImage:[CMBCBitmapUtil setBitMapImage:@"imageRef.png"]];
+    
+    //UIImage *resultUIImage = [UIImage imageWithCGImage:[CMBCBitmapUtil setBitMapImage:@"imageRef.png"]];
+    //imageView.image = resultUIImage;
+    
+    
+    //test
+     string name="imageRef.png";
+     CreativeElementStyle *style= new CreativeElementStyle(50,&name);
+    CreativeQrCode *qrcode= new CreativeQrCode(*style);
+    
+    UIImage *resultUIImage=qrcode->testRead();
     imageView.image = resultUIImage;
-
-
     //方法二 无返回值
 //    size_t width = 200;
 //    size_t height = 200;

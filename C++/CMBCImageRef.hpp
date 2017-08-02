@@ -2,7 +2,7 @@
 //  CMBCImageRef.hpp
 //  C++
 //
-//  Created by 杨金保 on 2017/7/21.
+//  Created by liming on 2017/8/2.
 //  Copyright © 2017年 杨金保. All rights reserved.
 //
 
@@ -18,7 +18,7 @@
 class CMBCImageRefClass {
     
 public:
-   
+    
 #pragma mark - 修改版
     CGImageRef SetBitMapImage(NSString *imageName);
     

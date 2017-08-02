@@ -25,7 +25,7 @@ public:
     void Print(int **array, int width, int height);
     
 private:
-    const char *txt;
+    const string *txt;
     
 };
 

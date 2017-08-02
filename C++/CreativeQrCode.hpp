@@ -1,9 +1,9 @@
 //
 //  CreativeQrCode.hpp
-//  CreativeQRcode
+//  C++
 //
-//  Created by liming on 2017/7/25.
-//  Copyright © 2017年 liming. All rights reserved.
+//  Created by liming on 2017/8/2.
+//  Copyright © 2017年 杨金保. All rights reserved.
 //
 
 #ifndef CreativeQrCode_hpp
@@ -20,13 +20,19 @@
 #include <stdbool.h>
 using namespace std;
 
+
+
+#import <CoreGraphics/CoreGraphics.h>
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
 class CreativeQrCode{
 public:
     CreativeQrCode(CreativeElementStyle style);
     CGImageRef CreativeQRZXing(string txt,int size,int margin);
     CGImageRef getDiskBitmap(string imagename);
     CGImageRef getResizedBitmap(CGImageRef imageref, CGSize newSize);
-   // Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight);
+    // Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight);
     void AnalysisStyle(int cellSize);
     static int ComputCellNumberByVersion(int version);
     //Bitmap CreativeQRZXing(string txt,int size,int margin,Context mContext);
@@ -39,7 +45,12 @@ public:
     static CreativeElementStyle *BAMBOO;
     static string BAMBOO_namelist[5];
     CGImageRef* CreateFinal(int size,int margin);
-
+    UIImage* testRead();
+    
+    
+    UIImage* creatEmptyImg(UIColor * color,CGSize size);
+    UIImage * processUsingPixels(UIImage* inputImage);
+    
     
 private:
     int version=0;
@@ -48,8 +59,9 @@ private:
     CreativeElementStyle style;
     static int ComputCellSize(CreativeElementStyle style);
     static int binarySearch(int* srcArray, int width,int des);
-    bool AnalysisVersion(int size, string txt,int margin);
+    // bool AnalysisVersion(int size, string txt,int margin);
     bool opendebug=true;
 };
+
 
 #endif /* CreativeQrCode_hpp */

@@ -2,7 +2,7 @@
 //  CMBCImageRef.cpp
 //  C++
 //
-//  Created by 杨金保 on 2017/7/21.
+//  Created by liming on 2017/8/2.
 //  Copyright © 2017年 杨金保. All rights reserved.
 //
 
@@ -13,53 +13,53 @@
 #include <string>
 using namespace std;
 
-#pragma mark - 
+#pragma mark -
 /*
  @param imageName 图片名字
  @return CGImageRef 返回CGImageRef
  */
- CGImageRef SetBitMapImage(string imagename) {
-     
-     NSString *imageName = [NSString stringWithCString:imagename.c_str()
-                                                 encoding:[NSString defaultCStringEncoding]];
-     
-     
-     UIImage *image = [UIImage imageNamed:imageName];
-     CGImageRef imageRefs = [image CGImage];
+CGImageRef SetBitMapImage(string imagename) {
     
-     size_t imageWidth = CGImageGetWidth(imageRefs);
-     size_t imageHeight = CGImageGetHeight(imageRefs);
-     size_t bytesPerRow = imageWidth * 4;
-     
-     //为所有的像素点分配内存
-     uint32_t* bitmapData = (uint32_t*)malloc(bytesPerRow * imageHeight);
+    NSString *imageName = [NSString stringWithCString:imagename.c_str()
+                                             encoding:[NSString defaultCStringEncoding]];
     
-     //颜色空间
-     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     
-     //创建context
-     CGContextRef context = CGBitmapContextCreate(bitmapData, imageWidth, imageHeight, 8, bytesPerRow, colorSpace,kCGBitmapByteOrderDefault | kCGImageAlphaPremultipliedFirst);
+    UIImage *image = [UIImage imageNamed:imageName];
+    CGImageRef imageRefs = [image CGImage];
     
-     CGContextDrawImage(context, CGRectMake(0, 0, imageWidth, imageHeight),imageRefs);
+    size_t imageWidth = CGImageGetWidth(imageRefs);
+    size_t imageHeight = CGImageGetHeight(imageRefs);
+    size_t bytesPerRow = imageWidth * 4;
     
-     //遍历像素
-     size_t pixelNum = imageWidth * imageHeight;
-     uint32_t* pCurPtr = bitmapData;
-     for (int i = 0; i < pixelNum; i++, pCurPtr++) {
-         uint8_t* ptr = (uint8_t*)pCurPtr;
-         //        ptr[0] = 255;//alpha
-         //        ptr[1] = 0;//red
-         //        ptr[2] = 255;//green
-         //        ptr[3] = 0;//blue
-         NSLog(@"比特:%d  A:%hhu  R:%hhu  G:%hhu  B:%hhu",i,ptr[0],ptr[1],ptr[2],ptr[3]);
-     }
-     CGDataProviderRef dataProvider = CGDataProviderCreateWithData(NULL, bitmapData, bytesPerRow * imageHeight, NULL);
-     
-     CGImageRef imageRef = CGImageCreate(imageWidth, imageHeight, 8, 32, bytesPerRow, colorSpace,kCGBitmapByteOrderMask | kCGImageAlphaPremultipliedFirst, dataProvider,NULL, YES, kCGRenderingIntentDefault);
+    //为所有的像素点分配内存
+    uint32_t* bitmapData = (uint32_t*)malloc(bytesPerRow * imageHeight);
     
-     CGDataProviderRelease(dataProvider);
-     CGContextRelease(context);
-     CGColorSpaceRelease(colorSpace);
+    //颜色空间
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    
+    //创建context
+    CGContextRef context = CGBitmapContextCreate(bitmapData, imageWidth, imageHeight, 8, bytesPerRow, colorSpace,kCGBitmapByteOrderDefault | kCGImageAlphaPremultipliedFirst);
+    
+    CGContextDrawImage(context, CGRectMake(0, 0, imageWidth, imageHeight),imageRefs);
+    
+    //遍历像素
+    size_t pixelNum = imageWidth * imageHeight;
+    uint32_t* pCurPtr = bitmapData;
+    for (int i = 0; i < pixelNum; i++, pCurPtr++) {
+        uint8_t* ptr = (uint8_t*)pCurPtr;
+        //        ptr[0] = 255;//alpha
+        //        ptr[1] = 0;//red
+        //        ptr[2] = 255;//green
+        //        ptr[3] = 0;//blue
+        NSLog(@"比特:%d  A:%hhu  R:%hhu  G:%hhu  B:%hhu",i,ptr[0],ptr[1],ptr[2],ptr[3]);
+    }
+    CGDataProviderRef dataProvider = CGDataProviderCreateWithData(NULL, bitmapData, bytesPerRow * imageHeight, NULL);
+    
+    CGImageRef imageRef = CGImageCreate(imageWidth, imageHeight, 8, 32, bytesPerRow, colorSpace,kCGBitmapByteOrderMask | kCGImageAlphaPremultipliedFirst, dataProvider,NULL, YES, kCGRenderingIntentDefault);
+    
+    CGDataProviderRelease(dataProvider);
+    CGContextRelease(context);
+    CGColorSpaceRelease(colorSpace);
     
     return imageRef;
 }
@@ -69,9 +69,9 @@ using namespace std;
  *@param bitmapData
  */
 void CreateImage(std::string imageName , uint32_t *bitmapData) {
-//    CGImageRef imageRef = [self createImageRefWidth:200 height:200 bitmapData:bitmapData];
-//    
-//    std::cout<<imageRef<<std::endl;
+    //    CGImageRef imageRef = [self createImageRefWidth:200 height:200 bitmapData:bitmapData];
+    //
+    //    std::cout<<imageRef<<std::endl;
 }
 
 /*

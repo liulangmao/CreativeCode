@@ -31,7 +31,7 @@ public:
     void fillEye();
     void FindCellEqualsOne();
     void FillbyType();
-    CGImageRef* CreateFinal(int size,int margin);
+    int* CreateFinal(int size,int margin);
     CGImageRef* getResizedBitmap(CGImageRef* bm, int newWidth, int newHeight);
     void clean();
     CGImageRef* getDiskBitmap(string name);
