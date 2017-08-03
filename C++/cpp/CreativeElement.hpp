@@ -14,7 +14,7 @@
 #include <string>
 using namespace std;
 #include "CoreGraphics/CGImage.h"
-
+#include "Cell.hpp"
 #include "Point.hpp"
 
 class CreativeElement{
@@ -26,8 +26,8 @@ public:
 public:
 
     bool equals(CreativeElement other);
-    vector<CGImageRef>* getPreImage();
-    void setPreImage(vector<CGImageRef>* preImage);
+    vector<Cell*>* getPreImage();
+    void setPreImage(vector<Cell*>* preImage);
     vector<PointS>* getM_start();
     void setM_start(vector<PointS>* m_start);
     int getColspan();
@@ -45,7 +45,7 @@ private:
     int rowspan=0;
     int value=0;
     string str="";
-    vector<CGImageRef> *preImage;
+    vector<Cell*> *preImage;
     string nameSwitch="";
     vector<PointS> *m_start;
     

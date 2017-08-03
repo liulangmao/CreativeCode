@@ -153,40 +153,63 @@ CreativeQrCode::CreativeQrCode(CreativeElementStyle style){
     this->setStyle(style);
 }
 
+
+UInt32 * ChangFromImage2Int(CGImageRef imageRefs){
+    
+    size_t imageWidth = CGImageGetWidth(imageRefs);
+    size_t imageHeight = CGImageGetHeight(imageRefs);
+    size_t bytesPerRow = imageWidth * 4;
+    
+    //为所有的像素点分配内存
+    uint32_t* bitmapData = (uint32_t*)malloc(bytesPerRow * imageHeight);
+    
+    //颜色空间
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    
+    //创建context
+    CGContextRef context = CGBitmapContextCreate(bitmapData, imageWidth, imageHeight, 8, bytesPerRow, colorSpace,kCGBitmapByteOrderDefault | kCGImageAlphaPremultipliedFirst);
+    
+    CGContextDrawImage(context, CGRectMake(0, 0, imageWidth, imageHeight),imageRefs);
+    
+    CGContextRelease(context);
+    CGColorSpaceRelease(colorSpace);
+    
+    return bitmapData;
+}
+
+
 CGImageRef  CreativeQrCode::getDiskBitmap(string imagename){
         NSString *imageName = [NSString stringWithCString:imagename.c_str()
                                                  encoding:[NSString defaultCStringEncoding]];
-    
-    
         UIImage *image = [UIImage imageNamed:imageName];
        CGImageRef imageRefs = [image CGImage];
-    
-        size_t imageWidth = CGImageGetWidth(imageRefs);
-        size_t imageHeight = CGImageGetHeight(imageRefs);
-        size_t bytesPerRow = imageWidth * 4;
-    
-        //为所有的像素点分配内存
-        uint32_t* bitmapData = (uint32_t*)malloc(bytesPerRow * imageHeight);
-    
-        //颜色空间
-        CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    
-        //创建context
-        CGContextRef context = CGBitmapContextCreate(bitmapData, imageWidth, imageHeight, 8, bytesPerRow, colorSpace,kCGBitmapByteOrderDefault | kCGImageAlphaPremultipliedFirst);
-    
-        CGContextDrawImage(context, CGRectMake(0, 0, imageWidth, imageHeight),imageRefs);
-    
-    
-    
-        CGDataProviderRef dataProvider = CGDataProviderCreateWithData(NULL, bitmapData, bytesPerRow * imageHeight, NULL);
-    
-        CGImageRef imageRef = CGImageCreate(imageWidth, imageHeight, 8, 32, bytesPerRow, colorSpace,kCGBitmapByteOrderMask | kCGImageAlphaPremultipliedFirst, dataProvider,NULL, YES, kCGRenderingIntentDefault);
-    
-        CGDataProviderRelease(dataProvider);
-        CGContextRelease(context);
-        CGColorSpaceRelease(colorSpace);
-    
-    return imageRef;
+/**
+//        size_t imageWidth = CGImageGetWidth(imageRefs);
+//        size_t imageHeight = CGImageGetHeight(imageRefs);
+//        size_t bytesPerRow = imageWidth * 4;
+//    
+//        //为所有的像素点分配内存
+//        uint32_t* bitmapData = (uint32_t*)malloc(bytesPerRow * imageHeight);
+//    
+//        //颜色空间
+//        CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+//    
+//        //创建context
+//        CGContextRef context = CGBitmapContextCreate(bitmapData, imageWidth, imageHeight, 8, bytesPerRow, colorSpace,kCGBitmapByteOrderDefault | kCGImageAlphaPremultipliedFirst);
+//    
+//        CGContextDrawImage(context, CGRectMake(0, 0, imageWidth, imageHeight),imageRefs);
+//    
+//    
+//    
+//        CGDataProviderRef dataProvider = CGDataProviderCreateWithData(NULL, bitmapData, bytesPerRow * imageHeight, NULL);
+//    
+//        CGImageRef imageRef = CGImageCreate(imageWidth, imageHeight, 8, 32, bytesPerRow, colorSpace,kCGBitmapByteOrderMask | kCGImageAlphaPremultipliedFirst, dataProvider,NULL, YES, kCGRenderingIntentDefault);
+//    
+//        CGDataProviderRelease(dataProvider);
+//        CGContextRelease(context);
+//        CGColorSpaceRelease(colorSpace);
+  **/
+    return imageRefs;
     
 }
 CGImageRef CreativeQrCode::getResizedBitmap(CGImageRef imageref, CGSize newSize){
@@ -226,6 +249,7 @@ void CreativeQrCode::AnalysisStyle(int cellSize){
     string* namelist=style.getNamelist();
     cout<<"AnalysisStyle====namelist"<<namelist->size();
     bool resize=true;
+    Cell *cell= new Cell();
     for ( int n=0;n<namelist->size();n++) {
         name=namelist[n];
         std::size_t found_=name.find("_");
@@ -244,11 +268,14 @@ void CreativeQrCode::AnalysisStyle(int cellSize){
                 if(resize) {
                     CGSize size=CGSizeMake(2 * cellSize, 4 * cellSize);
                     resizeimage = getResizedBitmap(image, size);
-                    FourByTwo->getPreImage()->push_back(resizeimage);
+                    cell->setWidthHeigh(2 * cellSize, 4 * cellSize);
+                    cell->setPreImage(ChangFromImage2Int(resizeimage));
                 }
                 else{
-                    FourByTwo->getPreImage()->push_back(image);
+                    cell->setWidthHeigh((int)CGImageGetWidth(image), (int)CGImageGetHeight(image));
+                    cell->setPreImage(ChangFromImage2Int(image));
                 }
+                FourByTwo->getPreImage()->push_back(cell);
                 CreativeEnv::addElement(FourByTwo);
                 //cout<<"AnalysisStyle====case 4_2";
                 
@@ -257,22 +284,29 @@ void CreativeQrCode::AnalysisStyle(int cellSize){
                 if(resize) {
                     CGSize size=CGSizeMake(7 * cellSize, 7 * cellSize);
                     resizeimage = getResizedBitmap(image, size);
-                    CreativeEnv::getEye().getPreImage()->push_back(resizeimage);
+                    cell->setWidthHeigh(7 * cellSize, 7 * cellSize);
+                    cell->setPreImage(ChangFromImage2Int(resizeimage));
                 }
                 else{
-                    CreativeEnv::getEye().getPreImage()->push_back(image);
+                    cell->setWidthHeigh((int)CGImageGetWidth(image), (int)CGImageGetHeight(image));
+                    cell->setPreImage(ChangFromImage2Int(image));
                 }
+                CreativeEnv::getEye().getPreImage()->push_back(cell);
                 //cout<<"AnalysisStyle====case 7_7";
             }else if(strcmp(nameswitch.c_str(),"3_1")==0){
                 CreativeElement *ThreeByOne = new CreativeElement(-5, 3, 1);
                 if(resize) {
                     CGSize size=CGSizeMake(cellSize, 3 * cellSize);
                     resizeimage = getResizedBitmap(image, size);
-                    ThreeByOne->getPreImage()->push_back(resizeimage);
+                    cell->setWidthHeigh( cellSize, 3 * cellSize);
+                    cell->setPreImage(ChangFromImage2Int(resizeimage));
+                    
                 }
                 else{
-                    ThreeByOne->getPreImage()->push_back(image);
+                    cell->setWidthHeigh((int)CGImageGetWidth(image), (int)CGImageGetHeight(image));
+                    cell->setPreImage(ChangFromImage2Int(image));
                 }
+                ThreeByOne->getPreImage()->push_back(cell);
                 CreativeEnv::addElement(ThreeByOne);
                 //cout<<"AnalysisStyle====case 3_1";
             }else if(strcmp(nameswitch.c_str(),"2_2")==0){
@@ -280,11 +314,14 @@ void CreativeQrCode::AnalysisStyle(int cellSize){
                 if(resize) {
                     CGSize size=CGSizeMake(2 * cellSize, 2 * cellSize);
                     resizeimage = getResizedBitmap(image, size);
-                    TwoByTwo->getPreImage()->push_back(resizeimage);
+                    cell->setWidthHeigh(2 * cellSize, 2 * cellSize);
+                    cell->setPreImage(ChangFromImage2Int(resizeimage));
                 }
                 else{
-                    TwoByTwo->getPreImage()->push_back(image);
+                    cell->setWidthHeigh((int)CGImageGetWidth(image), (int)CGImageGetHeight(image));
+                    cell->setPreImage(ChangFromImage2Int(image));
                 }
+                TwoByTwo->getPreImage()->push_back(cell);
                 CreativeEnv::addElement(TwoByTwo);
                 //cout<<"AnalysisStyle====case 2_2";
             }else if(strcmp(nameswitch.c_str(),"2_1")==0){
@@ -293,11 +330,15 @@ void CreativeQrCode::AnalysisStyle(int cellSize){
                 if(resize) {
                     CGSize size=CGSizeMake(cellSize, 2 * cellSize);
                     resizeimage = getResizedBitmap(image, size);
-                    TwoByOne->getPreImage()->push_back(resizeimage);
+                    cell->setWidthHeigh(cellSize, 2 * cellSize);
+                    cell->setPreImage(ChangFromImage2Int(resizeimage));
                 }
                 else{
-                    TwoByOne->getPreImage()->push_back(image);
+                    cell->setWidthHeigh((int)CGImageGetWidth(image), (int)CGImageGetHeight(image));
+                    cell->setPreImage(ChangFromImage2Int(image));
+                   
                 }
+                 TwoByOne->getPreImage()->push_back(cell);
                 CreativeEnv::addElement(TwoByOne);
                 //cout<<"AnalysisStyle====case 2_1";
             }else if(strcmp(nameswitch.c_str(),"1_1")==0){
@@ -306,11 +347,14 @@ void CreativeQrCode::AnalysisStyle(int cellSize){
                 if(resize) {
                     CGSize size=CGSizeMake(cellSize, cellSize);
                     resizeimage = getResizedBitmap(image, size);
-                    OneByOne->getPreImage()->push_back(resizeimage);
+                    cell->setWidthHeigh(cellSize, cellSize);
+                    cell->setPreImage(ChangFromImage2Int(resizeimage));
                 }
                 else{
-                    OneByOne->getPreImage()->push_back(image);
-                }
+                    cell->setWidthHeigh((int)CGImageGetWidth(image), (int)CGImageGetHeight(image));
+                    cell->setPreImage(ChangFromImage2Int(image));
+            }
+                OneByOne->getPreImage()->push_back(cell);
                 CreativeEnv::addElement(OneByOne);
                 //cout<<"AnalysisStyle====case 1_1";
             }

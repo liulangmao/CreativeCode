@@ -52,6 +52,7 @@
 		E2E780C01F31CFD000C76D3C /* Point.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2E780B31F31CFD000C76D3C /* Point.cpp */; };
 		E2E780C61F31D35900C76D3C /* CreativeQrCode.mm in Sources */ = {isa = PBXBuildFile; fileRef = E2E780C41F31D35900C76D3C /* CreativeQrCode.mm */; };
 		E2E780CF1F31DD7900C76D3C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E780CE1F31DD7900C76D3C /* main.m */; };
+		E2E780D21F331E0700C76D3C /* Cell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2E780D01F331E0700C76D3C /* Cell.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +138,8 @@
 		E2E780C41F31D35900C76D3C /* CreativeQrCode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CreativeQrCode.mm; sourceTree = "<group>"; };
 		E2E780C51F31D35900C76D3C /* CreativeQrCode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CreativeQrCode.hpp; sourceTree = "<group>"; };
 		E2E780CE1F31DD7900C76D3C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E2E780D01F331E0700C76D3C /* Cell.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Cell.cpp; sourceTree = "<group>"; };
+		E2E780D11F331E0700C76D3C /* Cell.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Cell.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +205,8 @@
 				E2E780A51F31CFCF00C76D3C /* CreativeQRTool.cpp */,
 				E2E780A61F31CFD000C76D3C /* CreativeElementStyle.cpp */,
 				E2E780A71F31CFD000C76D3C /* CreativeElementStyle.hpp */,
+				E2E780D01F331E0700C76D3C /* Cell.cpp */,
+				E2E780D11F331E0700C76D3C /* Cell.hpp */,
 				E2E780A81F31CFD000C76D3C /* Qrcode */,
 				E2E780B01F31CFD000C76D3C /* CreativeElement.cpp */,
 				E2E780B11F31CFD000C76D3C /* CreativeElement.hpp */,
@@ -471,6 +476,7 @@
 				E2E780CF1F31DD7900C76D3C /* main.m in Sources */,
 				E2E780BC1F31CFD000C76D3C /* QrCode.cpp in Sources */,
 				E2E780B91F31CFD000C76D3C /* CreativeElementStyle.cpp in Sources */,
+				E2E780D21F331E0700C76D3C /* Cell.cpp in Sources */,
 				E2E780C01F31CFD000C76D3C /* Point.cpp in Sources */,
 				E2E780BF1F31CFD000C76D3C /* CreativeEnv.cpp in Sources */,
 				E2E780B81F31CFD000C76D3C /* CreativeQRTool.cpp in Sources */,

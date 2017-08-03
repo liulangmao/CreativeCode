@@ -28,11 +28,17 @@ using namespace std;
 
 class CreativeQrCode{
 public:
+    
+    static CreativeElementStyle *YELLOWBOY;
+    static string YELLOWBOY_namelist[9];
+    static CreativeElementStyle *BAMBOO;
+    static string BAMBOO_namelist[5];
+
     CreativeQrCode(CreativeElementStyle style);
     CGImageRef CreativeQRZXing(string txt,int size,int margin);
     CGImageRef getDiskBitmap(string imagename);
     CGImageRef getResizedBitmap(CGImageRef imageref, CGSize newSize);
-    // Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight);
+    
     void AnalysisStyle(int cellSize);
     static int ComputCellNumberByVersion(int version);
     //Bitmap CreativeQRZXing(string txt,int size,int margin,Context mContext);
@@ -40,10 +46,8 @@ public:
     void setStyle(CreativeElementStyle style);
     string getLogoPath();
     void setLogoPath(string logoBmp);
-    static CreativeElementStyle *YELLOWBOY;
-    static string YELLOWBOY_namelist[9];
-    static CreativeElementStyle *BAMBOO;
-    static string BAMBOO_namelist[5];
+    
+    
     CGImageRef* CreateFinal(int size,int margin);
     UIImage* testRead();
     
@@ -59,6 +63,7 @@ private:
     CreativeElementStyle style;
     static int ComputCellSize(CreativeElementStyle style);
     static int binarySearch(int* srcArray, int width,int des);
+    UInt32 * ChangFromImage2Int(CGImageRef imageref);
     // bool AnalysisVersion(int size, string txt,int margin);
     bool opendebug=true;
 };

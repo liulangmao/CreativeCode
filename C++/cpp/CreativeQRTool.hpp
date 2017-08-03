@@ -31,9 +31,9 @@ public:
     void fillEye();
     void FindCellEqualsOne();
     void FillbyType();
-    int* CreateFinal(int size,int margin);
-    CGImageRef* getResizedBitmap(CGImageRef* bm, int newWidth, int newHeight);
+    unsigned int* CreateFinal(int size,int margin);
     void clean();
+    
     CGImageRef* getDiskBitmap(string name);
     
     
@@ -43,12 +43,10 @@ private:
     
     void fillType(int row,int col,CreativeElement type);
     void Print(int** array,int width,int height);
-    
-    void LoadPreImage(string* namelist);
     void fillAnyType(CreativeElement type);
     bool test(int row,int col,CreativeElement type);
     string Int_to_String(int n);
-
+    UInt32* Draw(int originWidth, int originHeight,Cell* cell);
     
     
     int **m_mat;
