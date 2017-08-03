@@ -63,7 +63,7 @@ private:
     CreativeElementStyle style;
     static int ComputCellSize(CreativeElementStyle style);
     static int binarySearch(int* srcArray, int width,int des);
-    UInt32 * ChangFromImage2Int(CGImageRef imageref);
+    UInt32 * ChangFromImage2Int(CGImageRef imageRefs);
     // bool AnalysisVersion(int size, string txt,int margin);
     bool opendebug=true;
 };

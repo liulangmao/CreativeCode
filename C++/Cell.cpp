@@ -46,3 +46,7 @@ void Cell::setPreImage(UInt32* preImage){
     this->preImage=preImage;
 
 }
+UInt32*  Cell::getPreImage(){
+    return this->preImage;
+}
+

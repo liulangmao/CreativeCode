@@ -153,10 +153,11 @@ void CreativeQRTool::FillbyType(){
 
 UInt32 * CreativeQRTool::CreateFinal(int size,int margin){
     
-    UInt32* finalMat = (UInt32*)malloc(size * size*4);
-    for(int width=0;width<size * size*4;width++)
+    UInt32* finalMat = (UInt32 *)calloc(size * size, sizeof(UInt32));
+
+    for(int width=0;width<size * size;width++)
     {
-        finalMat[width]=255;
+        finalMat[width]=0xffffffff;
     }
     list<CreativeElement*>::iterator it;
     vector<PointS>::iterator itPointBegin;
@@ -172,13 +173,52 @@ UInt32 * CreativeQRTool::CreateFinal(int size,int margin){
                 int x=(*itPoint).getX();
                 int y=(*itPoint).getY();
                 Cell* r = *(temp->getPreImage()->begin());
-                Draw(x,y,r);
+                Draw(x,y,r,finalMat,margin,size);
             }
         }
     }
     return finalMat;
 }
 
+#define Mask8(x) ( (x) & 0xFF )
+#define R(x) ( Mask8(x) )
+#define G(x) ( Mask8(x >> 8 ) )
+#define B(x) ( Mask8(x >> 16) )
+#define A(x) ( Mask8(x >> 24) )
+#define RGBAMake(r, g, b, a) ( Mask8(r) | Mask8(g) << 8 | Mask8(b) << 16 | Mask8(a) << 24 )
+#define MAX(a,b) ((a)>(b)?(a):(b))
+#define MIN(x,y) ((x)<(y)?(x):(y))
+void CreativeQRTool::Draw(int originWidth, int originHeight,Cell* cell,UInt32* finalMat,int margin,int finalSize){
+    int offsetPixelCountForInput = (originHeight * originWidth + originWidth)*this->cellSize+margin;
+    for (int j = 0; j < this->cellSize; j++) {
+        for (int i = 0; i < this->cellSize; i++) {
+            
+            UInt32 * inputPixel = finalMat + j * finalSize + i + offsetPixelCountForInput;
+            UInt32 * ghostPixel = cell->getPreImage() + j * cell->getWidth() + i;
+            UInt32   ghostColor = *ghostPixel;
+            
+            
+            UInt32 newR = R(ghostColor) ;
+            UInt32 newG = G(ghostColor) ;
+            UInt32 newB = B(ghostColor) ;
+            
+            newR = MAX(0,MIN(255, newR));
+            newG = MAX(0,MIN(255, newG));
+            newB = MAX(0,MIN(255, newB));
+            
+            *inputPixel = RGBAMake(newR, newG, newB, 255);
+        }
+    }
+}
+
+#undef RGBAMake
+#undef R
+#undef G
+#undef B
+#undef A
+#undef Mask8
+#undef MIN
+#undef MAX
 void CreativeQRTool::clean(){
     
 }

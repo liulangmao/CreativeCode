@@ -25,6 +25,7 @@ public:
     int  getWidth();
     int  getHeigh();
     void setPreImage(UInt32*);
+    UInt32*  getPreImage();
 private:
     int width;
     int heigh;

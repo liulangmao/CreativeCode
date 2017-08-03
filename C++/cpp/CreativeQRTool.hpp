@@ -34,8 +34,6 @@ public:
     unsigned int* CreateFinal(int size,int margin);
     void clean();
     
-    CGImageRef* getDiskBitmap(string name);
-    
     
     
     
@@ -46,7 +44,7 @@ private:
     void fillAnyType(CreativeElement type);
     bool test(int row,int col,CreativeElement type);
     string Int_to_String(int n);
-    UInt32* Draw(int originWidth, int originHeight,Cell* cell);
+    void Draw(int originWidth, int originHeight,Cell* cell,UInt32* finalMat,int margin,int finalSize);
     
     
     int **m_mat;
