@@ -41,17 +41,15 @@ public:
     
     void AnalysisStyle(int cellSize);
     static int ComputCellNumberByVersion(int version);
-    //Bitmap CreativeQRZXing(string txt,int size,int margin,Context mContext);
     CreativeElementStyle getStyle();
     void setStyle(CreativeElementStyle style);
     string getLogoPath();
     void setLogoPath(string logoBmp);
     
     
-    CGImageRef* CreateFinal(int size,int margin);
+    
+    
     UIImage* testRead();
-    
-    
     UIImage* creatEmptyImg(UIColor * color,CGSize size);
     UIImage * processUsingPixels(UIImage* inputImage);
     
@@ -64,7 +62,9 @@ private:
     static int ComputCellSize(CreativeElementStyle style);
     static int binarySearch(int* srcArray, int width,int des);
     UInt32 * ChangFromImage2Int(CGImageRef imageRefs);
-    // bool AnalysisVersion(int size, string txt,int margin);
+    CGImageRef ChangFromInt2Image(UInt32 * bitmapData,int imageWidth, int imageHeight);
+
+    bool AnalysisVersion(int size, string txt,int margin);
     bool opendebug=true;
 };
 

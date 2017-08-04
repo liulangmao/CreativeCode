@@ -9,7 +9,7 @@
 #include "CreativeQrCode.hpp"
 
 #include "CoreGraphics/CGAffineTransform.h"
-
+#include <math.h>
 string CreativeQrCode::YELLOWBOY_namelist[9]={"yellowboy_7_7.bmp","yellowboy_4_2.bmp","yellowboy_3_1.bmp","yellowboy_2_2_1.bmp","yellowboy_2_2_2.bmp","yellowboy_2_1_1.bmp","yellowboy_2_1_2.bmp","yellowboy_2_1_3.bmp","yellowboy_1_1.bmp"};
 
 CreativeElementStyle *CreativeQrCode::YELLOWBOY= new CreativeElementStyle( 50, CreativeQrCode::YELLOWBOY_namelist);
@@ -365,6 +365,23 @@ int CreativeQrCode::ComputCellNumberByVersion(int version){
     int cellNumber = 21 + (version-1) * 4;
     return cellNumber;
 }
+CGImageRef CreativeQrCode::ChangFromInt2Image(UInt32 * bitmapData,int imageWidth, int imageHeight){
+    
+    size_t bytesPerRow = imageWidth * 4;
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGContextRef context = CGBitmapContextCreate(bitmapData, imageWidth, imageHeight, 8, bytesPerRow, colorSpace,kCGBitmapByteOrderDefault | kCGImageAlphaPremultipliedFirst);
+    CGContextDrawImage(context, CGRectMake(0, 0, imageWidth, imageHeight),NULL);
+    
+    CGDataProviderRef dataProvider = CGDataProviderCreateWithData(NULL, bitmapData, bytesPerRow * imageHeight, NULL);
+    CGImageRef imageRef = CGImageCreate(imageWidth, imageHeight, 8, 32, bytesPerRow, colorSpace,kCGBitmapByteOrderDefault | kCGImageAlphaPremultipliedFirst, dataProvider,NULL, YES, kCGRenderingIntentDefault);
+    
+    
+    CGDataProviderRelease(dataProvider);
+    CGContextRelease(context);
+    CGColorSpaceRelease(colorSpace);
+    
+    return imageRef;
+}
 
 
 //CGImageRef CreateImageRef(float imageWidth, float imageHeight, uint32_t *bitmapData)
@@ -445,8 +462,9 @@ CGImageRef CreativeQrCode::CreativeQRZXing(string txt,int size,int margin){
     h->FillbyType();
     int inputImageSize=cellNumber*cellSize+2*margin;
     
+    UInt32 * image=h->CreateFinal(inputImageSize, margin);
     
-    //Bitmap finalImage=h->CreateFinal(inputImageSize, margin);
+    CGImageRef finalImage=ChangFromInt2Image(image,inputImageSize,inputImageSize);
     
     //System.out.println("finalImage.width()"+finalImage.getWidth()+"finalImage.height()"+finalImage.getHeight());
     if(Ischange){
@@ -458,11 +476,11 @@ CGImageRef CreativeQrCode::CreativeQRZXing(string txt,int size,int margin){
     
     h->clean();
     
-    //to do
-    CGImageRef a;
     
-    return a;
+    return finalImage;
 }
+
+
 int CreativeQrCode::binarySearch(int* srcArray, int width,int des){
     
     int low = 0;
@@ -484,36 +502,39 @@ int CreativeQrCode::binarySearch(int* srcArray, int width,int des){
     return -1;
 }
 // to do
-//bool CreativeQrCode::AnalysisVersion(int size, string txt,int margin) {
-//    byte* d = new byte[0];
-//    d = txt.getBytes();
-//    int versiontemp = 0;
-//    int* numbersize = {17, 32, 53, 78, 106, 134, 154, 192, 230, 271, 321, 367, 425, 458, 520, 586, 644, 718, 792, 858, 929, 1003,
-//        1091,1171,1273,1367,1465,1528,1628,1732,1840,1952,2068,2188,2303,2431,2563,2699,2809,2053};
-//    versiontemp = binarySearch(numbersize, d.length)+1;
-//    margin=margin;
-//
-//    version=versiontemp;
-//    int versionwidth=21+(versiontemp-1)*4;
-//    double wtdouble = (double)versionwidth;
-//    int sizetemp=size-2*margin;
-//    double cellsizedoule=Math.floor(sizetemp/wtdouble);
-//    style.setCellsize((int)cellsizedoule);
-//    int finalsize=versionwidth*(int)cellsizedoule+margin*2;
-//
-//
-//    String error="version="+versiontemp+"margin"+margin+"totalsize:"+finalsize;
-//    Log.i("binarySearch=", error);
-//    System.out.println("version="+versiontemp+"totalsize:"+finalsize);
-//
-//    if(finalsize!=size)
-//    {
-//        return true;
-//    }
-//    else{
-//        return false;
-//    }
-//}
+typedef char byte;
+bool CreativeQrCode::AnalysisVersion(int size, string txt,int margin) {
+    std::string str = "hello world";
+    byte* cstr = new byte [txt.size() + 1];
+    std::strcpy(cstr, txt.c_str());
+    
+    
+    
+    int versiontemp = 0;
+    int numbersize [40]= {17, 32, 53, 78, 106, 134, 154, 192, 230, 271, 321, 367, 425, 458, 520, 586, 644, 718, 792, 858, 929, 1003,
+        1091,1171,1273,1367,1465,1528,1628,1732,1840,1952,2068,2188,2303,2431,2563,2699,2809,2053};
+    versiontemp = binarySearch(numbersize, txt.size() + 1,txt.size() + 1)+1;
+    margin=margin;
+
+    version=versiontemp;
+    int versionwidth=21+(versiontemp-1)*4;
+    double wtdouble = (double)versionwidth;
+    int sizetemp=size-2*margin;
+    double cellsizedoule=floor(sizetemp/wtdouble);
+    style.setCellsize((int)cellsizedoule);
+    int finalsize=versionwidth*(int)cellsizedoule+margin*2;
+
+
+    cout<< "binarySearch="<<"version="<<versiontemp<<"margin"<<margin<<"totalsize:"<<finalsize;
+    delete [] cstr;
+    if(finalsize!=size)
+    {
+        return true;
+    }
+    else{
+        return false;
+    }
+}
 CreativeElementStyle CreativeQrCode::getStyle(){
     return style;
 }

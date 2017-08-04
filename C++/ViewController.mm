@@ -54,13 +54,21 @@
     //imageView.image = resultUIImage;
     
     
-    //test
-     string name="imageRef.png";
-     CreativeElementStyle *style= new CreativeElementStyle(50,&name);
+    //方法四
+//     string name="imageRef.png";
+//     CreativeElementStyle *style= new CreativeElementStyle(50,&name);
+//    CreativeQrCode *qrcode= new CreativeQrCode(*style);
+//    
+//    UIImage *resultUIImage=qrcode->testRead();
+//    imageView.image = resultUIImage;
+    //方法五
+    string name="bamboo_1_1_1.bmp";
+    CreativeElementStyle *style= new CreativeElementStyle(50,&name);
     CreativeQrCode *qrcode= new CreativeQrCode(*style);
-    
-    UIImage *resultUIImage=qrcode->testRead();
+    CGImageRef resultRef=qrcode->CreativeQRZXing("i am liming", 1000, 5);
+    UIImage * resultUIImage =[UIImage imageWithCGImage: resultRef]; ;
     imageView.image = resultUIImage;
+    
     //方法二 无返回值
 //    size_t width = 200;
 //    size_t height = 200;
