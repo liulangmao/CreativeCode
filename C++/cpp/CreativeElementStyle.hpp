@@ -17,12 +17,14 @@ class CreativeElementStyle{
 private:
     int cellsize=0;
     string* namelist;
+    int namelistSize;
 public:
     CreativeElementStyle();
-    CreativeElementStyle(int value,string* namelist);
+    CreativeElementStyle(int value,string namelist[],int size);
     int getCellsize();
+    int getNamelistSize();
     string* getNamelist();
     void setCellsize(int cellsize);
-    void setNamelist(string* namelist);
+    void setNamelist(string namelist[],int size);
 };
 #endif /* CreativeElementStyle_hpp */

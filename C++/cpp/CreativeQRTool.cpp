@@ -12,11 +12,17 @@
 CreativeQRTool::CreativeQRTool(int size,int cellsize){
         this->size=size;
         m_mat= new int*[size];
+    
         for(int i=0;i<size;i++)
         {
             m_mat[i]=new int[size];
+            for(int j=0;j<size;j++)
+            {
+                m_mat[i][j]=0;
+            }
         }
         if(openDebug){
+            cout<<"CreativeQRTool"<<" size="<<size<<"cellsize"<<cellsize<<endl;
             Print(m_mat,size,size);
         }
         this->cellSize=cellsize;
@@ -85,14 +91,14 @@ void CreativeQRTool::FillbyType(){
 //    CreativeElement *FourByTwo = new CreativeElement(-4,4,2);
 //    CreativeEnv::addElement(FourByTwo);
     
-    CreativeElement *ThreeByOne = new CreativeElement(-5, 3, 1);
-    CreativeEnv::addElement(ThreeByOne);
-    
-    CreativeElement *TwoByTwo = new CreativeElement(-2, 2, 2);
-    CreativeEnv::addElement(TwoByTwo);
-    
-    CreativeElement *TwoByOne = new CreativeElement(-3, 2, 1);
-    CreativeEnv::addElement(TwoByOne);
+//    CreativeElement *ThreeByOne = new CreativeElement(-5, 3, 1);
+//    CreativeEnv::addElement(ThreeByOne);
+//    
+//    CreativeElement *TwoByTwo = new CreativeElement(-2, 2, 2);
+//    CreativeEnv::addElement(TwoByTwo);
+//    
+//    CreativeElement *TwoByOne = new CreativeElement(-3, 2, 1);
+//    CreativeEnv::addElement(TwoByOne);
     
     CreativeElement *OneByOne = new CreativeElement(-6, 1, 1);
     CreativeEnv::addElement(OneByOne);

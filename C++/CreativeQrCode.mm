@@ -12,13 +12,13 @@
 #include <math.h>
 string CreativeQrCode::YELLOWBOY_namelist[9]={"yellowboy_7_7.bmp","yellowboy_4_2.bmp","yellowboy_3_1.bmp","yellowboy_2_2_1.bmp","yellowboy_2_2_2.bmp","yellowboy_2_1_1.bmp","yellowboy_2_1_2.bmp","yellowboy_2_1_3.bmp","yellowboy_1_1.bmp"};
 
-CreativeElementStyle *CreativeQrCode::YELLOWBOY= new CreativeElementStyle( 50, CreativeQrCode::YELLOWBOY_namelist);
+CreativeElementStyle *CreativeQrCode::YELLOWBOY= new CreativeElementStyle( 50, CreativeQrCode::YELLOWBOY_namelist,9);
 
 
 
 string CreativeQrCode::BAMBOO_namelist[5]={"bamboo_7_7.bmp","bamboo_3_1.bmp","bamboo_2_1.bmp","bamboo_1_1_1.bmp","bamboo_1_1_2.bmp"};
 
-CreativeElementStyle *CreativeQrCode::BAMBOO= new CreativeElementStyle( 50, CreativeQrCode::BAMBOO_namelist);
+CreativeElementStyle *CreativeQrCode::BAMBOO= new CreativeElementStyle( 50, CreativeQrCode::BAMBOO_namelist,5);
 
 
 
@@ -142,7 +142,7 @@ UIImage* CreativeQrCode::testRead(){
     CGSize size=CGSizeMake(screensize,screensize);
     UIImage * finalimge=creatEmptyImg(color,size);
     
-    a=processUsingPixels(finalimge);
+    //a=processUsingPixels(finalimge);
     
     
     
@@ -246,10 +246,10 @@ CGImageRef CreativeQrCode::getResizedBitmap(CGImageRef imageref, CGSize newSize)
 void CreativeQrCode::AnalysisStyle(int cellSize){
     string name="";
     string* namelist=style.getNamelist();
-    cout<<"AnalysisStyle====namelist"<<namelist->size();
+    cout<<"AnalysisStyle====namelist"<<style.getNamelistSize() <<endl;
     bool resize=true;
     Cell *cell= new Cell();
-    for ( int n=0;n<namelist->size();n++) {
+    for ( int n=0;n<style.getNamelistSize();n++) {
         name=namelist[n];
         std::size_t found_=name.find("_");
         std::size_t foundbmp=name.find("bmp");
@@ -435,14 +435,14 @@ CGImageRef CreativeQrCode::ChangFromInt2Image(UInt32 * bitmapData,int imageWidth
 
 
 CGImageRef CreativeQrCode::CreativeQRZXing(string txt,int size,int margin){
-    bool Ischange=true;
-    //bool Ischange=AnalysisVersion(size, txt,margin);
+    
+    bool Ischange=AnalysisVersion(size, txt,margin);
     
     int cellNumber = ComputCellNumberByVersion(version);
     int cellSize = this->getStyle().getCellsize();
     if(opendebug)
     {
-        cout<<"version="<<version<<"margin="<<margin<<"   "<<"cellNumber="<<cellNumber<<"cellsize="<<cellSize<<endl;
+        cout<<"version="<<version<<" margin="<<margin<<"   "<<"cellNumber="<<cellNumber<<"  cellsize="<<cellSize<<endl;
     }
     /*
      1.CreativeQRTool must be created before GenMatrix
@@ -504,16 +504,16 @@ int CreativeQrCode::binarySearch(int* srcArray, int width,int des){
 // to do
 typedef char byte;
 bool CreativeQrCode::AnalysisVersion(int size, string txt,int margin) {
-    std::string str = "hello world";
+   // std::string srt = "hello world mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm";
     byte* cstr = new byte [txt.size() + 1];
     std::strcpy(cstr, txt.c_str());
-    
     
     
     int versiontemp = 0;
     int numbersize [40]= {17, 32, 53, 78, 106, 134, 154, 192, 230, 271, 321, 367, 425, 458, 520, 586, 644, 718, 792, 858, 929, 1003,
         1091,1171,1273,1367,1465,1528,1628,1732,1840,1952,2068,2188,2303,2431,2563,2699,2809,2053};
-    versiontemp = binarySearch(numbersize, txt.size() + 1,txt.size() + 1)+1;
+    versiontemp = (binarySearch(numbersize,(int)txt.size() + 1,(int)txt.size() + 1))+2;
+
     margin=margin;
 
     version=versiontemp;
@@ -525,7 +525,7 @@ bool CreativeQrCode::AnalysisVersion(int size, string txt,int margin) {
     int finalsize=versionwidth*(int)cellsizedoule+margin*2;
 
 
-    cout<< "binarySearch="<<"version="<<versiontemp<<"margin"<<margin<<"totalsize:"<<finalsize;
+    cout<< "binarySearch  "<<"version="<<versiontemp<<" margin="<<margin<<" totalsize="<<finalsize<<endl;
     delete [] cstr;
     if(finalsize!=size)
     {
