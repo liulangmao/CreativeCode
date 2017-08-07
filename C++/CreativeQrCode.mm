@@ -182,9 +182,7 @@ CGImageRef  CreativeQrCode::getDiskBitmap(string imagename){
                                                  encoding:[NSString defaultCStringEncoding]];
         UIImage *image = [UIImage imageNamed:imageName];
        CGImageRef imageRefs = [image CGImage];
-/**
-//        size_t imageWidth = CGImageGetWidth(imageRefs);
-//        size_t imageHeight = CGImageGetHeight(imageRefs);
+
 //        size_t bytesPerRow = imageWidth * 4;
 //    
 //        //为所有的像素点分配内存
@@ -207,7 +205,6 @@ CGImageRef  CreativeQrCode::getDiskBitmap(string imagename){
 //        CGDataProviderRelease(dataProvider);
 //        CGContextRelease(context);
 //        CGColorSpaceRelease(colorSpace);
-  **/
     return imageRefs;
     
 }
@@ -243,23 +240,35 @@ CGImageRef CreativeQrCode::getResizedBitmap(CGImageRef imageref, CGSize newSize)
 
     return imageRefresize;
 }
+#define Mask8(x) ( (x) & 0xFF )
+#define R(x) ( Mask8(x) )
+#define G(x) ( Mask8(x >> 8 ) )
+#define B(x) ( Mask8(x >> 16) )
+#define A(x) ( Mask8(x >> 24) )
+#define RGBAMake(r, g, b, a) ( Mask8(r) | Mask8(g) << 8 | Mask8(b) << 16 | Mask8(a) << 24 )
+#define MAX(a,b) ((a)>(b)?(a):(b))
+#define MIN(x,y) ((x)<(y)?(x):(y))
 void CreativeQrCode::AnalysisStyle(int cellSize){
     string name="";
     string* namelist=style.getNamelist();
-    cout<<"AnalysisStyle====namelist"<<style.getNamelistSize() <<endl;
-    bool resize=true;
-    Cell *cell= new Cell();
+    cout<<"AnalysisStyle====namelist"<<style.getNamelistSize() <<"listnumber: "<<CreativeEnv::getlistSize()<<endl;
+    bool resize=false;
+    Cell *cell=NULL;
     for ( int n=0;n<style.getNamelistSize();n++) {
         name=namelist[n];
+        cell=  new Cell();
         std::size_t found_=name.find("_");
         std::size_t foundbmp=name.find("bmp");
         if((found_!= std::string::npos)&&(foundbmp!= std::string::npos))
         {
+            
             int index=(int)found_;
             int index_bmp=(int)name.find(".");
+            string nameswitch=name.substr(index+1, 3);
             string nameread=name.substr(0,index_bmp);
-            string nameswitch=name.substr(index+1, index+1+3);
-            CGImageRef image = getDiskBitmap(nameread);
+            
+            int height=0; int width=0;
+            CGImageRef image = getDiskBitmap(name);
             CGImageRef resizeimage;
             if(strcmp(nameswitch.c_str(),"4_2")==0)
             {
@@ -287,11 +296,21 @@ void CreativeQrCode::AnalysisStyle(int cellSize){
                     cell->setPreImage(ChangFromImage2Int(resizeimage));
                 }
                 else{
+                    
                     cell->setWidthHeigh((int)CGImageGetWidth(image), (int)CGImageGetHeight(image));
                     cell->setPreImage(ChangFromImage2Int(image));
                 }
-                CreativeEnv::getEye().getPreImage()->push_back(cell);
-                //cout<<"AnalysisStyle====case 7_7";
+
+                CreativeElement *EYE = new CreativeElement(-1,7,7);
+                EYE->getPreImage()->push_back(cell);
+                CreativeEnv::addElement(EYE);
+                UInt32* first=cell->getPreImage();
+                UInt32 ghostColor = *(first+30*7 * cellSize+55);
+                UInt32 newR = R(ghostColor) ;
+                UInt32 newG = G(ghostColor) ;
+                UInt32 newB = B(ghostColor) ;
+                UInt32 newA = A(ghostColor) ;
+                cout<<"("<<55<<","<<30<<")="<<(int)newR<<" "<<(int)newG<<" "<<(int)newB<<" "<<newA<<endl;
             }else if(strcmp(nameswitch.c_str(),"3_1")==0){
                 CreativeElement *ThreeByOne = new CreativeElement(-5, 3, 1);
                 if(resize) {
@@ -348,11 +367,13 @@ void CreativeQrCode::AnalysisStyle(int cellSize){
                     resizeimage = getResizedBitmap(image, size);
                     cell->setWidthHeigh(cellSize, cellSize);
                     cell->setPreImage(ChangFromImage2Int(resizeimage));
+                
                 }
                 else{
                     cell->setWidthHeigh((int)CGImageGetWidth(image), (int)CGImageGetHeight(image));
                     cell->setPreImage(ChangFromImage2Int(image));
-            }
+                
+                }
                 OneByOne->getPreImage()->push_back(cell);
                 CreativeEnv::addElement(OneByOne);
                 //cout<<"AnalysisStyle====case 1_1";
@@ -360,7 +381,16 @@ void CreativeQrCode::AnalysisStyle(int cellSize){
             
         }
     }
+    cout<<"method end:"<<"listnumber: "<<CreativeEnv::getlistSize()<<endl;
 }
+#undef RGBAMake
+#undef R
+#undef G
+#undef B
+#undef A
+#undef Mask8
+#undef MIN
+#undef MAX
 int CreativeQrCode::ComputCellNumberByVersion(int version){
     int cellNumber = 21 + (version-1) * 4;
     return cellNumber;
@@ -521,6 +551,7 @@ bool CreativeQrCode::AnalysisVersion(int size, string txt,int margin) {
     double wtdouble = (double)versionwidth;
     int sizetemp=size-2*margin;
     double cellsizedoule=floor(sizetemp/wtdouble);
+    cellsizedoule=50;
     style.setCellsize((int)cellsizedoule);
     int finalsize=versionwidth*(int)cellsizedoule+margin*2;
 

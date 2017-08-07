@@ -32,7 +32,7 @@ void CreativeQRTool::fillEye(){
     int startX=0;
     int StartY=0;
     
-    CreativeEnv::addEye();
+    //CreativeEnv::addEye();
     
     CreativeElement type=CreativeEnv::getEye();
     this->fillType(startX,StartY,type);
@@ -100,14 +100,18 @@ void CreativeQRTool::FillbyType(){
 //    CreativeElement *TwoByOne = new CreativeElement(-3, 2, 1);
 //    CreativeEnv::addElement(TwoByOne);
     
-    CreativeElement *OneByOne = new CreativeElement(-6, 1, 1);
-    CreativeEnv::addElement(OneByOne);
+//    CreativeElement *OneByOne = new CreativeElement(-6, 1, 1);
+//    CreativeEnv::addElement(OneByOne);
     
+    int index=0;
+    cout<<endl;
+    cout<<"method begin:"<<"listnumber: "<<CreativeEnv::getlistSize()<<endl;
     it=CreativeEnv::elementList.begin();it++;
     for (;it!=CreativeEnv::elementList.end();it++)
     {
         if(openDebug) {
-            cout<<endl<<"Before Remove List:"<<(int)m_list.size()<<"="<<(**it).getValue()<<endl;
+            
+            cout<<endl<<"Before Remove List["<<index<<"]:"<<(int)m_list.size()<<"type="<<(**it).getValue()<<endl;
         }
         fillAnyType(**it);
         if(openDebug) {
@@ -118,6 +122,7 @@ void CreativeQRTool::FillbyType(){
         {
             Print(m_mat,size,size);
         }
+        index++;
     }
     if(openDebug)
     {
@@ -158,7 +163,9 @@ void CreativeQRTool::FillbyType(){
 }
 
 UInt32 * CreativeQRTool::CreateFinal(int size,int margin){
-    
+    if(openDebug){
+        cout<<"CreateFinal():"<<endl;
+    }
     UInt32* finalMat = (UInt32 *)calloc(size * size, sizeof(UInt32));
 
     for(int width=0;width<size * size;width++)
@@ -168,17 +175,22 @@ UInt32 * CreativeQRTool::CreateFinal(int size,int margin){
     list<CreativeElement*>::iterator it;
     vector<PointS>::iterator itPointBegin;
     vector<PointS>::iterator itPointEnd;
-     vector<PointS>::iterator itPoint;
+    vector<PointS>::iterator itPoint;
+    int index=0;
     for (it=CreativeEnv::elementList.begin();it!=CreativeEnv::elementList.end();it++)
     {
         CreativeElement *temp=(*it);
+        cout<<"in for loop["<<index<<"]:value="<<temp->getValue()<<"size="<<temp->getColspan()<<endl;
+        index++;
         if(temp->getPreImage()->size()!=0) {
+            Cell* r = *(temp->getPreImage()->begin());
+            cout<<"Cell"<<"height="<<r->getHeigh()<<"width="<<r->getWidth()<<endl;
             itPointBegin=temp->getM_start()->begin();
             itPointEnd=((temp)->getM_start())->end();
             for(itPoint=itPointBegin;itPoint!=itPointEnd;itPoint++){
                 int x=(*itPoint).getX();
                 int y=(*itPoint).getY();
-                Cell* r = *(temp->getPreImage()->begin());
+                
                 Draw(x,y,r,finalMat,margin,size);
             }
         }
@@ -195,25 +207,34 @@ UInt32 * CreativeQRTool::CreateFinal(int size,int margin){
 #define MAX(a,b) ((a)>(b)?(a):(b))
 #define MIN(x,y) ((x)<(y)?(x):(y))
 void CreativeQRTool::Draw(int originWidth, int originHeight,Cell* cell,UInt32* finalMat,int margin,int finalSize){
-    int offsetPixelCountForInput = (originHeight * originWidth + originWidth)*this->cellSize+margin;
-    for (int j = 0; j < this->cellSize; j++) {
-        for (int i = 0; i < this->cellSize; i++) {
+    int error=0;
+    int offsetPixelCountForInput = (originHeight * finalSize + originWidth)*this->cellSize+margin;
+    for (int j = 0; j < cell->getWidth(); j++) {
+        for (int i = 0; i < cell->getHeigh(); i++) {
             
             UInt32 * inputPixel = finalMat + j * finalSize + i + offsetPixelCountForInput;
             UInt32 * ghostPixel = cell->getPreImage() + j * cell->getWidth() + i;
             UInt32   ghostColor = *ghostPixel;
             
-            
             UInt32 newR = R(ghostColor) ;
             UInt32 newG = G(ghostColor) ;
             UInt32 newB = B(ghostColor) ;
-            
+            UInt32 newA = A(ghostColor) ;
+
             newR = MAX(0,MIN(255, newR));
             newG = MAX(0,MIN(255, newG));
             newB = MAX(0,MIN(255, newB));
-            
-            *inputPixel = RGBAMake(newR, newG, newB, 255);
+            newA =MAX(0,MIN(255, newA));
+            *inputPixel = RGBAMake(255,newG, newB, newA);
         }
+    }
+    if(error==0){
+    UInt32 ghostColor = *(cell->getPreImage()+30*7 * cellSize+55);
+    UInt32 newR = R(ghostColor) ;
+    UInt32 newG = G(ghostColor) ;
+    UInt32 newB = B(ghostColor) ;
+    cout<<"("<<55<<","<<30<<")="<<(int)newR<<" "<<(int)newG<<" "<<(int)newB<<endl;
+        error=1;
     }
 }
 

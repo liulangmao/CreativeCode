@@ -19,7 +19,7 @@ public:
     static void addEye();
     static CreativeElement getEye();
     static void  addElement(CreativeElement *element);
-    
+    static int getlistSize();
     
     static list<CreativeElement*> elementList;
     static list<CreativeElement*>::iterator elementListIt;

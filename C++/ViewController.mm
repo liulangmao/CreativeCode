@@ -62,9 +62,11 @@
 //    UIImage *resultUIImage=qrcode->testRead();
 //    imageView.image = resultUIImage;
     //方法五
-    string name="bamboo_1_1_1.bmp";
-    string namelist[1]={name};
-    CreativeElementStyle *style= new CreativeElementStyle(50,namelist,1);
+    string name1="bamboo_1_1_1.bmp";
+    string name2="bamboo_7_7.bmp";
+    string namelist[2]={name2,name1};
+   // string namelist[1]={name1};
+    CreativeElementStyle *style= new CreativeElementStyle(50,namelist,2);
     CreativeQrCode *qrcode= new CreativeQrCode(*style);
     CGImageRef resultRef=qrcode->CreativeQRZXing("i am liming", 1000, 5);
     UIImage * resultUIImage =[UIImage imageWithCGImage: resultRef]; ;

@@ -25,3 +25,7 @@ CreativeElement CreativeEnv::getEye()
 void  CreativeEnv::addElement(CreativeElement *element){
     elementList.push_back(element);
 }
+int CreativeEnv::getlistSize()
+{
+    return (int)elementList.size();
+}
