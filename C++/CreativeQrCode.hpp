@@ -33,7 +33,10 @@ public:
     static string YELLOWBOY_namelist[9];
     static CreativeElementStyle *BAMBOO;
     static string BAMBOO_namelist[5];
-
+    static CreativeElementStyle *MELON;
+    static string MELON_namelist[2];
+    
+    
     CreativeQrCode(CreativeElementStyle style);
     CGImageRef CreativeQRZXing(string txt,int size,int margin);
     CGImageRef getDiskBitmap(string imagename);

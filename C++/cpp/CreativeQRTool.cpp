@@ -190,7 +190,6 @@ UInt32 * CreativeQRTool::CreateFinal(int size,int margin){
             for(itPoint=itPointBegin;itPoint!=itPointEnd;itPoint++){
                 int x=(*itPoint).getX();
                 int y=(*itPoint).getY();
-                
                 Draw(x,y,r,finalMat,margin,size);
             }
         }
@@ -209,8 +208,8 @@ UInt32 * CreativeQRTool::CreateFinal(int size,int margin){
 void CreativeQRTool::Draw(int originWidth, int originHeight,Cell* cell,UInt32* finalMat,int margin,int finalSize){
     int error=0;
     int offsetPixelCountForInput = (originHeight * finalSize + originWidth)*this->cellSize+margin;
-    for (int j = 0; j < cell->getWidth(); j++) {
-        for (int i = 0; i < cell->getHeigh(); i++) {
+    for (int j = 0; j < cell->getHeigh(); j++) {
+        for (int i = 0; i < cell->getWidth(); i++) {
             
             UInt32 * inputPixel = finalMat + j * finalSize + i + offsetPixelCountForInput;
             UInt32 * ghostPixel = cell->getPreImage() + j * cell->getWidth() + i;

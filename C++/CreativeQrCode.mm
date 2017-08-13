@@ -14,11 +14,16 @@ string CreativeQrCode::YELLOWBOY_namelist[9]={"yellowboy_7_7.bmp","yellowboy_4_2
 
 CreativeElementStyle *CreativeQrCode::YELLOWBOY= new CreativeElementStyle( 50, CreativeQrCode::YELLOWBOY_namelist,9);
 
+string CreativeQrCode::MELON_namelist[2]={"melon_7_7.bmp","melon_1_1.bmp"};
+
+CreativeElementStyle *CreativeQrCode::MELON= new CreativeElementStyle(26, CreativeQrCode::MELON_namelist,2);
+
+
 
 
 string CreativeQrCode::BAMBOO_namelist[5]={"bamboo_7_7.bmp","bamboo_3_1.bmp","bamboo_2_1.bmp","bamboo_1_1_1.bmp","bamboo_1_1_2.bmp"};
 
-CreativeElementStyle *CreativeQrCode::BAMBOO= new CreativeElementStyle( 50, CreativeQrCode::BAMBOO_namelist,5);
+CreativeElementStyle *CreativeQrCode::BAMBOO= new CreativeElementStyle(50, CreativeQrCode::BAMBOO_namelist,5);
 
 
 
@@ -151,6 +156,8 @@ UIImage* CreativeQrCode::testRead(){
 
 CreativeQrCode::CreativeQrCode(CreativeElementStyle style){
     this->setStyle(style);
+    CreativeElement *EYE = new CreativeElement(-1,7,7);
+    CreativeEnv::addElement(EYE);
 }
 
 
@@ -252,7 +259,7 @@ void CreativeQrCode::AnalysisStyle(int cellSize){
     string name="";
     string* namelist=style.getNamelist();
     cout<<"AnalysisStyle====namelist"<<style.getNamelistSize() <<"listnumber: "<<CreativeEnv::getlistSize()<<endl;
-    bool resize=false;
+    bool resize=true;
     Cell *cell=NULL;
     for ( int n=0;n<style.getNamelistSize();n++) {
         name=namelist[n];
@@ -300,17 +307,16 @@ void CreativeQrCode::AnalysisStyle(int cellSize){
                     cell->setWidthHeigh((int)CGImageGetWidth(image), (int)CGImageGetHeight(image));
                     cell->setPreImage(ChangFromImage2Int(image));
                 }
-
-                CreativeElement *EYE = new CreativeElement(-1,7,7);
-                EYE->getPreImage()->push_back(cell);
-                CreativeEnv::addElement(EYE);
-                UInt32* first=cell->getPreImage();
-                UInt32 ghostColor = *(first+30*7 * cellSize+55);
-                UInt32 newR = R(ghostColor) ;
-                UInt32 newG = G(ghostColor) ;
-                UInt32 newB = B(ghostColor) ;
-                UInt32 newA = A(ghostColor) ;
-                cout<<"("<<55<<","<<30<<")="<<(int)newR<<" "<<(int)newG<<" "<<(int)newB<<" "<<newA<<endl;
+                
+                CreativeEnv::getEye().getPreImage()->push_back(cell);
+                
+//                UInt32* first=cell->getPreImage();
+//                UInt32 ghostColor = *(first+30*7 * cellSize+55);
+//                UInt32 newR = R(ghostColor) ;
+//                UInt32 newG = G(ghostColor) ;
+//                UInt32 newB = B(ghostColor) ;
+//                UInt32 newA = A(ghostColor) ;
+//                cout<<"("<<55<<","<<30<<")="<<(int)newR<<" "<<(int)newG<<" "<<(int)newB<<" "<<newA<<endl;
             }else if(strcmp(nameswitch.c_str(),"3_1")==0){
                 CreativeElement *ThreeByOne = new CreativeElement(-5, 3, 1);
                 if(resize) {
@@ -467,8 +473,9 @@ CGImageRef CreativeQrCode::ChangFromInt2Image(UInt32 * bitmapData,int imageWidth
 CGImageRef CreativeQrCode::CreativeQRZXing(string txt,int size,int margin){
     
     bool Ischange=AnalysisVersion(size, txt,margin);
-    
+   
     int cellNumber = ComputCellNumberByVersion(version);
+    
     int cellSize = this->getStyle().getCellsize();
     if(opendebug)
     {
@@ -529,7 +536,7 @@ int CreativeQrCode::binarySearch(int* srcArray, int width,int des){
             high = middle - 1;
         }
     }
-    return -1;
+    return 0;
 }
 // to do
 typedef char byte;
@@ -542,7 +549,7 @@ bool CreativeQrCode::AnalysisVersion(int size, string txt,int margin) {
     int versiontemp = 0;
     int numbersize [40]= {17, 32, 53, 78, 106, 134, 154, 192, 230, 271, 321, 367, 425, 458, 520, 586, 644, 718, 792, 858, 929, 1003,
         1091,1171,1273,1367,1465,1528,1628,1732,1840,1952,2068,2188,2303,2431,2563,2699,2809,2053};
-    versiontemp = (binarySearch(numbersize,(int)txt.size() + 1,(int)txt.size() + 1))+2;
+    versiontemp = (binarySearch(numbersize,(int)txt.size() + 1,(int)txt.size() + 1))+1;
 
     margin=margin;
 
@@ -551,7 +558,6 @@ bool CreativeQrCode::AnalysisVersion(int size, string txt,int margin) {
     double wtdouble = (double)versionwidth;
     int sizetemp=size-2*margin;
     double cellsizedoule=floor(sizetemp/wtdouble);
-    cellsizedoule=50;
     style.setCellsize((int)cellsizedoule);
     int finalsize=versionwidth*(int)cellsizedoule+margin*2;
 
