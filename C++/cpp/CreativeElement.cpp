@@ -22,11 +22,18 @@ CreativeElement::CreativeElement(int value, int rowspan,int  colspan) {
         setStr(getStr() +"0");
     }
     this->nameSwitch=rowspan+"_"+colspan;
-    setPreImage(new vector<Cell*>());
+    setPreImage(new vector<Cell>());
     setM_start(new vector<PointS>());
 }
 CreativeElement::~CreativeElement(){
-    
+//    if(preImage!=NULL){
+//        //preImage->clear();
+//        //delete preImage;
+//        //preImage = NULL;
+//    }
+//    if(m_start!=NULL){
+//       // delete m_start;
+//    }
 }
 vector<PointS>*  CreativeElement::getM_start(){
     return m_start;
@@ -45,11 +52,11 @@ bool CreativeElement::equals(CreativeElement other) {
 
 
 
-vector<Cell*>* CreativeElement::getPreImage() {
+vector<Cell>* CreativeElement::getPreImage() {
     return preImage;
 }
 
-void CreativeElement::setPreImage(vector<Cell*>* preImage) {
+void CreativeElement::setPreImage(vector<Cell>* preImage) {
     this->preImage = preImage;
 }
 

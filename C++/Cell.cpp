@@ -11,9 +11,7 @@ Cell::Cell(){
     
 }
 Cell::~Cell(){
-    this->width=0;
-    this->heigh=0;
-}
+    }
 Cell::Cell(UInt32* preImage, int x, int y){
     this->width=x;
     this->heigh=y;

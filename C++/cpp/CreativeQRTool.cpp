@@ -183,14 +183,14 @@ UInt32 * CreativeQRTool::CreateFinal(int size,int margin){
         cout<<"in for loop["<<index<<"]:value="<<temp->getValue()<<"size="<<temp->getColspan()<<endl;
         index++;
         if(temp->getPreImage()->size()!=0) {
-            Cell* r = *(temp->getPreImage()->begin());
-            cout<<"Cell"<<"height="<<r->getHeigh()<<"width="<<r->getWidth()<<endl;
+            Cell r = *(temp->getPreImage()->begin());
+            cout<<"Cell"<<"height="<<r.getHeigh()<<"width="<<r.getWidth()<<endl;
             itPointBegin=temp->getM_start()->begin();
             itPointEnd=((temp)->getM_start())->end();
             for(itPoint=itPointBegin;itPoint!=itPointEnd;itPoint++){
                 int x=(*itPoint).getX();
                 int y=(*itPoint).getY();
-                Draw(x,y,r,finalMat,margin,size);
+                Draw(x,y,&r,finalMat,margin,size);
             }
         }
     }
@@ -246,6 +246,16 @@ void CreativeQRTool::Draw(int originWidth, int originHeight,Cell* cell,UInt32* f
 #undef MIN
 #undef MAX
 void CreativeQRTool::clean(){
+    CreativeEnv::elementList.clear();
+    CreativeElement *EYE = new CreativeElement(-1,7,7);
+    CreativeEnv::addElement(EYE);
+    m_list.clear();
+    for(int i=0;i<cellSize;i++)
+    {
+        delete m_mat[i];
+    }
+    delete m_mat;
+    m_mat = NULL;
     
 }
 

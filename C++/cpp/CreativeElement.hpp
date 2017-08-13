@@ -26,8 +26,8 @@ public:
 public:
 
     bool equals(CreativeElement other);
-    vector<Cell*>* getPreImage();
-    void setPreImage(vector<Cell*>* preImage);
+    vector<Cell>* getPreImage();
+    void setPreImage(vector<Cell>* preImage);
     vector<PointS>* getM_start();
     void setM_start(vector<PointS>* m_start);
     int getColspan();
@@ -45,7 +45,7 @@ private:
     int rowspan=0;
     int value=0;
     string str="";
-    vector<Cell*> *preImage;
+    vector<Cell> *preImage;
     string nameSwitch="";
     vector<PointS> *m_start;
     

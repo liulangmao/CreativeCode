@@ -260,10 +260,10 @@ void CreativeQrCode::AnalysisStyle(int cellSize){
     string* namelist=style.getNamelist();
     cout<<"AnalysisStyle====namelist"<<style.getNamelistSize() <<"listnumber: "<<CreativeEnv::getlistSize()<<endl;
     bool resize=true;
-    Cell *cell=NULL;
+   // Cell cell=NULL;
     for ( int n=0;n<style.getNamelistSize();n++) {
         name=namelist[n];
-        cell=  new Cell();
+        Cell  cell=  new Cell();
         std::size_t found_=name.find("_");
         std::size_t foundbmp=name.find("bmp");
         if((found_!= std::string::npos)&&(foundbmp!= std::string::npos))
@@ -283,12 +283,12 @@ void CreativeQrCode::AnalysisStyle(int cellSize){
                 if(resize) {
                     CGSize size=CGSizeMake(2 * cellSize, 4 * cellSize);
                     resizeimage = getResizedBitmap(image, size);
-                    cell->setWidthHeigh(2 * cellSize, 4 * cellSize);
-                    cell->setPreImage(ChangFromImage2Int(resizeimage));
+                    cell.setWidthHeigh(2 * cellSize, 4 * cellSize);
+                    cell.setPreImage(ChangFromImage2Int(resizeimage));
                 }
                 else{
-                    cell->setWidthHeigh((int)CGImageGetWidth(image), (int)CGImageGetHeight(image));
-                    cell->setPreImage(ChangFromImage2Int(image));
+                    cell.setWidthHeigh((int)CGImageGetWidth(image), (int)CGImageGetHeight(image));
+                    cell.setPreImage(ChangFromImage2Int(image));
                 }
                 FourByTwo->getPreImage()->push_back(cell);
                 CreativeEnv::addElement(FourByTwo);
@@ -299,13 +299,13 @@ void CreativeQrCode::AnalysisStyle(int cellSize){
                 if(resize) {
                     CGSize size=CGSizeMake(7 * cellSize, 7 * cellSize);
                     resizeimage = getResizedBitmap(image, size);
-                    cell->setWidthHeigh(7 * cellSize, 7 * cellSize);
-                    cell->setPreImage(ChangFromImage2Int(resizeimage));
+                    cell.setWidthHeigh(7 * cellSize, 7 * cellSize);
+                    cell.setPreImage(ChangFromImage2Int(resizeimage));
                 }
                 else{
                     
-                    cell->setWidthHeigh((int)CGImageGetWidth(image), (int)CGImageGetHeight(image));
-                    cell->setPreImage(ChangFromImage2Int(image));
+                    cell.setWidthHeigh((int)CGImageGetWidth(image), (int)CGImageGetHeight(image));
+                    cell.setPreImage(ChangFromImage2Int(image));
                 }
                 
                 CreativeEnv::getEye().getPreImage()->push_back(cell);
@@ -322,13 +322,13 @@ void CreativeQrCode::AnalysisStyle(int cellSize){
                 if(resize) {
                     CGSize size=CGSizeMake(cellSize, 3 * cellSize);
                     resizeimage = getResizedBitmap(image, size);
-                    cell->setWidthHeigh( cellSize, 3 * cellSize);
-                    cell->setPreImage(ChangFromImage2Int(resizeimage));
+                    cell.setWidthHeigh( cellSize, 3 * cellSize);
+                    cell.setPreImage(ChangFromImage2Int(resizeimage));
                     
                 }
                 else{
-                    cell->setWidthHeigh((int)CGImageGetWidth(image), (int)CGImageGetHeight(image));
-                    cell->setPreImage(ChangFromImage2Int(image));
+                    cell.setWidthHeigh((int)CGImageGetWidth(image), (int)CGImageGetHeight(image));
+                    cell.setPreImage(ChangFromImage2Int(image));
                 }
                 ThreeByOne->getPreImage()->push_back(cell);
                 CreativeEnv::addElement(ThreeByOne);
@@ -338,12 +338,12 @@ void CreativeQrCode::AnalysisStyle(int cellSize){
                 if(resize) {
                     CGSize size=CGSizeMake(2 * cellSize, 2 * cellSize);
                     resizeimage = getResizedBitmap(image, size);
-                    cell->setWidthHeigh(2 * cellSize, 2 * cellSize);
-                    cell->setPreImage(ChangFromImage2Int(resizeimage));
+                    cell.setWidthHeigh(2 * cellSize, 2 * cellSize);
+                    cell.setPreImage(ChangFromImage2Int(resizeimage));
                 }
                 else{
-                    cell->setWidthHeigh((int)CGImageGetWidth(image), (int)CGImageGetHeight(image));
-                    cell->setPreImage(ChangFromImage2Int(image));
+                    cell.setWidthHeigh((int)CGImageGetWidth(image), (int)CGImageGetHeight(image));
+                    cell.setPreImage(ChangFromImage2Int(image));
                 }
                 TwoByTwo->getPreImage()->push_back(cell);
                 CreativeEnv::addElement(TwoByTwo);
@@ -354,12 +354,12 @@ void CreativeQrCode::AnalysisStyle(int cellSize){
                 if(resize) {
                     CGSize size=CGSizeMake(cellSize, 2 * cellSize);
                     resizeimage = getResizedBitmap(image, size);
-                    cell->setWidthHeigh(cellSize, 2 * cellSize);
-                    cell->setPreImage(ChangFromImage2Int(resizeimage));
+                    cell.setWidthHeigh(cellSize, 2 * cellSize);
+                    cell.setPreImage(ChangFromImage2Int(resizeimage));
                 }
                 else{
-                    cell->setWidthHeigh((int)CGImageGetWidth(image), (int)CGImageGetHeight(image));
-                    cell->setPreImage(ChangFromImage2Int(image));
+                    cell.setWidthHeigh((int)CGImageGetWidth(image), (int)CGImageGetHeight(image));
+                    cell.setPreImage(ChangFromImage2Int(image));
                    
                 }
                  TwoByOne->getPreImage()->push_back(cell);
@@ -371,13 +371,13 @@ void CreativeQrCode::AnalysisStyle(int cellSize){
                 if(resize) {
                     CGSize size=CGSizeMake(cellSize, cellSize);
                     resizeimage = getResizedBitmap(image, size);
-                    cell->setWidthHeigh(cellSize, cellSize);
-                    cell->setPreImage(ChangFromImage2Int(resizeimage));
+                    cell.setWidthHeigh(cellSize, cellSize);
+                    cell.setPreImage(ChangFromImage2Int(resizeimage));
                 
                 }
                 else{
-                    cell->setWidthHeigh((int)CGImageGetWidth(image), (int)CGImageGetHeight(image));
-                    cell->setPreImage(ChangFromImage2Int(image));
+                    cell.setWidthHeigh((int)CGImageGetWidth(image), (int)CGImageGetHeight(image));
+                    cell.setPreImage(ChangFromImage2Int(image));
                 
                 }
                 OneByOne->getPreImage()->push_back(cell);

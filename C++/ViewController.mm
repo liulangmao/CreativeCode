@@ -72,11 +72,19 @@
 //    UIImage * resultUIImage =[UIImage imageWithCGImage: resultRef]; ;
 //    imageView.image = resultUIImage;
     //method 6:
+    int x=0;
     
     CreativeQrCode *qrcode= new CreativeQrCode(*(CreativeQrCode::YELLOWBOY));
     CGImageRef resultRef=qrcode->CreativeQRZXing("i am limingsdfsdfsdfsdfdfdffddjsdhjfhsdhjahuehagbguguhriagrigejgiergrngnerbgbergb", 1000, 5);
     UIImage * resultUIImage =[UIImage imageWithCGImage: resultRef]; ;
-    imageView.image = resultUIImage;
+    //imageView.image = resultUIImage;
+    
+    
+    //CreativeQrCode* qrcode2= new CreativeQrCode(*(CreativeQrCode::BAMBOO));
+    qrcode->setStyle(*(CreativeQrCode::BAMBOO));
+        CGImageRef resultRef2=qrcode->CreativeQRZXing("i am limingsdfsdfsdfsdfdfdffddjsdhjfhsdhjahuehagbguguhriagrigejgiergrngnerbgbergb", 1000, 5);
+    UIImage * resultUIImage2 =[UIImage imageWithCGImage: resultRef2];
+    imageView.image = resultUIImage2;
     //方法二 无返回值
 //    size_t width = 200;
 //    size_t height = 200;

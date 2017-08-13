@@ -11,8 +11,7 @@ PointS::PointS(){
     
 }
 PointS::~PointS(){
-    this->x=0;
-    this->y=0;
+    
 }
 PointS::PointS(int x, int y){
     this->x=x;
