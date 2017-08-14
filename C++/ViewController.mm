@@ -14,7 +14,8 @@
 #import "CMBCBitmapUtil.h"
 #include "CreativeQrCode.hpp"
 #include "CreativeElementStyle.hpp"
-
+#include "ColorElementStyle.hpp"
+#include "ColorQrCode.hpp"
 @interface ViewController ()
 {
     UIImageView *imageView;
@@ -48,63 +49,55 @@
     [self.view addSubview:imageView];
     
     
-    //方法一
+    //method1:
     
-    //UIImage *resultUIImage = [UIImage imageWithCGImage:[CMBCBitmapUtil setBitMapImage:@"imageRef.png"]];
-    //imageView.image = resultUIImage;
-    
-    
-    //方法四
-//     string name="imageRef.png";
-//     CreativeElementStyle *style= new CreativeElementStyle(50,&name);
-//    CreativeQrCode *qrcode= new CreativeQrCode(*style);
-//    
-//    UIImage *resultUIImage=qrcode->testRead();
-//    imageView.image = resultUIImage;
-    //方法五
-//    string name1="bamboo_1_1_1.bmp";
-//    string name2="bamboo_7_7.bmp";
-//    string namelist[2]={name2,name1};
-//   // string namelist[1]={name1};
-//    CreativeElementStyle *style= new CreativeElementStyle(50,namelist,2);
-//    CreativeQrCode *qrcode= new CreativeQrCode(*style);
-//    CGImageRef resultRef=qrcode->CreativeQRZXing("i am liming", 1000, 5);
-//    UIImage * resultUIImage =[UIImage imageWithCGImage: resultRef]; ;
-//    imageView.image = resultUIImage;
-    //method 6:
-    int x=0;
-    
+  /*
     CreativeQrCode *qrcode= new CreativeQrCode(*(CreativeQrCode::YELLOWBOY));
     CGImageRef resultRef=qrcode->CreativeQRZXing("i am limingsdfsdfsdfsdfdfdffddjsdhjfhsdhjahuehagbguguhriagrigejgiergrngnerbgbergb", 1000, 5);
-    UIImage * resultUIImage =[UIImage imageWithCGImage: resultRef]; ;
-    //imageView.image = resultUIImage;
+    UIImage * resultUIImage =[UIImage imageWithCGImage: resultRef];
+    imageView.image = resultUIImage;
+  */
     
-    
-    //CreativeQrCode* qrcode2= new CreativeQrCode(*(CreativeQrCode::BAMBOO));
-    qrcode->setStyle(*(CreativeQrCode::BAMBOO));
-        CGImageRef resultRef2=qrcode->CreativeQRZXing("i am limingsdfsdfsdfsdfdfdffddjsdhjfhsdhjahuehagbguguhriagrigejgiergrngnerbgbergb", 1000, 5);
+    //method2:
+  /*
+    string MELON_namelist[2]={"melon_7_7.bmp","melon_1_1.bmp"};
+    CreativeElementStyle *MELON= new CreativeElementStyle(26, MELON_namelist,2);
+    CreativeQrCode* qrcode2= new CreativeQrCode(*MELON);
+        CGImageRef resultRef2=qrcode2->CreativeQRZXing("i am limingsdfsdfsdfsdfdfdffddjsdhjfhsdhjahuehagbguguhriagrigejgiergrngnerbgbergb", 1000, 5);
     UIImage * resultUIImage2 =[UIImage imageWithCGImage: resultRef2];
     imageView.image = resultUIImage2;
-    //方法二 无返回值
-//    size_t width = 200;
-//    size_t height = 200;
-//    size_t bytesPerRow = width * 4;
-//    uint32_t* bitmapData = (uint32_t*)malloc(bytesPerRow * height);
-//    
-//    [CMBCBitmapUtil createImage:nil bitmapData:bitmapData];
+  */
     
+    //method3:
+    UInt32 color[5]={0xFF0094FF, 0xFFFED545, 0xFF5ACF00, 0xFF000000,0xffffffff };
+    ColorElementStyle custom2 = new ColorElementStyle(color, "color_bak.bmp", "color_logo1.png","color_water.png");
+    custom2.setLogoPathName("color_logo1.png");
+    custom2.setBackgroundPathName("color_bak.bmp");
+    custom2.setWaterPathName("color_water.png");
+    ColorQrCode *temp3 = new ColorQrCode(custom2);
+    CGImageRef FinalImageMat = temp3->ColorQRSweatake("i am liming welcome to cmbc", 0, 1);
+    UIImage * resultUIImage2 =[UIImage imageWithCGImage: FinalImageMat];
+    imageView.image = resultUIImage2;
     
-    //方法三
-//    size_t width = 200;
-//    size_t height = 200;
-//    size_t bytesPerRow = width * 4;
-//    uint32_t* bitmapData = (uint32_t*)malloc(bytesPerRow * height);
-//    
-//    UIImage *images = [UIImage imageWithCGImage:[CMBCBitmapUtil createImageRefWidth:200 height:200 bitmapData:bitmapData]];
-//    imageView.image = images;
-
-
-    // Do any additional setup after loading the view, typically from a nib.
+    //method4:
+    UInt32 color[5]={0xFF0094FF, 0xFFFED545, 0xFF5ACF00, 0xFF000000,0xffffffff };
+    ColorElementStyle custom3 = new ColorElementStyle(color);
+    custom3.setLogoPathName("color_logo1.png");
+    custom3.setBackgroundPathName("color_bak.bmp");
+    custom3.setWaterPathName("color_water.png");
+    ColorQrCode *temp3 = new ColorQrCode(custom2);
+    CGImageRef FinalImageMat = temp3->ColorQRSweatake("i am liming welcome to cmbc", 0, 1);
+    UIImage * resultUIImage2 =[UIImage imageWithCGImage: FinalImageMat];
+    imageView.image = resultUIImage2;
+    
+    //method5:
+//    ColorElementStyle *custom4 = new ColorElementStyle();
+//    UInt32 color[2]={0xff3A7583,0xff213F90};
+//    custom4->setColor(color);
+//    ColorQrCode *temp6 = new ColorQrCode(*custom4);
+//    FinalImageMat = temp6->ColorQRMinSheng("i am liming", 0, 7);
+//    UIImage * resultUIImage2 =[UIImage imageWithCGImage: FinalImageMat];
+//    imageView.image = resultUIImage2;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

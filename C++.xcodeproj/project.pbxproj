@@ -14,8 +14,6 @@
 		259AB7E01F21BFF80039019B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 259AB7DE1F21BFF80039019B /* LaunchScreen.storyboard */; };
 		259AB7EB1F21BFF80039019B /* C__Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 259AB7EA1F21BFF80039019B /* C__Tests.m */; };
 		259AB7F61F21BFF80039019B /* C__UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 259AB7F51F21BFF80039019B /* C__UITests.m */; };
-		259AB8071F21C25C0039019B /* imageRef.png in Resources */ = {isa = PBXBuildFile; fileRef = 259AB8061F21C25C0039019B /* imageRef.png */; };
-		25C087031F282DEF00B684A5 /* CMBCBitmapUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = 25C087021F282DEF00B684A5 /* CMBCBitmapUtil.mm */; };
 		E27422C31F3052E30041AA2F /* bamboo_1_1_1.bmp in Resources */ = {isa = PBXBuildFile; fileRef = E27422AE1F3052E30041AA2F /* bamboo_1_1_1.bmp */; };
 		E27422C41F3052E30041AA2F /* bamboo_1_1_2.bmp in Resources */ = {isa = PBXBuildFile; fileRef = E27422AF1F3052E30041AA2F /* bamboo_1_1_2.bmp */; };
 		E27422C51F3052E30041AA2F /* bamboo_2_1.bmp in Resources */ = {isa = PBXBuildFile; fileRef = E27422B01F3052E30041AA2F /* bamboo_2_1.bmp */; };
@@ -37,6 +35,9 @@
 		E27422D51F3052E30041AA2F /* yellowboy_3_1.bmp in Resources */ = {isa = PBXBuildFile; fileRef = E27422C01F3052E30041AA2F /* yellowboy_3_1.bmp */; };
 		E27422D61F3052E30041AA2F /* yellowboy_4_2.bmp in Resources */ = {isa = PBXBuildFile; fileRef = E27422C11F3052E30041AA2F /* yellowboy_4_2.bmp */; };
 		E27422D71F3052E30041AA2F /* yellowboy_7_7.bmp in Resources */ = {isa = PBXBuildFile; fileRef = E27422C21F3052E30041AA2F /* yellowboy_7_7.bmp */; };
+		E2E65EBB1F417E2F00D03AFE /* ColorQRTool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2E65EB91F417E2F00D03AFE /* ColorQRTool.cpp */; };
+		E2E65EBE1F417E6B00D03AFE /* ColorElementStyle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2E65EBC1F417E6B00D03AFE /* ColorElementStyle.cpp */; };
+		E2E65EC11F41858100D03AFE /* ColorQrCode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2E65EBF1F41858100D03AFE /* ColorQrCode.cpp */; };
 		E2E780781F31B47600C76D3C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E780771F31B47600C76D3C /* CoreGraphics.framework */; };
 		E2E7807A1F31B47D00C76D3C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E780791F31B47D00C76D3C /* UIKit.framework */; };
 		E2E7809D1F31CE5800C76D3C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E7809C1F31CE5800C76D3C /* Foundation.framework */; };
@@ -89,9 +90,6 @@
 		259AB7F11F21BFF80039019B /* C++UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "C++UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		259AB7F51F21BFF80039019B /* C__UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = C__UITests.m; sourceTree = "<group>"; };
 		259AB7F71F21BFF80039019B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		259AB8061F21C25C0039019B /* imageRef.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageRef.png; sourceTree = "<group>"; };
-		25C087011F282DEF00B684A5 /* CMBCBitmapUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBCBitmapUtil.h; sourceTree = "<group>"; };
-		25C087021F282DEF00B684A5 /* CMBCBitmapUtil.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CMBCBitmapUtil.mm; sourceTree = "<group>"; };
 		E27422AE1F3052E30041AA2F /* bamboo_1_1_1.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = bamboo_1_1_1.bmp; sourceTree = "<group>"; };
 		E27422AF1F3052E30041AA2F /* bamboo_1_1_2.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = bamboo_1_1_2.bmp; sourceTree = "<group>"; };
 		E27422B01F3052E30041AA2F /* bamboo_2_1.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = bamboo_2_1.bmp; sourceTree = "<group>"; };
@@ -113,6 +111,12 @@
 		E27422C01F3052E30041AA2F /* yellowboy_3_1.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = yellowboy_3_1.bmp; sourceTree = "<group>"; };
 		E27422C11F3052E30041AA2F /* yellowboy_4_2.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = yellowboy_4_2.bmp; sourceTree = "<group>"; };
 		E27422C21F3052E30041AA2F /* yellowboy_7_7.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = yellowboy_7_7.bmp; sourceTree = "<group>"; };
+		E2E65EB91F417E2F00D03AFE /* ColorQRTool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ColorQRTool.cpp; path = cpp/ColorQRTool.cpp; sourceTree = "<group>"; };
+		E2E65EBA1F417E2F00D03AFE /* ColorQRTool.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ColorQRTool.hpp; path = cpp/ColorQRTool.hpp; sourceTree = "<group>"; };
+		E2E65EBC1F417E6B00D03AFE /* ColorElementStyle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ColorElementStyle.cpp; path = cpp/ColorElementStyle.cpp; sourceTree = "<group>"; };
+		E2E65EBD1F417E6B00D03AFE /* ColorElementStyle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ColorElementStyle.hpp; path = cpp/ColorElementStyle.hpp; sourceTree = "<group>"; };
+		E2E65EBF1F41858100D03AFE /* ColorQrCode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ColorQrCode.cpp; path = cpp/ColorQrCode.cpp; sourceTree = "<group>"; };
+		E2E65EC01F41858100D03AFE /* ColorQrCode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ColorQrCode.hpp; path = cpp/ColorQrCode.hpp; sourceTree = "<group>"; };
 		E2E780771F31B47600C76D3C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		E2E780791F31B47D00C76D3C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E2E7809C1F31CE5800C76D3C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -195,31 +199,16 @@
 		259AB7CC1F21BFF80039019B /* C++ */ = {
 			isa = PBXGroup;
 			children = (
-				E2E780CE1F31DD7900C76D3C /* main.m */,
-				E2E780C51F31D35900C76D3C /* CreativeQrCode.hpp */,
-				E2E780C41F31D35900C76D3C /* CreativeQrCode.mm */,
-				E2E780A11F31CFCF00C76D3C /* CreativeEnv.hpp */,
-				E2E780B21F31CFD000C76D3C /* CreativeEnv.cpp */,
-				E2E780A21F31CFCF00C76D3C /* BasicQRTool.cpp */,
-				E2E780A31F31CFCF00C76D3C /* BasicQRTool.hpp */,
-				E2E780A41F31CFCF00C76D3C /* CreativeQRTool.hpp */,
-				E2E780A51F31CFCF00C76D3C /* CreativeQRTool.cpp */,
-				E2E780A61F31CFD000C76D3C /* CreativeElementStyle.cpp */,
-				E2E780A71F31CFD000C76D3C /* CreativeElementStyle.hpp */,
-				E2E780D01F331E0700C76D3C /* Cell.cpp */,
-				E2E780D11F331E0700C76D3C /* Cell.hpp */,
+				E2E65EC51F41986200D03AFE /* interinfo */,
+				E2E65EC41F41985600D03AFE /* env */,
+				E2E65EC31F41984F00D03AFE /* model */,
+				E2E65EC21F4197FB00D03AFE /* util */,
 				E2E780A81F31CFD000C76D3C /* Qrcode */,
-				E2E780B01F31CFD000C76D3C /* CreativeElement.cpp */,
-				E2E780B11F31CFD000C76D3C /* CreativeElement.hpp */,
-				E2E780B31F31CFD000C76D3C /* Point.cpp */,
-				E2E780B41F31CFD000C76D3C /* Point.hpp */,
-				259AB8061F21C25C0039019B /* imageRef.png */,
-				259AB7D01F21BFF80039019B /* AppDelegate.h */,
-				259AB7D11F21BFF80039019B /* AppDelegate.m */,
 				259AB7D31F21BFF80039019B /* ViewController.h */,
 				259AB7D41F21BFF80039019B /* ViewController.mm */,
-				25C087011F282DEF00B684A5 /* CMBCBitmapUtil.h */,
-				25C087021F282DEF00B684A5 /* CMBCBitmapUtil.mm */,
+				E2E780CE1F31DD7900C76D3C /* main.m */,
+				259AB7D01F21BFF80039019B /* AppDelegate.h */,
+				259AB7D11F21BFF80039019B /* AppDelegate.m */,
 				259AB7D61F21BFF80039019B /* Main.storyboard */,
 				259AB7DC1F21BFF80039019B /* Assets.xcassets */,
 				259AB7DE1F21BFF80039019B /* LaunchScreen.storyboard */,
@@ -282,6 +271,56 @@
 			);
 			name = "drawable-hdpi";
 			path = "C++/drawable-hdpi";
+			sourceTree = "<group>";
+		};
+		E2E65EC21F4197FB00D03AFE /* util */ = {
+			isa = PBXGroup;
+			children = (
+				E2E65EB91F417E2F00D03AFE /* ColorQRTool.cpp */,
+				E2E65EBA1F417E2F00D03AFE /* ColorQRTool.hpp */,
+				E2E780A21F31CFCF00C76D3C /* BasicQRTool.cpp */,
+				E2E780A31F31CFCF00C76D3C /* BasicQRTool.hpp */,
+				E2E780A41F31CFCF00C76D3C /* CreativeQRTool.hpp */,
+				E2E780A51F31CFCF00C76D3C /* CreativeQRTool.cpp */,
+			);
+			name = util;
+			sourceTree = "<group>";
+		};
+		E2E65EC31F41984F00D03AFE /* model */ = {
+			isa = PBXGroup;
+			children = (
+				E2E780D01F331E0700C76D3C /* Cell.cpp */,
+				E2E780D11F331E0700C76D3C /* Cell.hpp */,
+				E2E780B31F31CFD000C76D3C /* Point.cpp */,
+				E2E780B41F31CFD000C76D3C /* Point.hpp */,
+				E2E65EBC1F417E6B00D03AFE /* ColorElementStyle.cpp */,
+				E2E65EBD1F417E6B00D03AFE /* ColorElementStyle.hpp */,
+				E2E780A61F31CFD000C76D3C /* CreativeElementStyle.cpp */,
+				E2E780A71F31CFD000C76D3C /* CreativeElementStyle.hpp */,
+				E2E780B01F31CFD000C76D3C /* CreativeElement.cpp */,
+				E2E780B11F31CFD000C76D3C /* CreativeElement.hpp */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		E2E65EC41F41985600D03AFE /* env */ = {
+			isa = PBXGroup;
+			children = (
+				E2E780A11F31CFCF00C76D3C /* CreativeEnv.hpp */,
+				E2E780B21F31CFD000C76D3C /* CreativeEnv.cpp */,
+			);
+			name = env;
+			sourceTree = "<group>";
+		};
+		E2E65EC51F41986200D03AFE /* interinfo */ = {
+			isa = PBXGroup;
+			children = (
+				E2E65EBF1F41858100D03AFE /* ColorQrCode.cpp */,
+				E2E65EC01F41858100D03AFE /* ColorQrCode.hpp */,
+				E2E780C51F31D35900C76D3C /* CreativeQrCode.hpp */,
+				E2E780C41F31D35900C76D3C /* CreativeQrCode.mm */,
+			);
+			name = interinfo;
 			sourceTree = "<group>";
 		};
 		E2E780761F31B47600C76D3C /* Frameworks */ = {
@@ -437,7 +476,6 @@
 				E27422C61F3052E30041AA2F /* bamboo_3_1.bmp in Resources */,
 				E27422D61F3052E30041AA2F /* yellowboy_4_2.bmp in Resources */,
 				E27422D51F3052E30041AA2F /* yellowboy_3_1.bmp in Resources */,
-				259AB8071F21C25C0039019B /* imageRef.png in Resources */,
 				E27422C51F3052E30041AA2F /* bamboo_2_1.bmp in Resources */,
 				E27422D31F3052E30041AA2F /* yellowboy_2_2_1.bmp in Resources */,
 				E27422CD1F3052E30041AA2F /* melon_7_7.bmp in Resources */,
@@ -469,18 +507,20 @@
 			files = (
 				E2E780BB1F31CFD000C76D3C /* Makefile in Sources */,
 				259AB7D51F21BFF80039019B /* ViewController.mm in Sources */,
+				E2E65EC11F41858100D03AFE /* ColorQrCode.cpp in Sources */,
+				E2E65EBE1F417E6B00D03AFE /* ColorElementStyle.cpp in Sources */,
 				E2E780BA1F31CFD000C76D3C /* BitBuffer.cpp in Sources */,
 				E2E780C61F31D35900C76D3C /* CreativeQrCode.mm in Sources */,
 				E2E780B71F31CFD000C76D3C /* BasicQRTool.cpp in Sources */,
 				E2E780BE1F31CFD000C76D3C /* CreativeElement.cpp in Sources */,
 				E2E780CF1F31DD7900C76D3C /* main.m in Sources */,
+				E2E65EBB1F417E2F00D03AFE /* ColorQRTool.cpp in Sources */,
 				E2E780BC1F31CFD000C76D3C /* QrCode.cpp in Sources */,
 				E2E780B91F31CFD000C76D3C /* CreativeElementStyle.cpp in Sources */,
 				E2E780D21F331E0700C76D3C /* Cell.cpp in Sources */,
 				E2E780C01F31CFD000C76D3C /* Point.cpp in Sources */,
 				E2E780BF1F31CFD000C76D3C /* CreativeEnv.cpp in Sources */,
 				E2E780B81F31CFD000C76D3C /* CreativeQRTool.cpp in Sources */,
-				25C087031F282DEF00B684A5 /* CMBCBitmapUtil.mm in Sources */,
 				259AB7D21F21BFF80039019B /* AppDelegate.m in Sources */,
 				E2E780BD1F31CFD000C76D3C /* QrSegment.cpp in Sources */,
 			);
