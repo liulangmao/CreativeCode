@@ -37,7 +37,7 @@
 		E27422D71F3052E30041AA2F /* yellowboy_7_7.bmp in Resources */ = {isa = PBXBuildFile; fileRef = E27422C21F3052E30041AA2F /* yellowboy_7_7.bmp */; };
 		E2E65EBB1F417E2F00D03AFE /* ColorQRTool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2E65EB91F417E2F00D03AFE /* ColorQRTool.cpp */; };
 		E2E65EBE1F417E6B00D03AFE /* ColorElementStyle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2E65EBC1F417E6B00D03AFE /* ColorElementStyle.cpp */; };
-		E2E65EC11F41858100D03AFE /* ColorQrCode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2E65EBF1F41858100D03AFE /* ColorQrCode.cpp */; };
+		E2E65EC11F41858100D03AFE /* ColorQrCode.mm in Sources */ = {isa = PBXBuildFile; fileRef = E2E65EBF1F41858100D03AFE /* ColorQrCode.mm */; };
 		E2E780781F31B47600C76D3C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E780771F31B47600C76D3C /* CoreGraphics.framework */; };
 		E2E7807A1F31B47D00C76D3C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E780791F31B47D00C76D3C /* UIKit.framework */; };
 		E2E7809D1F31CE5800C76D3C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E7809C1F31CE5800C76D3C /* Foundation.framework */; };
@@ -115,7 +115,7 @@
 		E2E65EBA1F417E2F00D03AFE /* ColorQRTool.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ColorQRTool.hpp; path = cpp/ColorQRTool.hpp; sourceTree = "<group>"; };
 		E2E65EBC1F417E6B00D03AFE /* ColorElementStyle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ColorElementStyle.cpp; path = cpp/ColorElementStyle.cpp; sourceTree = "<group>"; };
 		E2E65EBD1F417E6B00D03AFE /* ColorElementStyle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ColorElementStyle.hpp; path = cpp/ColorElementStyle.hpp; sourceTree = "<group>"; };
-		E2E65EBF1F41858100D03AFE /* ColorQrCode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ColorQrCode.cpp; path = cpp/ColorQrCode.cpp; sourceTree = "<group>"; };
+		E2E65EBF1F41858100D03AFE /* ColorQrCode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ColorQrCode.mm; path = cpp/ColorQrCode.mm; sourceTree = "<group>"; };
 		E2E65EC01F41858100D03AFE /* ColorQrCode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ColorQrCode.hpp; path = cpp/ColorQrCode.hpp; sourceTree = "<group>"; };
 		E2E780771F31B47600C76D3C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		E2E780791F31B47D00C76D3C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -315,7 +315,7 @@
 		E2E65EC51F41986200D03AFE /* interinfo */ = {
 			isa = PBXGroup;
 			children = (
-				E2E65EBF1F41858100D03AFE /* ColorQrCode.cpp */,
+				E2E65EBF1F41858100D03AFE /* ColorQrCode.mm */,
 				E2E65EC01F41858100D03AFE /* ColorQrCode.hpp */,
 				E2E780C51F31D35900C76D3C /* CreativeQrCode.hpp */,
 				E2E780C41F31D35900C76D3C /* CreativeQrCode.mm */,
@@ -507,7 +507,7 @@
 			files = (
 				E2E780BB1F31CFD000C76D3C /* Makefile in Sources */,
 				259AB7D51F21BFF80039019B /* ViewController.mm in Sources */,
-				E2E65EC11F41858100D03AFE /* ColorQrCode.cpp in Sources */,
+				E2E65EC11F41858100D03AFE /* ColorQrCode.mm in Sources */,
 				E2E65EBE1F417E6B00D03AFE /* ColorElementStyle.cpp in Sources */,
 				E2E780BA1F31CFD000C76D3C /* BitBuffer.cpp in Sources */,
 				E2E780C61F31D35900C76D3C /* CreativeQrCode.mm in Sources */,

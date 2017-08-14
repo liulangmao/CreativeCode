@@ -31,7 +31,7 @@ public:
     void fillEye();
     void FindCellEqualsOne();
     void FillbyType();
-    unsigned int* CreateFinal(int size,int margin);
+    UInt32 * CreateFinal(int size,int margin);
     void clean();
     
     

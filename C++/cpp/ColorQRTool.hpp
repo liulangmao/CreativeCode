@@ -20,9 +20,9 @@ public:
     int** getMat();
     void Print(int** array,int width,int height);
     
-    CGImageRef getResizedBitmap(CGImageRef bm, int newWidth, int newHeight) ;
-    CGImageRef getDiskBitmap(string name);
-    CGImageRef oldgetDiskBitmap(string pathString);
+   // CGImageRef getResizedBitmap(CGImageRef bm, int newWidth, int newHeight) ;
+//    CGImageRef getDiskBitmap(string name);
+//    CGImageRef oldgetDiskBitmap(string pathString);
     
     void GenColorQrCode(int margin);
     void GenMinShengColorQrCode(int margin);
@@ -32,16 +32,16 @@ public:
     void AddWatermark() ;
     void clean();
     
-    CGImageRef getFinalImage();
+    UInt32* getFinalImage();
     
-    void setFinalImage(CGImageRef finalImage);
+    void setFinalImage(UInt32* finalImage);
 
     int **m_mat;
     int size=0;
     int cellsize=0;
     
 private:
-    CGImageRef finalImage;
+    UInt32* finalImage;
     ColorElementStyle style;
     bool opendebug=true;
     
