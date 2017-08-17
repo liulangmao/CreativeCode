@@ -168,10 +168,56 @@ CGImageRef ColorQrCode::ColorQRZXing(string txt, int size,int margin) {
     h->GenColorQrCode(margin);
     
     finalImage=ChangFromInt2Image(h->getFinalImage(), finalsize, finalsize);
+    
+    finalImage=getResizedBitmap(finalImage,CGSizeMake(300, 300));
+    //add background:
+    UIImage* image;
+    if(style->getBackgroundPathName()!=""){
+    image = [UIImage imageWithCGImage: finalImage];
+    CGImageRef backbmp=getDiskBitmap("color_bak.bmp");
+    UIImage* backgroundImg = [UIImage imageWithCGImage: backbmp];
+    image=addImage(backgroundImg,image,100,300);//image cover background
+    finalImage=image.CGImage;
+    }
+    
+    if(style->getBackgroundPathName()!=""){
+    CGImageRef waterbmp=getDiskBitmap("color_water.png");
+     UIImage* waterImage = [UIImage imageWithCGImage: waterbmp];
+    image=addImage(image,waterImage,300,80);
+        finalImage=image.CGImage;
+    }
+    
+    if(style->getBackgroundPathName()!=""){
+    CGImageRef logobmp=getDiskBitmap("color_logo1.png");
+    logobmp=getResizedBitmap(logobmp,CGSizeMake(60, 60));
+    UIImage* logoImage = [UIImage imageWithCGImage: logobmp];
+    image=addImage(image,logoImage,230,420);
+        finalImage=image.CGImage;
+    }
     h->clean();
+    
     return finalImage;
         
 }
+UIImage *ColorQrCode::addImage(UIImage *image1,UIImage *image2,int width, int height){
+    
+    
+    UIGraphicsBeginImageContext(image1.size);
+    
+    [image1 drawInRect:CGRectMake(0, 0, image1.size.width, image1.size.height)];
+    
+    //    [image2 drawInRect:CGRectMake((image1.size.width - image2.size.width)/2,(image1.size.height - image2.size.height)/2, image2.size.width, image2.size.height)];
+    [image2 drawInRect:CGRectMake(width,height, image2.size.width, image2.size.height)];
+    
+    UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return resultingImage;
+
+}
+
+
 CGImageRef ColorQrCode::ColorQRMinSheng(string txt, int size, int margin) {
         
     int finalsize=  AnalysisVersion(size,txt,margin);
@@ -188,12 +234,14 @@ CGImageRef ColorQrCode::ColorQRMinSheng(string txt, int size, int margin) {
     CGImageRef resizeimage=getDiskBitmap("ms_logo.bmp");
     if(!(CGImageGetWidth(resizeimage)==cellNumber&&CGImageGetHeight(resizeimage)==cellNumber))
     {
-        resizeimage=getResizedBitmap(resizeimage,CGSizeMake(cellNumber,  cellNumber));
+        resizeimage=getResizedBitmap(resizeimage,CGSizeMake(finalsize,  finalsize));
     }
     UInt32* temp=ChangFromImage2Int(resizeimage);
     h->SetMask(temp,cellNumber);
     h->GenMinShengColorQrCode(margin);
     finalImage=ChangFromInt2Image(h->getFinalImage(), finalsize, finalsize);
+    
+    
     h->clean();
     return finalImage;
 }

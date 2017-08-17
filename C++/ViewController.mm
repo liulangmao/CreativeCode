@@ -67,30 +67,31 @@
   */
     
     //method3:ok
-//    UInt32 color[5]={0xFF0094FF, 0xFFFED545, 0xFF5ACF00, 0xFF000000,0xffffffff };
-//    ColorElementStyle *custom2 = new ColorElementStyle(color, "color_bak.bmp", "color_logo1.png","color_water.png");
+//    UInt32 color[5]={0xFF0094FF, 0xff213F90, 0xff3A7583, 0xFF000000,0xffffffff};
+//    ColorElementStyle *custom2 = new ColorElementStyle(color);
 //    ColorQrCode *temp3 = new ColorQrCode(custom2);
 //    CGImageRef FinalImageMat = temp3->ColorQRZXing("i am liming welcome to cmbc", 500, 1);
 //    UIImage * resultUIImage2 =[UIImage imageWithCGImage: FinalImageMat];
 //    imageView.image = resultUIImage2;
     
     //method4:
-//    UInt32 color[5]={0xFF0094FF, 0xFFFED545, 0xFF5ACF00, 0xFF000000,0xffffffff };
-//    ColorElementStyle custom3 = new ColorElementStyle(color);
-//    custom3.setLogoPathName("color_logo1.png");
-//    custom3.setBackgroundPathName("color_bak.bmp");
-//    custom3.setWaterPathName("color_water.png");
-//    ColorQrCode *temp3 = new ColorQrCode(custom2);
-//    CGImageRef FinalImageMat = temp3->ColorQRSweatake("i am liming welcome to cmbc", 0, 1);
+//    UInt32 color[5]={0xFF0094FF, 0xff213F90, 0xff3A7583, 0xFF000000,0xffffffff };
+//    ColorElementStyle *custom3 = new ColorElementStyle(color);
+//    custom3->setLogoPathName("color_logo1.png");
+//    custom3->setBackgroundPathName("color_bak.bmp");
+//    custom3->setWaterPathName("color_water.png");
+//    ColorQrCode *temp3 = new ColorQrCode(custom3);
+//    CGImageRef FinalImageMat = temp3->ColorQRZXing("i am liming welcome to cmbc", 800, 20);
+//    
 //    UIImage * resultUIImage2 =[UIImage imageWithCGImage: FinalImageMat];
 //    imageView.image = resultUIImage2;
     
-    //method5:
+    //method5:ok
     ColorElementStyle *custom4 = new ColorElementStyle();
     UInt32 color[2]={0xff3A7583,0xff213F90};
     custom4->setColor(color);
     ColorQrCode *temp6 = new ColorQrCode(custom4);
-    CGImageRef FinalImageMat = temp6->ColorQRMinSheng("i am liming", 500, 1);
+    CGImageRef FinalImageMat = temp6->ColorQRMinSheng("i am limingsdfsdfsdfsdfsdfsdfsdfsdsdfsdfsdfsdfsdfssdfsdfsdfsfdsfdsfsfdsdfsdfsdfsdfsdfsdfsdfsfdsdfsdfsdfsfdsfsdfsdfdssjifnsdfsudhfsdngdsjgdhsughskngsrngjhgushdiughsfkgndfngjdbgjsdhgjhsdfkg", 500, 1);
     UIImage * resultUIImage2 =[UIImage imageWithCGImage: FinalImageMat];
     imageView.image = resultUIImage2;
 }

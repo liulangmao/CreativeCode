@@ -17,6 +17,7 @@ class ColorElementStyle {
 public:
     ColorElementStyle();
     ColorElementStyle(UInt32* Color,string backgroundPathName,string logoPathName,string waterPathName);
+    ColorElementStyle(UInt32* Color);
     void setColor(UInt32*  Color);
     UInt32* getColor();
     

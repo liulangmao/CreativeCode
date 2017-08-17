@@ -43,7 +43,7 @@ void BasicQRTool::GenMatrix(int ** m_mat){
         }
     }
     //cout<<"I am in GenMatrix()"<<endl;
-    //Print(m_mat, code.size, code.size);
+    Print(m_mat, code.size, code.size);
 }
 void BasicQRTool::Print(int **array, int width, int height){
     cout<<"GenMatrix: \n";

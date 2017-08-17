@@ -38,7 +38,9 @@ public:
     CGImageRef getDiskBitmap(string imagename);
     CGImageRef getResizedBitmap(CGImageRef imageref, CGSize newSize);
     UInt32 * ChangFromImage2Int(CGImageRef imageRefs);
-    
+    UIImage *addImage(UIImage *image1,UIImage *image2,int width, int height);
+    //UIImage *addWaterColorImage(UIImage *image1,UIImage *image2);
+    //UIImage *addLogoImage(UIImage *image1,UIImage *image2);
     int binarySearch(int* srcArray, int width,int des);
 
 private:

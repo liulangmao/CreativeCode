@@ -16,9 +16,6 @@ ColorQRTool::ColorQRTool(int size,int cellsize,ColorElementStyle* style)
         {
             m_mat[i]=new int[size];
         }
-        if(this->opendebug){
-            Print(m_mat,size,size);
-        }
         this->cellsize=cellsize;
         this->style=style;
 }
@@ -100,11 +97,11 @@ void ColorQRTool::GenColorQrCode(int margin)
 }
 
 void ColorQRTool::SetMask(UInt32* mask,int masksize){
-    mask=mask;
-    masksize=masksize;
+    this->mask=mask;
+    this->masksize=masksize;
 }
 void ColorQRTool::GenMinShengColorQrCode(int margin)
-    {
+{
         int inputsize=cellsize*size+2*margin;
         int Height=inputsize;
         int Width=inputsize;
@@ -115,106 +112,59 @@ void ColorQRTool::GenMinShengColorQrCode(int margin)
         }
         UInt32 tempcolor=NULL;
         UInt32 colorx=NULL;
-        if(masksize!=cellsize){
-            cout<<"error!"<<endl;
+        if(masksize!=size){
+            cout<<"masksize!=cellnumber or cellwidth"<<endl;
         }
-       
+      UInt32  redcolor=0xffff0000;
+      UInt32  red=BGRAMake(A(redcolor),R(redcolor),G(redcolor),B(redcolor));
+      UInt32  bluecolor=0xff0000ff;
+      UInt32  blue=BGRAMake(A(bluecolor),R(bluecolor),G(bluecolor),B(bluecolor));
         for(int h=0;h<size;h++)
         {
             for(int w=0;w<size;w++)
             {
                 if(m_mat[h][w]==1)
                 {
-                    if(mask[h*size+w]==0xff0000ff) {
-                        colorx=style->getColor()[0];
-                        tempcolor=BGRAMake(A(colorx),R(colorx),G(colorx),B(colorx));
-                    }
-                    else if(mask[h*size+w]==0xffff0000) {
-                        colorx=style->getColor()[1];
-                        tempcolor=BGRAMake(A(colorx),R(colorx),G(colorx),B(colorx));
-                    }
-                    else {
-                        colorx=0xff000000;
-                        tempcolor=BGRAMake(A(colorx),R(colorx),G(colorx),B(colorx));
+                    for(int cellheight=0;cellheight<cellsize;cellheight++)
+                    {
+                        for(int cellwidth=0;cellwidth<cellsize;cellwidth++)
+                        {
+                            int position=(h*cellsize+margin)*Width+(w*cellsize+margin);
+                            if(mask[position+cellheight*Width+cellwidth]==blue){
+                                colorx=style->getColor()[0];
+                                tempcolor=BGRAMake(A(colorx),R(colorx),G(colorx),B(colorx));
+                                
+                            }
+                            else if(mask[position+cellheight*Width+cellwidth]==red){
+                                colorx=style->getColor()[1];
+                                tempcolor=BGRAMake(A(colorx),R(colorx),G(colorx),B(colorx));
+                                                            }
+                            else {
+                                colorx=0xff000000;
+                                tempcolor=BGRAMake(A(colorx),R(colorx),G(colorx),B(colorx));
+                            }
+                            finalImage[position+cellheight*Width+cellwidth]=tempcolor;
+                        }
                     }
                 }
                 else
                 {
                     colorx=0xffffffff;
                     tempcolor=BGRAMake(A(colorx),R(colorx),G(colorx),B(colorx));
-                }
-                for(int cellheight=0;cellheight<cellsize;cellheight++)
-                {
-                    for(int cellwidth=0;cellwidth<cellsize;cellwidth++)
+                    for(int cellheight=0;cellheight<cellsize;cellheight++)
                     {
-                        int position=(h*cellsize+margin)*Width+(w*cellsize+margin);
-                        finalImage[position+cellheight*Width+cellwidth]=tempcolor;
+                        for(int cellwidth=0;cellwidth<cellsize;cellwidth++)
+                        {
+                            int position=(h*cellsize+margin)*Width+(w*cellsize+margin);
+                            finalImage[position+cellheight*Width+cellwidth]=tempcolor;
+                        }
                     }
                 }
+                
             }
         }
-    }
-void ColorQRTool::AddLogo()
-    {
-//        int index=style.getLogoPathName().indexOf(".");
-//        String name=style.getLogoPathName().substring(0,index);
-//        Bitmap logoBmp= getDiskBitmap(context,name);
-       // int inputsize=cellsize*size+2*margin;
-        //this->setFinalImage(Bitmap.createBitmap(inputsize, inputsize, Bitmap.Config.ARGB_8888));
-       // int Height=inputsize;
-       // int Width=inputsize;
-//        Canvas cv = new Canvas(getFinalImage());
-//        Bitmap black= Bitmap.createBitmap(cellsize, cellsize, Bitmap.Config.ARGB_8888);
-//        Paint p=new Paint();
-//        for(int h=0;h<size;h++)
-//        {
-//            for(int w=0;w<size;w++)
-//            {
-//                if(m_mat[h][w]==1)
-//                {
-//                    if ((w <= size / 2) && (h <= size / 2)) {
-//                        p.setColor(style.getColor()[0]);//(0xFF0094FF);
-//                    } else if (w <= size / 2 && h >= size / 2) {
-//                        p.setColor(style.getColor()[1]);
-//                    } else if (w >= size / 2 && h >= size / 2) {
-//                        p.setColor(style.getColor()[2]);
-//                        
-//                    }else{
-//                        p.setColor(style.getColor()[3]);
-//                    }
-//                }
-//                else
-//                {
-//                    p.setColor(style.getColor()[4]);
-//                }
-//                cv.drawRect(h*cellsize+margin, w*cellsize+margin, (h+1)*cellsize+margin,(w+1)*cellsize+margin,p);
-//            }
-//        }
-//        
-    }
-void ColorQRTool::AddBackground()
-    {
-//        int index=style.getBackgroundPathName().indexOf(".");
-//        String name=style.getBackgroundPathName().substring(0,index);
-//        }
-    }
-
-void ColorQRTool::AddWatermark() {
-   // int index=(int)style.getWaterPathName().find(".");
-   // string name=style.getWaterPathName().substr(0,index);
-
-//        Bitmap markBMP= getDiskBitmap(context,name);
-//        // 创建一个新的和SRC长度宽度一样的位图
-//        Canvas cv = new Canvas(getFinalImage());
-//        // 在 0，0坐标开始画入原图
-//        // 在原图的右下角画入水印
-//        cv.drawBitmap(markBMP, getFinalImage().getWidth() - markBMP.getWidth()*4/5,
-//                      getFinalImage().getHeight()*2/7 , null);
-//        // 保存
-//        cv.save(Canvas.ALL_SAVE_FLAG);
-//        // 存储
-//        cv.restore();
-    }
+    
+}
 void ColorQRTool::clean()
     {
         this->m_mat = NULL;
