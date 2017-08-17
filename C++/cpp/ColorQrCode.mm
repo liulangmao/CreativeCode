@@ -8,21 +8,12 @@
 
 #include "ColorQrCode.hpp"
 
-<<<<<<< HEAD
-UInt32 ColorQrCode::QQcolor[5]={0xFF0094FF, 0xFFFED545, 0xFF5ACF00, 0xFF000000,0xffffffff };
 
-ColorElementStyle*  ColorQrCode::QQstyle = new ColorElementStyle(ColorQrCode::QQcolor,
-                                                                          "color_bak.bmp",
-                                                                          "color_logo1.png",
-                                                                          "color_water.png");
-ColorQrCode::ColorQrCode(ColorElementStyle* style)
-=======
 UInt32 ColorQrCode::QQstyle_color [5] =  {  0xFF0094FF,0xFFFED545,0xFF5ACF00,0xFF000000,0xffffffff} ;
 ColorElementStyle *ColorQrCode::QQstyle = new ColorElementStyle(ColorQrCode::QQstyle_color,"color_bak.bmp","color_logo1.png","color_water.png");
 
 
-ColorQrCode::ColorQrCode(ColorElementStyle style)
->>>>>>> origin/master
+ColorQrCode::ColorQrCode(ColorElementStyle* style)
 {
         this->style=style;
 }
@@ -35,7 +26,7 @@ int ColorQrCode::ComputCellNumberByVersion(int version)
         int cellNumber = 21 + (version-1) * 4;
         return cellNumber;
 }
-<<<<<<< HEAD
+
 int ColorQrCode::binarySearch(int* srcArray, int width,int des){
     
     int low = 0;
@@ -87,61 +78,7 @@ int ColorQrCode::AnalysisVersion(int size, string txt,int margin) {
     else{
         return finalsize;
     }
-=======
-    
-    
-CGImageRef ColorQrCode::ColorQRSweatake(string txt, int margin, int version) {
-        
-        int cellNumber = ComputCellNumberByVersion(version);
-        int cellSize = 12;
-        /*
-         1.CreativeQRTool must be created before GenMatrix
-         */
-        ColorQRTool *h = new ColorQRTool(cellNumber, cellSize,style);
-        //h.collectPixelCountBitmap(h.m_mat, WBImage, cellSize, cellSize);
-        BasicQRTool *basic= new BasicQRTool(&txt);
-        /*
-         2. be careful about below line because in the method of GenMatrix will fill in h.m_mat
-         */
-        basic->GenMatrix(h->getMat());
-        h->GenColorQrCode(margin);
-        if(style.getLogoPathName()!=""){
-            h->AddLogo();
-        }
-        if(style.getBackgroundPathName()!=""){
-            h->AddBackground();
-        }
-        if(style.getWaterPathName()!=""){
-            h->AddWatermark();
-        }
-        
-        CGImageRef finalImage=h->getFinalImage();
-        h->clean();
-        return finalImage;
-        
-}
-CGImageRef ColorQrCode::ColorQRMinSheng(string txt, int margin, int version ) {
-        
-        int cellNumber = ComputCellNumberByVersion(version);
-        int cellSize = 10;
-        /*
-         1.CreativeQRTool must be created before GenMatrix
-         */
-        ColorQRTool *h = new ColorQRTool(cellNumber, cellSize,style);
-        //h.collectPixelCountBitmap(h.m_mat, WBImage, cellSize, cellSize);
-        BasicQRTool *basic= new BasicQRTool(&txt);
-        /*
-         2. be careful about below line because in the method of GenMatrix will fill in h.m_mat
-         */
-        basic->GenMatrix(h->getMat());
-        h->GenMinShengColorQrCode(margin);
-        
-        CGImageRef finalImage=h->getFinalImage();
-        h->clean();
-    
-        return finalImage;
-        
->>>>>>> origin/master
+
 }
 CGImageRef ColorQrCode::getResizedBitmap(CGImageRef imageref, CGSize newSize){
     
@@ -160,11 +97,7 @@ CGImageRef ColorQrCode::getResizedBitmap(CGImageRef imageref, CGSize newSize){
     CGDataProviderRef dataProvider = CGDataProviderCreateWithData(NULL, resizePixels, 4 * newSize.width, NULL);
     size_t bytesPerRow = newSize.width * 4;
     CGImageRef imageRefresize = CGImageCreate(newSize.width, newSize.height, 8, 32, bytesPerRow, colorSpace,kCGImageAlphaPremultipliedLast |kCGBitmapByteOrder32Big, dataProvider,NULL, YES, kCGRenderingIntentDefault);
-<<<<<<< HEAD
-=======
-    
-    
->>>>>>> origin/master
+
     CGDataProviderRelease(dataProvider);
     CGContextRelease(mainViewContentContext);
     CGColorSpaceRelease(colorSpace);
@@ -176,7 +109,6 @@ CGImageRef  ColorQrCode::getDiskBitmap(string imagename){
                                              encoding:[NSString defaultCStringEncoding]];
     UIImage *image = [UIImage imageNamed:imageName];
     CGImageRef imageRefs = [image CGImage];
-<<<<<<< HEAD
     return imageRefs;
     
 }
@@ -264,11 +196,4 @@ CGImageRef ColorQrCode::ColorQRMinSheng(string txt, int size, int margin) {
     finalImage=ChangFromInt2Image(h->getFinalImage(), finalsize, finalsize);
     h->clean();
     return finalImage;
-        
-    }
-=======
-   
-    return imageRefs;
-    
 }
->>>>>>> origin/master
