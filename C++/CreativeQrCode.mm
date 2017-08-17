@@ -158,6 +158,7 @@ CreativeQrCode::CreativeQrCode(CreativeElementStyle style){
     this->setStyle(style);
     CreativeElement *EYE = new CreativeElement(-1,7,7);
     CreativeEnv::addElement(EYE);
+    
 }
 
 

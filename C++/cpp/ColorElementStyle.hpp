@@ -28,11 +28,14 @@ public:
     void setWaterPathName(string waterPathName) ;
     string getWaterPathName();
     
+    void setCellSize(int cellSize);
+    int getCellSize();
     private:
     UInt32*  color;//[0] 左上，左下，右上，右下。
     string logoPathName="";
     string backgroundPathName="";
     string WaterPathName="";
+    int  cellsize;
     
 };
 #endif /* ColorElementStyle_hpp */

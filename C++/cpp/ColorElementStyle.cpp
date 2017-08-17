@@ -16,6 +16,15 @@ ColorElementStyle::ColorElementStyle(UInt32* Color,string backgroundPathName,str
     this->setLogoPathName(logoPathName);
     this->setWaterPathName(waterPathName);
 }
+void ColorElementStyle::setCellSize(int cellsize)
+{
+    this->cellsize=cellsize;
+}
+int ColorElementStyle::getCellSize()
+{
+    return this->cellsize;
+}
+
  void ColorElementStyle::setColor(UInt32*  Color)
 {
     this->color=Color;

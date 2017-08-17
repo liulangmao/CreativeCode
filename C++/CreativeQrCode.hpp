@@ -54,7 +54,6 @@ public:
     
     UIImage* testRead();
     UIImage* creatEmptyImg(UIColor * color,CGSize size);
-    //UIImage * processUsingPixels(UIImage* inputImage);
     
     
 private:
@@ -65,7 +64,7 @@ private:
     static int ComputCellSize(CreativeElementStyle style);
     static int binarySearch(int* srcArray, int width,int des);
     CGImageRef ChangFromInt2Image(UInt32 * bitmapData,int imageWidth, int imageHeight);
-
+   
     bool AnalysisVersion(int size, string txt,int margin);
     bool opendebug=true;
 };
